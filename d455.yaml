@@ -24,6 +24,11 @@ camera:
         enable_pointcloud: true
         filters: ''
 
+        enable_color: true
+        enable_depth: true
+        enable_gyro: true
+        enable_accel: true
+
         enable_fisheye1: false
         enable_fisheye2: false
 

@@ -14,7 +14,7 @@ using namespace std::chrono_literals;
 using std::placeholders::_1;
 
 #define UPDATE_DT 100ms
-#define PUBLISH_DT 500ms
+#define PUBLISH_DT 33ms
 
 #define PI     3.14159265
 #define TWO_PI 6.28319630 
@@ -32,7 +32,7 @@ class PippinoDriver : public rclcpp::Node
       wheel_mps_left_ = (position->vector.y/COUNTS_PER_METER_LEFT)/(position->vector.z/1000.0);
       // printf("speed right : %f", wheel_mps_right_);
       // printf("speed left : %f", wheel_mps_left_);
-      curr_time_stamp_ = position->header.stamp;
+      curr_time_stamp_ = this->get_clock()->now(); //position->header.stamp;
     }
 
     void update_odometry() 
@@ -40,6 +40,7 @@ class PippinoDriver : public rclcpp::Node
       // Get the time delta since last update
       auto dt_ms = UPDATE_DT;
       auto dt_s = dt_ms.count() / 1000.0;
+      rclcpp::Time now = this->get_clock()->now();
 
       // Compute distance traveled for each wheel
       // double d_right_m = wheel_mps_right_ * dt_s;
@@ -79,65 +80,67 @@ class PippinoDriver : public rclcpp::Node
       odom_msg_->pose.pose.position.y = y_pos;
       odom_msg_->twist.twist.linear.x = (dtheta == 0)? 0: (wheel_mps_right_+wheel_mps_left_)/2;
       odom_msg_->twist.twist.angular.z = (dtheta == 0)? 0: (wheel_mps_right_ - wheel_mps_left_) / wheelbase_m_;
-      odom_msg_->header.stamp = curr_time_stamp_;
+      odom_msg_->header.stamp = now;
       odom_msg_->header.frame_id = "odom";
+      odom_msg_->child_frame_id = "base_link";
+
 
       if (wheel_mps_right_ == 0 && wheel_mps_left_ == 0){
         odom_msg_->pose.covariance[0] = 1e-9;
         odom_msg_->pose.covariance[7] = 1e-3;
-        odom_msg_->pose.covariance[8] = 1e-9;
-        odom_msg_->pose.covariance[14] = 1e6;
-        odom_msg_->pose.covariance[21] = 1e6;
-        odom_msg_->pose.covariance[28] = 1e6;
+        odom_msg_->pose.covariance[8] = 0.0;//1e-9;
+        odom_msg_->pose.covariance[14] = 0.0;//1e6;
+        odom_msg_->pose.covariance[21] = 0.0;//1e6;
+        odom_msg_->pose.covariance[28] = 0.0;//1e6;
         odom_msg_->pose.covariance[35] = 1e-9;
         odom_msg_->twist.covariance[0] = 1e-9;
         odom_msg_->twist.covariance[7] = 1e-3;
-        odom_msg_->twist.covariance[8] = 1e-9;
-        odom_msg_->twist.covariance[14] = 1e6;
-        odom_msg_->twist.covariance[21] = 1e6;
-        odom_msg_->twist.covariance[28] = 1e6;
+        odom_msg_->twist.covariance[8] = 0.0;//1e-9;
+        odom_msg_->twist.covariance[14] = 0.0;//1e6;
+        odom_msg_->twist.covariance[21] = 0.0;//1e6;
+        odom_msg_->twist.covariance[28] = 0.0;//1e6;
         odom_msg_->twist.covariance[35] = 1e-9;
       }
       else{
         odom_msg_->pose.covariance[0] = 1e-3;
         odom_msg_->pose.covariance[7] = 1e-3;
         odom_msg_->pose.covariance[8] = 0.0;
-        odom_msg_->pose.covariance[14] = 1e6;
-        odom_msg_->pose.covariance[21] = 1e6;
-        odom_msg_->pose.covariance[28] = 1e6;
-        odom_msg_->pose.covariance[35] = 1e3;
+        odom_msg_->pose.covariance[14] = 0.0;//1e6;
+        odom_msg_->pose.covariance[21] = 0.0;//1e6;
+        odom_msg_->pose.covariance[28] = 0.0;//1e6;
+        odom_msg_->pose.covariance[35] = 1e-3;//1e3;
         odom_msg_->twist.covariance[0] = 1e-3;
         odom_msg_->twist.covariance[7] = 1e-3;
         odom_msg_->twist.covariance[8] = 0.0;
-        odom_msg_->twist.covariance[14] = 1e6;
-        odom_msg_->twist.covariance[21] = 1e6;
-        odom_msg_->twist.covariance[28] = 1e6;
-        odom_msg_->twist.covariance[35] = 1e3;
+        odom_msg_->twist.covariance[14] = 0.0;//1e6;
+        odom_msg_->twist.covariance[21] = 0.0;//1e6;
+        odom_msg_->twist.covariance[28] = 0.0;//1e6;
+        odom_msg_->twist.covariance[35] = 1e-3;//1e3;
       }
 
-      // Broadcast transform:
-      geometry_msgs::msg::TransformStamped t;
-      rclcpp::Time now = this->get_clock()->now();
-      // Read message content and assign it to
-      // corresponding tf variables4
-      t.header.stamp = now;
-      t.header.frame_id = "odom";
-      t.child_frame_id = "base_link";
+      // // Broadcast transform:
+      // geometry_msgs::msg::TransformStamped t;
+      // // rclcpp::Time now = this->get_clock()->now();
+      // // Read message content and assign it to
+      // // corresponding tf variables4
+      // t.header.stamp = now;
+      // t.header.frame_id = "odom";
+      // t.child_frame_id = "base_link";
 
-      // Pippino only exists in 2D, thus we get x and y translation
-      // coordinates from the message and set the z coordinate to 0
-      t.transform.translation.x = x_pos;
-      t.transform.translation.y = y_pos;
-      t.transform.translation.z = 0.0;
+      // // Pippino only exists in 2D, thus we get x and y translation
+      // // coordinates from the message and set the z coordinate to 0
+      // t.transform.translation.x = x_pos;
+      // t.transform.translation.y = y_pos;
+      // t.transform.translation.z = 0.0;
 
-      // For the same reason, pippino can only rotate around one axis
-      // and this why we set rotation in x and y to 0 and obtain
-      // rotation in z axis from the message
-      t.transform.rotation.x = q.getX();
-      t.transform.rotation.y = q.getY();
-      t.transform.rotation.z = q.getZ();
-      t.transform.rotation.w = q.getW();
-      tf_broadcaster_->sendTransform(t);
+      // // For the same reason, pippino can only rotate around one axis
+      // // and this why we set rotation in x and y to 0 and obtain
+      // // rotation in z axis from the message
+      // t.transform.rotation.x = q.getX();
+      // t.transform.rotation.y = q.getY();
+      // t.transform.rotation.z = q.getZ();
+      // t.transform.rotation.w = q.getW();
+      // tf_broadcaster_->sendTransform(t);
 
       // // Laser
       // geometry_msgs::msg::TransformStamped l;
@@ -207,12 +210,12 @@ class PippinoDriver : public rclcpp::Node
       tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
       radps_left_sub_ = this->create_subscription<geometry_msgs::msg::Vector3Stamped>(
-        "/encoders", 10,
+        "encoders", 10,
         std::bind(&PippinoDriver::wheel_radps_left_cb, this, _1)
       );
 
       odometry_pub_ = this->create_publisher<nav_msgs::msg::Odometry>(
-        "/odom", 10);
+        "pippino/odom", 10);
 
       update_odometry_timer_ = this->create_wall_timer(
         UPDATE_DT, std::bind(&PippinoDriver::update_odometry, this));
