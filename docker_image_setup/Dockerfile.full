@@ -1,0 +1,34 @@
+FROM pippino/ros2:rs50-ubu18
+
+# To avoid waiting for input during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONPATH=$PYTHONPATH:/usr/local/lib
+
+RUN apt-get install -y --no-install-recommends \	
+    build-essential \
+    cmake \
+    libusb-1.0-0 \
+    udev \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+# RUN cd /realsense_ws \
+#     && rosdept init \
+#     && rosdep update \
+#     && rosdep install -i --from-path src --rosdistro $ROS_DISTRO --skip-keys=librealsense2 --skip-keys=diagnostic -y \
+#     && colcon build
+
+# RUN cd /pippino_ws \
+#     && rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y \
+#     && colcon build \
+#     && ros2 run micro_ros_setup create_agent_ws.sh \
+#     && ros2 run micro_ros_setup build_agent.sh
+
+RUN echo 'source /pippino_ws/install/local_setup.bash' >> /root/.bashrc
+
+RUN echo 'source /realsense_ws/install/local_setup.bash' >> /root/.bashrc
