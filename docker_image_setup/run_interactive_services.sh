@@ -1,11 +1,15 @@
 #!/bin/bash
 
+sudo docker stop pippino_services
+sudo docker rm pippino_services
+
 sudo docker run -it --rm \
      --name pippino_services \
      -v /dev:/dev \
      --runtime nvidia \
+     --privileged \
      -v /home/michele/pippino_ws:/pippino_ws \
-     --net=host pippino/ros2:f6.1-services bash
+     --net=host pippino/ros2:services bash
      # -v /home/michele/realsense_ws:/realsense_ws \
      # --net=host pippino/ros2:rs50-v2 bash
 

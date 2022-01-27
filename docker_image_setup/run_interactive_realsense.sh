@@ -1,15 +1,14 @@
 #!/bin/bash
 
+     # --name pippino_realsense \
 sudo docker run -it --rm \
-     --name pippino_realsense \
      -v /dev:/dev \
      --privileged \
      --runtime nvidia \
      --device-cgroup-rule "c 81:* rmw" \
      --device-cgroup-rule "c 189:* rmw" \
-     --device=/dev/esp32 \
      -v /home/michele/pippino_ws:/pippino_ws \
-     --net=host pippino/ros2:rs50-g6.1-s2-v1 bash
+     --net=host pippino/ros2:realsense4 bash
      # -v /home/michele/realsense_ws:/realsense_ws \
      # --net=host pippino/ros2:rs50-v2 bash
 

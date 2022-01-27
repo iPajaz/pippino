@@ -9,15 +9,15 @@ import os
 def generate_launch_description():
     pippino_odom_pkg_prefix = get_package_share_directory('pippino_odom')
     pippino_description_pkg_prefix = get_package_share_directory('pippino_description')
-    rplidar_launch_pkg_prefix = get_package_share_directory('rplidar_ros')
-    realsense_launch_pkg_prefix = get_package_share_directory('realsense2_camera')
+    rplidar_launch_pkg_prefix = get_package_share_directory('rplidar_ros2')
+    # realsense_launch_pkg_prefix = get_package_share_directory('realsense2_camera')
 
     default_realsense_config_filename = LaunchConfiguration('default_realsense_config_filename')
 
     rplidar_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            [rplidar_launch_pkg_prefix, '/launch/rplidar.launch.py']),
-        launch_arguments={}.items()
+            [rplidar_launch_pkg_prefix, '/launch/rplidar_launch.py']),
+        launch_arguments={'serial_port': '/dev/rplidar'}.items()
     )
     
     pippino_odom_launch = IncludeLaunchDescription(
@@ -37,11 +37,11 @@ def generate_launch_description():
         output='screen'
     )
 
-    realsense_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [realsense_launch_pkg_prefix, '/launch/rs_launch.py']),
-        launch_arguments = {'config_file': '\'/realsense_ws/src/d455.yaml\''}.items(),
-    )
+    # realsense_launch = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         [realsense_launch_pkg_prefix, '/launch/rs_launch.py']),
+    #     launch_arguments = {'config_file': '\'/realsense_ws/src/d455.yaml\''}.items(),
+    # )
 
     return launch.LaunchDescription([
         launch.actions.DeclareLaunchArgument(name='default_realsense_config_filename', default_value='/realsense_ws/src/d455.yaml',
@@ -50,6 +50,6 @@ def generate_launch_description():
         rplidar_launch,
         micro_ros_agent_process,
         pippino_odom_launch,
-        realsense_launch,
+        # realsense_launch,
 #        pippino_description_launch
     ])

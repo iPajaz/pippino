@@ -1,42 +1,48 @@
 camera:
-    camera:
-      ros__parameters:
-        device_type: ''
-        serial_no: ''
-        usb_port_id: ''
+  camera:
+    ros__parameters:
+      device_type: ''
+      serial_no: ''
+      usb_port_id: ''
 
-        color_fps: 30.0
-        color_height: 480
-        color_width: 640
-        color_qos: "SENSOR_DATA"
+      color_fps: 5.0
+      color_height: 720
+      color_width: 1280
+      color_qos: "SENSOR_DATA"
 
-        depth_fps: 30.0
-        depth_height: 720
-        depth_width: 1280
-        depth_qos: "SENSOR_DATA"
+      depth_fps: 30.0
+      depth_height: 720
+      depth_width: 1280
+      depth_qos: "SENSOR_DATA"
 
-        infra_height: 720
-        infra_width: 1280
-        infra_qos: "SENSOR_DATA"
+      infra1_fps: 30.0
+      infra1_height: 720
+      infra1_width: 1280
+      infra1_qos: "SENSOR_DATA"
 
-        gyro_fps: 0.0
+      gyro_fps: 200.0
+      accel_fps: 100.0
 
-        enable_pointcloud: true
-        filters: ''
+      # enable_pointcloud: true
+      # filters: 'pointcloud'
 
-        enable_color: true
-        enable_depth: true
-        enable_gyro: true
-        enable_accel: true
+      enable_color: true
+      enable_infra1: true
+      enable_infra2: true
+      enable_depth: true
+      # enable_gyro: true
+      # enable_accel: true
 
-        enable_fisheye1: false
-        enable_fisheye2: false
+      enable_fisheye1: false
+      enable_fisheye2: false
 
-        pointcloud_texture_index: 0
-        pointcloud_texture_stream: RS2_STREAM_ANY
+      # pointcloud_texture_index: 0
+      # pointcloud_texture_stream: RS2_STREAM_ANY
 
-        stereo_module:
-          emitter_enabled: 1
-        unite_imu_method: ''
+      stereo_module:
+        emitter_enabled: 1
+      unite_imu_method: ''
 
-        rosbag_filename: ''
+      rosbag_filename: ''
+
+# ros2 launch realsense2_camera rs_launch.py config_file:="'/pippino_ws/src/d455.yaml'"
