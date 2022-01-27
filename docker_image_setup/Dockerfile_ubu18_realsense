@@ -1,0 +1,104 @@
+ARG BASE_IMAGE=test/test
+
+#################################
+#   Librealsense Builder Stage  #
+#################################
+FROM $BASE_IMAGE as librealsense-builder
+
+ARG LIBRS_VERSION
+# Make sure that we have a version number of librealsense as argument
+RUN test -n "$LIBRS_VERSION"
+
+
+
+# To avoid waiting for input during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Builder dependencies installation
+RUN apt-get update \
+    && apt-get install -qq -y --no-install-recommends \
+    build-essential \
+    cmake \
+    git \
+    libssl-dev \
+    libusb-1.0-0-dev \
+    pkg-config \
+    libgtk-3-dev \
+    libglfw3-dev \
+    libgl1-mesa-dev \
+    libglu1-mesa-dev \    
+    curl \
+    python3 \
+    python3-dev \
+    ca-certificates \
+    python3-rosdep \
+    && rm -rf /var/lib/apt/lists/*
+
+# Download sources
+WORKDIR /usr/src
+RUN curl https://codeload.github.com/IntelRealSense/librealsense/tar.gz/refs/tags/v$LIBRS_VERSION -o librealsense.tar.gz 
+RUN tar -zxf librealsense.tar.gz \
+    && rm librealsense.tar.gz 
+RUN ln -s /usr/src/librealsense-$LIBRS_VERSION /usr/src/librealsense
+
+# Build and install
+RUN cd /usr/src/librealsense \
+    && mkdir build && cd build \
+    && cmake \
+    -DCMAKE_C_FLAGS_RELEASE="${CMAKE_C_FLAGS_RELEASE} -s" \
+    -DCMAKE_CXX_FLAGS_RELEASE="${CMAKE_CXX_FLAGS_RELEASE} -s" \
+    -DCMAKE_INSTALL_PREFIX=/opt/librealsense \    
+    -DBUILD_GRAPHICAL_EXAMPLES=OFF \
+    -DBUILD_PYTHON_BINDINGS:bool=true \
+    -DBUILD_WITH_CUDA=true \
+    -DCMAKE_BUILD_TYPE=Release ../ \
+    && make -j$(($(nproc)-1)) all \
+    && make install 
+
+######################################
+#   librealsense Base Image Stage    #
+######################################
+FROM ${BASE_IMAGE} as librealsense
+
+
+ARG RS_WRAPPER_TAG
+RUN test -n "$RS_WRAPPER_TAG"
+
+# Copy binaries from builder stage
+COPY --from=librealsense-builder /opt/librealsense /usr/local/
+# COPY --from=librealsense-builder /usr/lib/python3/dist-packages/pyrealsense2 /usr/lib/python3/dist-packages/pyrealsense2
+COPY --from=librealsense-builder /usr/src/librealsense/config/99-realsense-libusb.rules /etc/udev/rules.d/
+ENV PYTHONPATH=$PYTHONPATH:/usr/local/lib
+
+RUN apt-get update && apt-get -y upgrade
+
+RUN apt-get install -y --no-install-recommends \    
+    build-essential \
+    cmake \
+    libusb-1.0-0 \
+    udev \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    git \
+    clang-tidy \
+    flex \
+    bison \
+    usbutils \
+    software-properties-common
+
+RUN mkdir -p /realsense_ws/src && cd /realsense_ws/src \
+    && git clone https://github.com/IntelRealSense/realsense-ros.git -b $RS_WRAPPER_TAG --depth 1
+
+RUN cd /realsense_ws/src \
+    && git clone https://github.com/ros/xacro.git -b ros2 --depth 1 \
+    && git clone https://github.com/ros/diagnostics.git -b foxy --depth 1
+
+RUN cd /realsense_ws \
+    && source /opt/ros/foxy/install/setup.bash \
+    && colcon build
+
+RUN echo 'source /pippino_ws/install/local_setup.bash' >> /root/.bashrc
+RUN echo 'source /realsense_ws/install/local_setup.bash' >> /root/.bashrc
+
+RUN echo "alias run='ros2 launch pippino_bringup pippino.launch.py'" >> /root/.bashrc
