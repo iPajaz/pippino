@@ -13,8 +13,11 @@
   <test_depend>ament_lint_common</test_depend>
 
   <exec_depend>joint_state_publisher</exec_depend>
-  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <!-- <exec_depend>joint_state_publisher_gui</exec_depend> -->
   <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>image_pipeline</exec_depend>
+  <exec_depend>vision_opencv</exec_depend>
+
 
   <build_depend>urdf</build_depend>
   <exec_depend>xacro</exec_depend>

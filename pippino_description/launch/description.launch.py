@@ -8,7 +8,6 @@ def generate_launch_description():
     pkg_share = launch_ros.substitutions.FindPackageShare(package='pippino_description').find('pippino_description')
     default_model_path = os.path.join(pkg_share, 'src/description/pippino.urdf')
     default_rviz_config_path = os.path.join(pkg_share, 'rviz/pippino_config.rviz')
-    use_sim_time = LaunchConfiguration('use_sim_time')
     slam = LaunchConfiguration('slam')
     nav2_dir = launch_ros.substitutions.FindPackageShare(package='nav2_bringup').find('nav2_bringup') 
     nav2_launch_dir = os.path.join(nav2_dir, 'launch')
@@ -23,7 +22,7 @@ def generate_launch_description():
     robot_state_publisher_node = launch_ros.actions.Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
-        parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['xacro ', LaunchConfiguration('model')])}]
+        parameters=[{'use_sim_time': False, 'robot_description': Command(['xacro ', LaunchConfiguration('model')])}]
     )
     joint_state_publisher_node = launch_ros.actions.Node(
         package='joint_state_publisher',
@@ -42,7 +41,7 @@ def generate_launch_description():
         executable='ekf_node',
         name='ekf_filter_node',
         output='screen',
-        parameters=[os.path.join(pkg_share, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}]
+        parameters=[os.path.join(pkg_share, 'config/ekf.yaml'), {'use_sim_time': False}]
     )
 
     # Launch the ROS 2 Navigation Stack
@@ -50,10 +49,11 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'bringup_launch.py')),
         launch_arguments = {'slam': slam,
                             'map': map_yaml_file,
-                            'use_sim_time': use_sim_time,
+                            'use_sim_time': False,
                             'params_file': nav2_params_path,
                             'default_bt_xml_filename': default_bt_xml_filename,
-                            'autostart': autostart}.items())
+                            'autostart': autostart
+                            }.items())
 
     map_to_odom_tf_publisher_node = launch_ros.actions.Node(
         package = 'tf2_ros',
@@ -67,6 +67,26 @@ def generate_launch_description():
         arguments = ['0', '0', '0', '0', '0', '0', 'odom', 'base_link']
     )
 
+    point_cloud_generator = launch_ros.actions.ComposableNodeContainer(
+            name='container',
+            namespace='',
+            package='rclcpp_components',
+            executable='component_container',
+            composable_node_descriptions=[
+                # Driver itself
+                launch_ros.descriptions.ComposableNode(
+                    package='depth_image_proc',
+                    plugin='depth_image_proc::PointCloudXyzNode',
+                    name='point_cloud_xyz_node',
+                    remappings=[
+                                ('camera_info', '/camera/depth/camera_info'),
+                                ('image_rect', '/camera/depth/image_rect_raw'),
+                                ('points', '/camera/depth/color/points')]
+                ),
+            ],
+            output='screen',
+        )
+
     return launch.LaunchDescription([
         launch.actions.DeclareLaunchArgument(name='gui', default_value='True',
                                             description='Flag to enable joint_state_publisher_gui'),
@@ -74,8 +94,6 @@ def generate_launch_description():
                                             description='Absolute path to robot urdf file'),
         launch.actions.DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path,
                                             description='Absolute path to rviz config file'),
-        launch.actions.DeclareLaunchArgument(name='use_sim_time', default_value='False',
-                                            description='Flag to enable use_sim_time'),
         launch.actions.DeclareLaunchArgument(name='slam', default_value='False',
                                             description='Flag to enable SLAM'),
         launch.actions.DeclareLaunchArgument(name='map', default_value=static_map_path,
@@ -86,11 +104,12 @@ def generate_launch_description():
                                             description='Full path to the behavior tree xml file to use'),
         launch.actions.DeclareLaunchArgument(name='autostart', default_value='True',
                                             description='Automatically startup the nav2 stack'),
-        # dom_to_base_link_tf_publisher_node,
+        point_cloud_generator,
+        odom_to_base_link_tf_publisher_node,
+        map_to_odom_tf_publisher_node,
         joint_state_publisher_node,
         robot_state_publisher_node,
         robot_localization_node,
-        start_ros2_navigation_cmd,
-        map_to_odom_tf_publisher_node,
+        # start_ros2_navigation_cmd,
         rviz_node,
     ])
