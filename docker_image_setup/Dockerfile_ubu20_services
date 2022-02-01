@@ -1,15 +1,19 @@
-FROM pippino/ros2:base
+ARG BASE_IMAGE=test/test
+
+FROM $BASE_IMAGE
 # FROM dustynv/ros:foxy-ros-base-l4t-r32.5.0
+
 
 # To avoid waiting for input during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONPATH=$PYTHONPATH:/usr/local/lib
 
+ARG ROS_DISTRO=foxy
+
 ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 CMD ["bash"]
-# RUN apt-get update && apt-get -y upgrade
 
-RUN apt-get update && apt-get upgrade && apt-get install -y --no-install-recommends \    
+RUN apt-get update && apt-get install -y --no-install-recommends \    
     build-essential \
     python3-vcstool \
     cmake \
@@ -23,16 +27,16 @@ RUN apt-get update && apt-get upgrade && apt-get install -y --no-install-recomme
     flex \
     usbutils \
     python3-rosdep \
-    ros-galactic-rmw-fastrtps-shared-cpp \
-    ros-galactic-rosidl-typesupport-fastrtps-cpp \
+    ros-${ROS_DISTRO}-rmw-fastrtps-shared-cpp \
+    ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp \
     software-properties-common
 
 RUN mkdir -p /services_ws/src && cd /services_ws/src \
-    && git clone https://github.com/micro-ROS/micro_ros_setup.git -b galactic --depth 1 \
+    && git clone https://github.com/micro-ROS/micro_ros_setup.git -b ${ROS_DISTRO} --depth 1 \
     && git clone -b ros2 https://github.com/slamtec/rplidar_ros.git --depth 1
 
     # && git clone https://github.com/iPajaz/pippino.git --depth 1 \
-    # && git clone https://github.com/ros/joint_state_publisher.git -b galactic --depth 1
+    # && git clone https://github.com/ros/joint_state_publisher.git -b ${ROS_DISTRO} --depth 1
     # && git clone https://github.com/ros/xacro.git -b ros2 --depth 1 --single-branch
 
 WORKDIR /services_ws
@@ -40,14 +44,14 @@ WORKDIR /services_ws
 RUN sudo rosdep init \
     && rosdep update
 
-RUN rosdep install --from-paths src --ignore-src --rosdistro galactic -y
+RUN rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
 
 SHELL ["/bin/bash", "-c"]
 
-RUN source /opt/ros/galactic/setup.bash \
+RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
     && colcon build
 
-RUN source /opt/ros/galactic/setup.bash \
+RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
     && source install/local_setup.bash \
     && ros2 run micro_ros_setup create_agent_ws.sh \
     && ros2 run micro_ros_setup build_agent.sh

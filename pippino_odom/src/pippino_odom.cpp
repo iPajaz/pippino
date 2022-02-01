@@ -49,6 +49,8 @@ class PippinoDriver : public rclcpp::Node
       double dxy = (wheel_mps_right_ + wheel_mps_left_)*dt_s / 2.0;
       double dtheta = (wheel_mps_right_ - wheel_mps_left_)*dt_s / wheelbase_m_;
 
+      // printf("dxy=%f", dxy);
+
       if (dtheta > 0) dtheta *= angular_scale_positive.as_double();
       if (dtheta < 0) dtheta *= angular_scale_negative.as_double();
       if (dxy > 0) dxy *= linear_scale_positive.as_double();

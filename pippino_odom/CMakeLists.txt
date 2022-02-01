@@ -27,10 +27,10 @@ find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 # find_package(joint_state_publisher REQUIRED)
 # find_package(robot_state_publisher REQUIRED)
-find_package(pippino_description REQUIRED)
+# find_package(pippino_description REQUIRED)
 
 add_executable(pippino_odom src/pippino_odom.cpp)
-ament_target_dependencies(pippino_odom tf2_ros tf2 rclcpp std_msgs nav_msgs pippino_description)
+ament_target_dependencies(pippino_odom tf2_ros tf2 rclcpp std_msgs nav_msgs) # pippino_description)
 target_include_directories(pippino_odom PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)

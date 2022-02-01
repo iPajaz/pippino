@@ -8,11 +8,11 @@ import os
 
 def generate_launch_description():
     pippino_odom_pkg_prefix = get_package_share_directory('pippino_odom')
-    pippino_description_pkg_prefix = get_package_share_directory('pippino_description')
+    # pippino_description_pkg_prefix = get_package_share_directory('pippino_description')
     rplidar_launch_pkg_prefix = get_package_share_directory('rplidar_ros2')
     # realsense_launch_pkg_prefix = get_package_share_directory('realsense2_camera')
 
-    default_realsense_config_filename = LaunchConfiguration('default_realsense_config_filename')
+    # default_realsense_config_filename = LaunchConfiguration('default_realsense_config_filename')
 
     rplidar_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -26,11 +26,11 @@ def generate_launch_description():
         launch_arguments={}.items()
     )
 
-    pippino_description_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [pippino_description_pkg_prefix, '/launch/description.launch.py']),
-        launch_arguments={}.items()
-    )
+    # pippino_description_launch = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         [pippino_description_pkg_prefix, '/launch/description.launch.py']),
+    #     launch_arguments={}.items()
+    # )
 
     micro_ros_agent_process = ExecuteProcess(
         cmd=['ros2', 'run', 'micro_ros_agent', 'micro_ros_agent','serial', '--dev', '/dev/esp32'],
@@ -47,9 +47,9 @@ def generate_launch_description():
         launch.actions.DeclareLaunchArgument(name='default_realsense_config_filename', default_value='/realsense_ws/src/d455.yaml',
             description='Full path to the realsense config file to use'),
 
-        rplidar_launch,
         micro_ros_agent_process,
-        pippino_odom_launch,
+        launch.actions.TimerAction(period=2.0, actions=[pippino_odom_launch]),
+        launch.actions.TimerAction(period=3.0, actions=[rplidar_launch]),
         # realsense_launch,
 #        pippino_description_launch
     ])

@@ -1,6 +1,10 @@
 #! /bin/bash
 
+distro="foxy"
+
 sudo docker build \
-        -t pippino/ros2:services \
+        --build-arg ROS_DISTRO=$distro \
+        --build-arg BASE_IMAGE=pippino/ros2:base-$distro \
+        -t pippino/ros2:services-$distro \
         -f Dockerfile_ubu20_services .
 

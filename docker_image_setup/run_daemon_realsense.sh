@@ -3,7 +3,7 @@
 sudo docker stop pippino_realsense
 sudo docker rm pippino_realsense
 
-sudo docker run -it \
+sudo docker run -d \
      --name pippino_realsense \
      -v /dev:/dev \
      --runtime nvidia \
