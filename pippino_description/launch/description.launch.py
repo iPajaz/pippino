@@ -49,7 +49,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'bringup_launch.py')),
         launch_arguments = {'slam': slam,
                             'map': map_yaml_file,
-                            'use_sim_time': False,
+                            'use_sim_time': 'false',
                             'params_file': nav2_params_path,
                             'default_bt_xml_filename': default_bt_xml_filename,
                             'autostart': autostart
@@ -109,7 +109,7 @@ def generate_launch_description():
         map_to_odom_tf_publisher_node,
         joint_state_publisher_node,
         robot_state_publisher_node,
-        robot_localization_node,
-        # start_ros2_navigation_cmd,
-        rviz_node,
+        launch.actions.TimerAction(period=0.5, actions=[robot_localization_node]),
+        launch.actions.TimerAction(period=1.0, actions=[start_ros2_navigation_cmd]),
+        launch.actions.TimerAction(period=1.5, actions=[rviz_node]),
     ])

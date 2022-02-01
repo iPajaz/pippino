@@ -52,7 +52,7 @@
 		</visual>
 
 
-  <xacro:box_inertia m="15" w="${base_width}" d="${base_length}" h="${base_height}"/>
+  <xacro:box_inertia m="40" w="${base_width}" d="${base_length}" h="${base_height}"/>
 	</link>
 
   <link name="base_footprint">
