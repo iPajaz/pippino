@@ -209,6 +209,8 @@ class PippinoDriver : public rclcpp::Node
       angular_scale_positive = this->get_parameter("angular_scale_positive");
       angular_scale_negative = this->get_parameter("angular_scale_negative");
 
+      theta=0;
+
       tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
       radps_left_sub_ = this->create_subscription<geometry_msgs::msg::Vector3Stamped>(
