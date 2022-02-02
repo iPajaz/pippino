@@ -33,7 +33,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN mkdir -p /services_ws/src && cd /services_ws/src \
     && git clone https://github.com/micro-ROS/micro_ros_setup.git -b ${ROS_DISTRO} --depth 1 \
-    && git clone -b ros2 https://github.com/slamtec/rplidar_ros.git --depth 1
+    && git clone -b ros2 https://github.com/iPajaz/rplidar_ros.git --depth 1
 
     # && git clone https://github.com/iPajaz/pippino.git --depth 1 \
     # && git clone https://github.com/ros/joint_state_publisher.git -b ${ROS_DISTRO} --depth 1
@@ -62,3 +62,5 @@ RUN echo 'source /pippino_ws/install/local_setup.bash' >> /root/.bashrc
 RUN echo "alias run='ros2 launch pippino_bringup pippino.launch.py'" >> /root/.bashrc
 
 WORKDIR /root
+
+ENTRYPOINT ["/pippino_ws/src/pippino-services-entrypoint.sh"]
