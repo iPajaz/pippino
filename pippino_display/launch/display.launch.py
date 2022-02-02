@@ -4,7 +4,7 @@ import launch_ros
 import os
 
 def generate_launch_description():
-    pkg_share = launch_ros.substitutions.FindPackageShare(package='pippino_description').find('pippino_description')
+    pkg_share = launch_ros.substitutions.FindPackageShare(package='pippino_display').find('pippino_display')
     default_rviz_config_path = os.path.join(pkg_share, 'rviz/pippino_config.rviz')
 
     # teleop_node = launch_ros.actions.Node(
