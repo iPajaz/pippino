@@ -123,13 +123,13 @@ controller_server:
       debug_trajectory_details: True
       min_vel_x: 0.0
       min_vel_y: 0.0
-      max_vel_x: 0.22
+      max_vel_x: 0.24
       max_vel_y: 0.0
       max_vel_theta: 0.8
       min_speed_xy: 0.0
-      max_speed_xy: 0.22
+      max_speed_xy: 0.24
       min_speed_theta: 0.0
-      acc_lim_x: 0.3
+      acc_lim_x: 0.4
       acc_lim_y: 0.0
       acc_lim_theta: 0.6
       decel_lim_x: -1.5
@@ -214,7 +214,7 @@ local_costmap:
   local_costmap:
     ros__parameters:
       update_frequency: 5.0
-      publish_frequency: 2.0
+      publish_frequency: 5.0
       global_frame: odom
       robot_base_frame: base_link
       footprint: '[ [0.07, 0.15], [-0.3, 0.15], [-0.3, -0.15], [0.07, -0.15] ]'
@@ -227,8 +227,8 @@ local_costmap:
       plugins: ["obstacle_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.8
+        cost_scaling_factor: 2.0
+        inflation_radius: 1.0
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
@@ -343,8 +343,8 @@ global_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         enabled: true
-        inflation_radius: 0.55
-        cost_scaling_factor: 3.0
+        inflation_radius: 0.8
+        cost_scaling_factor: 2.5
         inflate_unknown: false
         inflate_around_unknown: true
       always_send_full_costmap: True

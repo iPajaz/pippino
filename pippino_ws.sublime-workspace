@@ -125,9 +125,17 @@
 	},
 	"file_history":
 	[
-		"/home/michele/pippino_ws/src/pippino_description/config/ekf.yaml",
-		"/home/michele/pippino_ws/src/pippino_description/config/nav2_params.yaml",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/pippino.launch.py",
+		"/home/michele/pippino_ws/src/pippino_description/config/ekf.yaml",
+		"/home/michele/remote/pippino/pippino_ws/src/script.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino-services-entrypoint.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_services.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/stop_daemons.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon_services.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu20_services-2",
+		"/home/michele/remote/pippino/pippino_ws/src/rplidar_ros/src/rplidar_scan_publisher.cpp",
+		"/home/michele/pippino_ws/src/pippino_description/launch/test.py",
+		"/home/michele/pippino_ws/src/pippino_description/config/nav2_params.yaml",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/src/pippino_odom.cpp",
 		"/home/michele/pippino_ws/src/pippino_description/launch/description.launch.py",
 		"/home/michele/pippino_ws/src/pippino_description/src/description/pippino.urdf",
@@ -138,8 +146,6 @@
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu20_base",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_ubu20_services.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu20_services",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon_services.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_services.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/CMakeLists.txt",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/package.xml",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/package.xml",
@@ -259,6 +265,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"sleep",
+			"&\n",
+			"start",
+			"Node",
+			"work_loop",
+			"debug",
 			"dom",
 			"0",
 			"22",
@@ -380,13 +392,7 @@
 			"LaunchConfiguration('use_sim_time')",
 			"use_sim_time",
 			"pippino_realsense",
-			"crazy_pippino",
-			"infra_fps",
-			"foxy",
-			"_VERSION",
-			" \\\n    ",
-			"640",
-			"480"
+			"crazy_pippino"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -415,7 +421,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 915.0
+		"height": 301.0
 	},
 	"output.find_results":
 	{
@@ -461,7 +467,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 358.0,
+	"side_bar_width": 370.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
