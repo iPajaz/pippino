@@ -49,7 +49,7 @@ def generate_launch_description():
 
     micro_ros_agent_process = ExecuteProcess(
         cmd=['ros2', 'run', 'micro_ros_agent', 'micro_ros_agent','serial', '--dev', '/dev/esp32'],
-        # output='screen'
+        output='screen'
     )
 
     # realsense_launch = IncludeLaunchDescription(

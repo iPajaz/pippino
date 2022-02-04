@@ -5,7 +5,7 @@ sudo docker exec -it pippino_services pkill ros2 -SIGINT
 sudo docker stop pippino_services
 sudo docker rm pippino_services
 
-distro="foxy"
+distro=galactic
 
 sudo docker run -it --rm \
      --name pippino_services \
@@ -13,7 +13,7 @@ sudo docker run -it --rm \
      --runtime nvidia \
      --privileged \
      -v /home/michele/pippino_ws:/pippino_ws \
-     --net=host pippino/ros2:services-foxy 
+     --net=host pippino/ros2:services-$distro 
      # -v /home/michele/realsense_ws:/realsense_ws \
      # --net=host pippino/ros2:rs50-v2 bash
 

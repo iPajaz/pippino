@@ -3,7 +3,7 @@ FROM timongentzsch/l4t-ubuntu20-opencv
 ARG DEBIAN_FRONTEND=noninteractive
 
 ARG ROS_PKG=ros_base
-ARG ROS_DISTRO=foxy
+ARG ROS_DISTRO=test
 ARG ROS_ROOT=/opt/ros/${ROS_DISTRO}
 
 #

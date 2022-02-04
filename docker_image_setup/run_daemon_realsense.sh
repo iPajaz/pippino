@@ -3,6 +3,8 @@
 sudo docker stop pippino_realsense
 sudo docker rm pippino_realsense
 
+distro=galactic
+
 sudo docker run -d \
      --name pippino_realsense \
      -v /dev:/dev \

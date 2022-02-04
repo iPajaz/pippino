@@ -28,7 +28,7 @@ camera:
       enable_color: true
       enable_depth: true
       enable_gyro: true
-      enable_accel: true
+      enable_accel: false
       # enable_infra1: true
       # enable_infra2: true
 

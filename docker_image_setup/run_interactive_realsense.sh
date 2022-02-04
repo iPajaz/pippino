@@ -1,6 +1,7 @@
 #!/bin/bash
 
-     # --name pippino_realsense \
+distro=galactic
+
 sudo docker run -it --rm \
      -v /dev:/dev \
      --privileged \

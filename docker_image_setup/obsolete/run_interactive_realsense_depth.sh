@@ -3,8 +3,8 @@
      # --name pippino_realsense \
 sudo docker run -it --rm \
      -v /dev:/dev \
-     --runtime nvidia \
      --privileged \
+     --runtime nvidia \
      --device-cgroup-rule "c 81:* rmw" \
      --device-cgroup-rule "c 189:* rmw" \
      -v /home/michele/pippino_ws:/pippino_ws \

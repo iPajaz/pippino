@@ -92,13 +92,16 @@ RUN mkdir -p /realsense_ws/src && cd /realsense_ws/src \
 
 RUN cd /realsense_ws/src \
     && git clone https://github.com/ros/xacro.git -b ros2 --depth 1 \
-    && git clone https://github.com/ros/diagnostics.git -b foxy --depth 1
+    && git clone https://github.com/ros/diagnostics.git -b galactic --depth 1
 
 RUN cd /realsense_ws \
-    && source /opt/ros/foxy/install/setup.bash \
+    && source /opt/ros/galactic/install/setup.bash \
     && colcon build
 
 RUN echo 'source /pippino_ws/install/local_setup.bash' >> /root/.bashrc
 RUN echo 'source /realsense_ws/install/local_setup.bash' >> /root/.bashrc
 
 RUN echo "alias run='ros2 launch pippino_bringup pippino.launch.py'" >> /root/.bashrc
+
+
+ENTRYPOINT ["/pippino_ws/src/pippino-realsense-entrypoint.sh"]

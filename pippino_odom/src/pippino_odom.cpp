@@ -219,7 +219,7 @@ class PippinoDriver : public rclcpp::Node
       );
 
       odometry_pub_ = this->create_publisher<nav_msgs::msg::Odometry>(
-        "pippino/odom", 10);
+        "odom", 10);
 
       update_odometry_timer_ = this->create_wall_timer(
         UPDATE_DT, std::bind(&PippinoDriver::update_odometry, this));
