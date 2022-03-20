@@ -34,6 +34,9 @@
           </ReactiveFallback>
         </RecoveryNode>
         <BackUp backup_dist="0.0" backup_speed="-0.00"/>
+        <Wait wait_duration="0.1"/>
+        <BackUp backup_dist="0.0" backup_speed="-0.00"/>
+        <Wait wait_duration="0.1"/>
         <BackUp backup_dist="0.0" backup_speed="-0.00"/>
       </Sequence>
     </BehaviorTree>

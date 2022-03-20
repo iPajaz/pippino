@@ -62,10 +62,7 @@ def connect_to_dock(self):
     # Create the nodes
 # Create a publisher
 # This node publishes the desired linear and angular velocity of the robot
-publisher_cmd_vel = create_publisher(
-  Twist,
-  '/cmd_vel',
-  10)  
+publisher_cmd_vel = Node.create_publisher(Node,msg_type=Twist, topic='/cmd_vel', qos_profile=10)  
 timer_period = 0.1
 timer = create_timer(timer_period, navigate_to_dock)
   
