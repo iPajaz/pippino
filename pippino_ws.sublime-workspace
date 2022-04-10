@@ -129,26 +129,31 @@
 	},
 	"file_history":
 	[
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_navigation/config/nav2_params_galactic.yaml",
+		"/home/michele/.bashrc",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino-services-entrypoint.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_services.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_ws.sublime-project",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup2/launch/pippino.launch.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/pippino.launch.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino-services-entrypoint_interactive.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/bringup.launch.py",
 		"/home/michele/KiCad/Projects/Pippino_board_v2/pippino_board/bug_tracker.txt",
 		"/home/michele/pippino_ws/src/pippino_description/src/description/pippino.urdf",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/src/pippino_odom.cpp",
 		"/home/michele/pippino_ws/src/pippino_description/launch/description.launch.py",
 		"/home/michele/pippino_ws/src/pippino_description/config/ekf.yaml",
 		"/home/michele/pippino_ws/src/pippino_navigation/config/bt_navigate_to_pose.xml",
-		"/home/michele/.bashrc",
 		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params_galactic.yaml",
 		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params.yaml",
 		"/home/michele/pippino_ws/src/pippino_navigation/launch/navigation.launch.py",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_realsense.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino-services-entrypoint.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino-realsense-entrypoint.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/d455_wrapper4.0.yaml",
 		"/home/michele/remote/pippino/pippino_ws/src/d455.yaml",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_ubu18_realsense.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon_realsense.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_services.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon_services.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/pippino.launch.py",
 		"/home/michele/pippino_ws/src/pippino_navigation/scripts/navigate_manual.py",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/run_interactive_realsense_depth.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_ubu20_base.sh",
@@ -251,12 +256,7 @@
 		"/home/michele/Documents/sms test/rest_test.sh",
 		"/home/michele/.local/share/jupyter/kernels/pyscript/pyscript.conf",
 		"/home/michele/.jupyter/start_jupyter_service.sh",
-		"/home/michele/Documents/sms test/test.py",
-		"/home/michele/configure_firmware.sh",
-		"/home/michele/uros_ws/install/micro_ros_setup/lib/micro_ros_setup/configure_firmware.sh",
-		"/home/michele/colcon_ws/install/setup.bash",
-		"/home/michele/.bahsrc",
-		"/etc/hosts"
+		"/home/michele/Documents/sms test/test.py"
 	],
 	"find":
 	{
@@ -267,6 +267,7 @@
 		"height": 137.0,
 		"where_history":
 		[
+			"/home/michele/remote/pippino/pippino_ws/src",
 			"",
 			"/home/michele/remote/pippino/pippino_ws/src,<project filters>",
 			""
@@ -277,6 +278,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"16",
+			"publish_voxel_map",
+			"voxel",
+			"0",
+			"declare_navigation_cmd",
+			"navigation",
+			"declare_navigation_cmd",
+			"1",
+			"bt_navigate_to",
+			"michele",
+			"pkg_share",
+			"autostart",
 			"13",
 			"-{",
 			"requenc",
@@ -392,19 +405,7 @@
 			"default_bt_xml_filename",
 			":",
 			"cmd_vel",
-			": ",
-			":\n",
-			"use_sim_time",
-			"nav2_compute_path_through_poses_action_bt_node",
-			"nav2_single_trigger_bt_no",
-			"nav2_single_trigger_bt_node”",
-			"nav2_distance_traveled_condition_bt_node",
-			"nav2_time_expired_condition_bt_node",
-			"nav2_transform_available_condition_bt_node",
-			"nav2_round_robin_node_bt_node",
-			"nav2_pipeline_sequence_bt_node",
-			"nav2_recovery_node_bt_node",
-			"nav2_speed_controller_bt_node"
+			": "
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -479,7 +480,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 354.0,
+	"side_bar_width": 342.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
