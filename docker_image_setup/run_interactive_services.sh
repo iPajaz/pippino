@@ -13,7 +13,8 @@ sudo docker run -it --rm \
      --runtime nvidia \
      --privileged \
      -v /home/michele/pippino_ws:/pippino_ws \
-     --net=host pippino/ros2:services-$distro 
+     --net=host pippino/ros2:services-$distro \
+     --entrypoint=/pippino_ws/src/pippino-services-entrypoint_interactive.sh
      # -v /home/michele/realsense_ws:/realsense_ws \
      # --net=host pippino/ros2:rs50-v2 bash
 

@@ -3,6 +3,7 @@ from ament_index_python import get_package_share_directory
 from launch.substitutions import Command, LaunchConfiguration
 from launch.actions import IncludeLaunchDescription, ExecuteProcess, DeclareLaunchArgument
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.conditions import IfCondition
 from launch import LaunchDescription
 from launch import LaunchIntrospector
 from launch import LaunchService
@@ -15,7 +16,14 @@ def generate_launch_description():
     # pippino_description_pkg_prefix = get_package_share_directory('pippino_description')
     rplidar_launch_pkg_prefix = get_package_share_directory('rplidar_ros2')
     # realsense_launch_pkg_prefix = get_package_share_directory('realsense2_camera')
+    description_dir = launch_ros.substitutions.FindPackageShare(package='pippino_description').find('pippino_description') 
+    description_launch_dir = os.path.join(description_dir, 'launch')
+    navigation_dir = launch_ros.substitutions.FindPackageShare(package='pippino_navigation').find('pippino_navigation') 
+    navigation_launch_dir = os.path.join(navigation_dir, 'launch')
 
+    navigation = LaunchConfiguration('navigation')
+    microros = LaunchConfiguration('microros')
+    lidar = LaunchConfiguration('lidar')
     # default_realsense_config_filename = LaunchConfiguration('default_realsense_config_filename')
 
     # rplidar_launch = IncludeLaunchDescription(
@@ -23,17 +31,26 @@ def generate_launch_description():
     #         [rplidar_launch_pkg_prefix, '/launch/rplidar_launch.py']),
     #     launch_arguments={'serial_port': '/dev/rplidar'}.items()
     # )
+    start_description = launch.actions.IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(os.path.join(description_launch_dir, 'description.launch.py'))
+    )
+    start_navigation = launch.actions.IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(os.path.join(navigation_launch_dir, 'navigation.launch.py')),
+        condition=IfCondition(navigation)
+    )
     
     rplidar_node = Node(
-            package='rplidar_ros2',
-            executable='rplidar_scan_publisher',
-            name='rplidar_scan_publisher',
-            parameters=[{'serial_port': '/dev/rplidar', 
-                         'serial_baudrate': 115200, 
-                         'frame_id': 'laser',
-                         'inverted': False, 
-                         'angle_compensate': True}],
-            output='screen')
+        package='rplidar_ros2',
+        executable='rplidar_scan_publisher',
+        name='rplidar_scan_publisher',
+        parameters=[{'serial_port': '/dev/rplidar', 
+                     'serial_baudrate': 115200, 
+                     'frame_id': 'laser',
+                     'inverted': False, 
+                     'angle_compensate': True}],
+        output='screen',
+        condition=IfCondition(lidar)
+    )
 
     pippino_odom_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -49,7 +66,8 @@ def generate_launch_description():
 
     micro_ros_agent_process = ExecuteProcess(
         cmd=['ros2', 'run', 'micro_ros_agent', 'micro_ros_agent','serial', '--dev', '/dev/esp32'],
-        output='screen'
+        output='screen',
+        condition=IfCondition(microros)
     )
 
     # realsense_launch = IncludeLaunchDescription(
@@ -59,6 +77,9 @@ def generate_launch_description():
     # )
 
     ld = LaunchDescription([
+        DeclareLaunchArgument(name='navigation', default_value='True', description='Whether run the Navigation stack'),
+        DeclareLaunchArgument(name='microros', default_value='True', description='Whether run the Microros agent node'),
+        DeclareLaunchArgument(name='lidar', default_value='True', description='Whether run the Rplidar node'),
         # DeclareLaunchArgument(name='default_realsense_config_filename', default_value='/realsense_ws/src/d455.yaml',
         #     description='Full path to the realsense config file to use'),
 
@@ -67,7 +88,10 @@ def generate_launch_description():
         # launch.actions.TimerAction(period=3.0, actions=[rplidar_launch]),
         micro_ros_agent_process,
         pippino_odom_launch,
-        rplidar_node
+        rplidar_node,
+
+        launch.actions.TimerAction(period=3.0, actions=[start_description]),
+        launch.actions.TimerAction(period=6.0, actions=[start_navigation]),
         # realsense_launch,
 #        pippino_description_launch
     ])
