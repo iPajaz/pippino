@@ -10,7 +10,8 @@ from cv_bridge import CvBridge # Package to convert between ROS and OpenCV Image
 from geometry_msgs.msg import TransformStamped # Handles TransformStamped message
 from sensor_msgs.msg import Image # Image is the message type
 from tf2_ros import TransformBroadcaster
- 
+from std_msgs.msg import Bool
+
 # Import Python libraries
 import cv2 # OpenCV library
 import numpy as np # Import Numpy library
@@ -48,6 +49,8 @@ class ArucoNode(Node):
     # Initiate the Node class's constructor and give it a name
     super().__init__('aruco_node')
  
+    self.valid_aruco_publisher = self.create_publisher(Bool, 'charging_station_aruco_visible', 5)
+
     # Declare parameters
     self.declare_parameter("aruco_dictionary_name", "DICT_5X5_50")
     self.declare_parameter("aruco_marker_side_length", 0.0605)
@@ -95,6 +98,7 @@ class ArucoNode(Node):
        
     # Used to convert between ROS and OpenCV images
     self.bridge = CvBridge()
+
     
   def listener_callback(self, data):
     """
@@ -102,15 +106,18 @@ class ArucoNode(Node):
     """
     # Display the message on the console
     # self.get_logger().info('Receiving video frame')
-  
+    aruco_marker_visible_msg = Bool()
+
     # Convert ROS Image message to OpenCV image
-    current_frame = self.bridge.imgmsg_to_cv2(data)
+    current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding="bgr8")
      
     # Detect ArUco markers in the video frame
     (corners, marker_ids, rejected) = cv2.aruco.detectMarkers(
       current_frame, self.this_aruco_dictionary, parameters=self.this_aruco_parameters,
       cameraMatrix=self.mtx, distCoeff=self.dst)
- 
+    
+    aruco_marker_visible_msg.data = marker_ids is not None and 2 in marker_ids
+
     # Check that at least one ArUco marker was detected
     if marker_ids is not None:
      
@@ -125,7 +132,7 @@ class ArucoNode(Node):
         self.dst)
         
       # self.get_logger().info(f"R-{rvecs}\tT-{tvecs}")
-      self.get_logger().info(f"R-{self.mtx}\tT-{self.dst}")
+      # self.get_logger().info(f"R-{self.mtx}\tT-{self.dst}")
       # The pose of the marker is with respect to the camera lens frame.
       # Imagine you are looking through the camera viewfinder, 
       # the camera lens frame's:
@@ -145,10 +152,14 @@ class ArucoNode(Node):
         t.transform.translation.y = tvecs[i][0][1]
         t.transform.translation.z = tvecs[i][0][2]
  
+        # rvecs 0=blue, 1=red, 2=green
+
+        print(f'{list(180/3.1415*val for val in rvecs[i][0])}')
         # Store the rotation information
         rotation_matrix = np.eye(4)
         rotation_matrix[0:3, 0:3] = cv2.Rodrigues(np.array(rvecs[i][0]))[0]
         r = R.from_matrix(rotation_matrix[0:3, 0:3])
+        # self.get_logger().info(f'{r}')
         quat = r.as_quat()   
          
         # Quaternion format     
@@ -158,14 +169,16 @@ class ArucoNode(Node):
         t.transform.rotation.w = quat[3] 
  
         # Send the transform
-        self.tfbroadcaster.sendTransform(t)    
+        self.tfbroadcaster.sendTransform(t)
                    
         # Draw the axes on the marker
         cv2.aruco.drawAxis(current_frame, self.mtx, self.dst, rvecs[i], tvecs[i], 0.05)        
-               
     # Display image
+    cv2.namedWindow("camera", cv2.WINDOW_NORMAL)
+    cv2.resizeWindow("camera", 600, 400)
     cv2.imshow("camera", current_frame)
-     
+    self.valid_aruco_publisher.publish(aruco_marker_visible_msg)
+
     cv2.waitKey(1)
    
 def main(args=None):
@@ -186,6 +199,6 @@ def main(args=None):
    
   # Shutdown the ROS client library for Python
   rclpy.shutdown()
-   
+
 if __name__ == '__main__':
   main()

@@ -2,15 +2,15 @@
 
 """
 Description:
-  Navigate to a charging dock once the battery gets low.
+    Navigate to a charging dock once the battery gets low.
 -------
 Subscription Topics:
-  Current battery state
-  /battery_status - sensor_msgs/BatteryState
+    Current battery state
+    /battery_status - sensor_msgs/BatteryState
 -------
 Publishing Topics:
-  Velocity command to navigate to the charging dock.
-  /cmd_vel - geometry_msgs/Twist
+    Velocity command to navigate to the charging dock.
+    /cmd_vel - geometry_msgs/Twist
 -------
 Author: Addison Sears-Collins
 Website: AutomaticAddison.com
@@ -34,14 +34,7 @@ linear_velocity = 0.0
 angular_velocity = 0.15
 
 def connect_to_dock(self):  
-  
-  a=0
-  # While the battery is not charging
-  while a<20:
-    a+=1
-    # Publish the current battery state
-    Node.get_logger().info('NOT CHARGING...')
-  
+
     # Send the velocity command to the robot by publishing to the topic
     cmd_vel_msg = Twist()
     cmd_vel_msg.linear.x = linear_velocity
@@ -49,23 +42,23 @@ def connect_to_dock(self):
     publisher_cmd_vel.publish(cmd_vel_msg)      
     time.sleep(0.1)
 
-  # Stop the robot
-  cmd_vel_msg = Twist()
-  cmd_vel_msg.linear.x = 0.0
-  cmd_vel_msg.angular.z = 0.0
-  publisher_cmd_vel.publish(cmd_vel_msg)
+    # Stop the robot
+    cmd_vel_msg = Twist()
+    cmd_vel_msg.linear.x = 0.0
+    cmd_vel_msg.angular.z = 0.0
+    publisher_cmd_vel.publish(cmd_vel_msg)
 
-  Node.get_logger().info('CHARGING...')
-  Node.get_logger().info('Successfully connected to the charging dock!')
+    Node.get_logger().info('CHARGING...')
+    Node.get_logger().info('Successfully connected to the charging dock!')
 # try:
-  
-    # Create the nodes
+    
+        # Create the nodes
 # Create a publisher
 # This node publishes the desired linear and angular velocity of the robot
 publisher_cmd_vel = Node.create_publisher(Node,msg_type=Twist, topic='/cmd_vel', qos_profile=10)  
 timer_period = 0.1
 timer = create_timer(timer_period, navigate_to_dock)
-  
+    
 
 
 
@@ -104,35 +97,35 @@ i = 0
 
 # Keep doing stuff as long as the robot is moving towards the goal
 while not navigator.isNavComplete():
-  # Do something with the feedback
-  i = i + 1
-  feedback = navigator.getFeedback()
-  if feedback and i % 5 == 0:
-    print('Distance remaining: ' + '{:.2f}'.format(
-      feedback.distance_remaining) + ' meters.')
+    # Do something with the feedback
+    i = i + 1
+    feedback = navigator.getFeedback()
+    if feedback and i % 5 == 0:
+        print('Distance remaining: ' + '{:.2f}'.format(
+            feedback.distance_remaining) + ' meters.')
 
-    # Some navigation timeout to demo cancellation
-    if Duration.from_msg(feedback.navigation_time) > Duration(seconds=600.0):
-      navigator.cancelNav()
+        # Some navigation timeout to demo cancellation
+        if Duration.from_msg(feedback.navigation_time) > Duration(seconds=600.0):
+            navigator.cancelNav()
 
 # Do something depending on the return code
 result = navigator.getResult()
 if result == NavigationResult.SUCCEEDED:
-  print('Successfully reached charging dock staging area...')
-  low_battery = False
-  connect_to_dock()
+    print('Successfully reached charging dock staging area...')
+    low_battery = False
+    connect_to_dock()
 elif result == NavigationResult.CANCELED:
-  print('Goal was canceled!')
+    print('Goal was canceled!')
 elif result == NavigationResult.FAILED:
-  print('Goal failed!')
+    print('Goal failed!')
 else:
-  print('Goal has an invalid return status!')  
-    
+    print('Goal has an invalid return status!')  
+        
 
 
 
 
-    
+        
 # finally:
 #   # Shutdown
 rclpy.shutdown()
