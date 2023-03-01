@@ -16,7 +16,8 @@ def generate_launch_description():
                 'angular_scale_negative':0.968,
                 'linear_scale_positive':0.99,
                 'linear_scale_negative':0.99,
-            }]
+            }],
+            # remappings=[('/pippino/odom', '/odom')]
         )
     
     return LaunchDescription([

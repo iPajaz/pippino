@@ -5,6 +5,6 @@ source /opt/ros/$ROS_DISTRO/setup.bash
 source /pippino_ws/install/local_setup.bash
 source /services_ws/install/local_setup.bash
 source /nav2_ws/install/local_setup.bash
-#ros2 launch pippino_bringup pippino.launch.py navigation:=false
-bash
+ros2 launch pippino_bringup pippino.launch.py navigation:=false
+#bash
 

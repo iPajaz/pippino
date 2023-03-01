@@ -1,40 +1,58 @@
-camera:
-  camera:
+D455:
+  D455:
     ros__parameters:
       device_type: ''
       serial_no: ''
       usb_port_id: ''
 
-      color_fps: 5.0
-      color_height: 720
-      color_width: 1280
-      color_qos: "SENSOR_DATA"
+      # initial_reset: true
 
-      depth_fps: 15.0
-      depth_height: 720
-      depth_width: 1280
-      depth_qos: "SENSOR_DATA"
+      # color_qos: "SENSOR_DATA"
 
+      # depth_fps: 15
+      # depth_height: 720
+      # depth_width: 1280
+      depth_qos: "SYSTEM_DEFAULT"
+      color_qos: "SYSTEM_DEFAULT"
+
+      rgb_camera.profile: 1280x800x5
+      # rgb_camera.profile: 640x360x15
+      # depth_module.profile: 1280x720x5
+      depth_module.profile: 848x480x5
       # infra1_fps: 30.0
       # infra1_height: 720
       # infra1_width: 1280
       # infra1_qos: "SENSOR_DATA"
 
-      gyro_fps: 200.0
-      accel_fps: 100.0
+      gyro_fps: 200
+      accel_fps: 100
 
-      # enable_pointcloud: true
-      # filters: 'pointcloud'
+      clip_distance: 1.5
+
+      # align_depth: true
 
       enable_color: true
-      # enable_infra1: true
-      # enable_infra2: true
       enable_depth: true
-      enable_gyro: true
-      # enable_accel: true
+      enable_gyro: false
+      enable_accel: false
 
+
+      enable_infra1: false
+      enable_infra2: false
       enable_fisheye1: false
       enable_fisheye2: false
+
+      pointcloud.enable: true
+      pointcloud.stream_index_filter: 0
+      pointcloud.stream_filter: 0
+      pointcloud.allow_no_texture_points: false
+      # hdr_merge.enable: true
+      colorizer.enable: false
+      # disparity_to_depth.enable: true
+      spatial_filter.enable: false
+      spatial_filter.filter_magnitude: 5
+      # disparity_filter.enable: true
+      # temporal_filter.enable: true
 
       # pointcloud_texture_index: 0
       # pointcloud_texture_stream: RS2_STREAM_ANY

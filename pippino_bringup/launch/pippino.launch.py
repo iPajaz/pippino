@@ -86,12 +86,16 @@ def generate_launch_description():
         # micro_ros_agent_process,
         # launch.actions.TimerAction(period=2.0, actions=[pippino_odom_launch]),
         # launch.actions.TimerAction(period=3.0, actions=[rplidar_launch]),
+        
+# Typical
         micro_ros_agent_process,
         pippino_odom_launch,
         rplidar_node,
 
         launch.actions.TimerAction(period=3.0, actions=[start_description]),
         launch.actions.TimerAction(period=6.0, actions=[start_navigation]),
+
+
         # realsense_launch,
 #        pippino_description_launch
     ])

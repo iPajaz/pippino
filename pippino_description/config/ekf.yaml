@@ -44,14 +44,21 @@ ekf_filter_node:
         base_link_frame: base_link  # Defaults to "base_link" if unspecified
         world_frame: odom
 
-        odom0: pippino/odom
+        odom0: /T265/pose/sample
         odom0_config: [true,  true,  false,
                        false, false, true,
                        true,  true,  false,
                        false, false, true,
                        false, false, false]
 
-        imu0: /camera/accel/sample
+        odom1: pippino/odom
+        odom1_config: [true,  true,  false,
+                       false, false, true,
+                       true,  true,  false,
+                       false, false, true,
+                       false, false, false]
+
+        imu0: /T265/accel/sample
         imu0_config: [false, false, false,
                       false, false, false,
                       false, false, false,
@@ -64,7 +71,7 @@ ekf_filter_node:
 
         imu0_remove_gravitational_acceleration: true
 
-        imu1: /camera/gyro/sample
+        imu1: /T265/gyro/sample
         imu1_config: [false, false, false,
                       false, false, false,
                       false, false, false,

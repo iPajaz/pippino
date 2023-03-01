@@ -1,4 +1,4 @@
-FROM timongentzsch/l4t-ubuntu20-opencv
+FROM timongentzsch/l4t-ubuntu20-opencv:latest
 
 ARG DEBIAN_FRONTEND=noninteractive
 

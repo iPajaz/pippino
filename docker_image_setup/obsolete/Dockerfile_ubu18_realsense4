@@ -1,14 +1,9 @@
-ARG BASE_IMAGE
-ARG BASE_IMAGE_NOROS
-ARG L4T_VERSION
+ARG BASE_IMAGE=test/test
+
 #################################
 #   Librealsense Builder Stage  #
 #################################
-# FROM nvcr.io/nvidia/l4t-base:r$L4T_VERSION as librealsense-builder
-FROM $BASE_IMAGE_NOROS as librealsense-builder
-
-ARG L4T_VERSION
-RUN test -n "${L4T_VERSION}"
+FROM $BASE_IMAGE as librealsense-builder
 
 ARG LIBRS_VERSION
 # Make sure that we have a version number of librealsense as argument
@@ -16,7 +11,6 @@ RUN test -n "$LIBRS_VERSION"
 
 # To avoid waiting for input during package installation
 ENV DEBIAN_FRONTEND=noninteractive
-
 
 # Builder dependencies installation
 RUN apt-get update \
@@ -35,6 +29,7 @@ RUN apt-get update \
     python3 \
     python3-dev \
     ca-certificates \
+    python3-rosdep \
     && rm -rf /var/lib/apt/lists/*
 
 # Download sources
@@ -42,7 +37,6 @@ WORKDIR /usr/src
 RUN curl https://codeload.github.com/IntelRealSense/librealsense/tar.gz/refs/tags/v$LIBRS_VERSION -o librealsense.tar.gz 
 RUN tar -zxf librealsense.tar.gz \
     && rm librealsense.tar.gz 
-# COPY librealsense-$LIBRS_VERSION /usr/src/librealsense-$LIBRS_VERSION
 RUN ln -s /usr/src/librealsense-$LIBRS_VERSION /usr/src/librealsense
 
 # Build and install
@@ -54,16 +48,15 @@ RUN cd /usr/src/librealsense \
     -DCMAKE_INSTALL_PREFIX=/opt/librealsense \    
     -DBUILD_GRAPHICAL_EXAMPLES=OFF \
     -DBUILD_PYTHON_BINDINGS:bool=true \
-    -DCMAKE_BUILD_TYPE=Release ../ \
     -DBUILD_WITH_CUDA=true \
+    -DCMAKE_BUILD_TYPE=Release ../ \
     && make -j$(($(nproc)-1)) all \
     && make install 
-
 
 ######################################
 #   librealsense Base Image Stage    #
 ######################################
-FROM $BASE_IMAGE as librealsense
+FROM ${BASE_IMAGE} as librealsense
 
 
 ARG RS_WRAPPER_TAG
@@ -90,28 +83,18 @@ RUN apt-get install -y --no-install-recommends \
     flex \
     bison \
     usbutils \
-    software-properties-common \
-    libboost-all-dev
+    software-properties-common
 
-RUN mkdir -p /realsense_ws/src
-WORKDIR /realsense_ws/src 
-ARG ROS_DISTRO
+RUN mkdir -p /realsense_ws/src && cd /realsense_ws/src \
+    && git clone https://github.com/IntelRealSense/realsense-ros.git -b $RS_WRAPPER_TAG --depth 1
 
+RUN cd /realsense_ws/src \
+    && git clone https://github.com/ros/xacro.git -b ros2 --depth 1 \
+    && git clone https://github.com/ros/diagnostics.git -b galactic --depth 1
 
-ARG ROS_DISTRO
-WORKDIR /realsense_ws
-SHELL ["/bin/bash", "-c"]
-
-RUN git clone https://github.com/ros/xacro.git -b 2.0.8 --depth 1
-RUN git clone https://github.com/ros/diagnostics.git -b $ROS_DISTRO --depth 1
-RUN git clone https://github.com/ros-perception/image_common.git -b $ROS_DISTRO --depth 1
-
-RUN source /opt/ros/$ROS_DISTRO/setup.bash && colcon build
-
-RUN git clone https://github.com/IntelRealSense/realsense-ros.git -b $RS_WRAPPER_TAG --depth 1
-RUN git clone https://github.com/ros-perception/vision_opencv.git -b $ROS_DISTRO --depth 1
-
-RUN source /opt/ros/$ROS_DISTRO/setup.bash && colcon build
+RUN cd /realsense_ws \
+    && source /opt/ros/galactic/install/setup.bash \
+    && colcon build
 
 RUN echo 'source /pippino_ws/install/local_setup.bash' >> /root/.bashrc
 RUN echo 'source /realsense_ws/install/local_setup.bash' >> /root/.bashrc

@@ -1,17 +1,21 @@
 #!/bin/bash
 
+docker stop pippino_realsense
+docker rm pippino_realsense
+
 distro=galactic
 
-sudo docker run -it --rm \
+docker run -it --rm \
      -v /dev:/dev \
+     --name pippino_realsense \
      --privileged \
      --runtime nvidia \
      --device-cgroup-rule "c 81:* rmw" \
      --device-cgroup-rule "c 189:* rmw" \
      -v /home/michele/pippino_ws:/pippino_ws \
-     --net=host pippino/ros2:realsense4 bash
-     # -v /home/michele/realsense_ws:/realsense_ws \
-     # --net=host pippino/ros2:rs50-v2 bash
+     --net=host \
+     --entrypoint="/bin/bash" \
+     pippino/ros2:realsense-galactic
 
 # . /pippino_ws/install/local_setup.bash ;. /realsense_ws/install/local_setup.bash
 # ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/esp32
