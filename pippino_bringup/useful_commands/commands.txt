@@ -1,0 +1,8 @@
+ros2 topic pub --once /servo_angle std_msgs/msg/Int32 '{data: 90}'
+ros2 topic pub --once /servo_angle std_msgs/msg/Int32 '{data: 0}'
+ros2 param set /camera/camera enable_color false
+ros2 param set /D455/D455 enable_color false
+ros2 param set /D455/D455 enable_depth false
+ros2 param set  /T265/T265 enable_pose false
+ros2 service call /stop_motor std_srvs/srv/Empty
+ros2 service call /start_motor std_srvs/srv/Empty

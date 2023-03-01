@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"T2",
+				"T265_link"
+			],
+			[
 				"msg",
 				"aruco_marker_visible_msg"
 			],
@@ -88,49 +92,162 @@
 	"buffers":
 	[
 		{
-			"contents": "",
+			"file": "pippino_navigation/scripts/transform_listener.py",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 8258,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			},
 			"undo_stack":
 			[
 				[
-					2,
+					3,
 					1,
 					"insert",
 					{
-						"characters": "∏"
+						"characters": "0"
 					},
-					"AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					3,
-					1,
-					"left_delete",
-					null,
-					"AQAAAAAAAAAAAAAAAAAAAAAAAAADAAAA4oiP",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA8L8"
+					"AgAAALsEAAAAAAAAvAQAAAAAAAAAAAAAvAQAAAAAAAC8BAAAAAAAAAEAAAAz",
+					"AQAAAAAAAAABAAAAuwQAAAAAAAC8BAAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					4,
 					1,
-					"insert",
-					{
-						"characters": "∏"
-					},
-					"AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+					"left_delete",
+					null,
+					"AQAAALsEAAAAAAAAuwQAAAAAAAABAAAAMA",
+					"AQAAAAAAAAABAAAAvAQAAAAAAAC8BAAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					5,
 					1,
+					"insert",
+					{
+						"characters": "1"
+					},
+					"AQAAALsEAAAAAAAAvAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAuwQAAAAAAAC7BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": "2"
+					},
+					"AQAAALwEAAAAAAAAvQQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAvAQAAAAAAAC8BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					2,
 					"left_delete",
 					null,
-					"AQAAAAAAAAAAAAAAAAAAAAAAAAADAAAA4oiP",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA8L8"
+					"AgAAALwEAAAAAAAAvAQAAAAAAAABAAAAMrsEAAAAAAAAuwQAAAAAAAABAAAAMQ",
+					"AQAAAAAAAAABAAAAvQQAAAAAAAC9BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": "3"
+					},
+					"AQAAALsEAAAAAAAAvAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAuwQAAAAAAAC7BAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/pippino.urdf",
+			"settings":
+			{
+				"buffer_size": 12484,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": "14"
+					},
+					"BgAAAHEoAAAAAAAAcigAAAAAAAAAAAAAcigAAAAAAAByKAAAAAAAAAQAAAAwNjA1aigAAAAAAABrKAAAAAAAAAAAAABrKAAAAAAAAGsoAAAAAAAABAAAADA2MDVvKAAAAAAAAHAoAAAAAAAAAAAAAGsoAAAAAAAAbCgAAAAAAAAAAAAA",
+					"AQAAAAAAAAACAAAAaigAAAAAAABuKAAAAAAAAAAAAAAAAPC/cSgAAAAAAAB1KAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					1,
+					"left_delete",
+					null,
+					"AgAAAHAoAAAAAAAAcCgAAAAAAAABAAAANGsoAAAAAAAAaygAAAAAAAABAAAANA",
+					"AQAAAAAAAAACAAAAbCgAAAAAAABsKAAAAAAAAAAAAAAAAPC/cSgAAAAAAABxKAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": "75"
+					},
+					"BAAAAG8oAAAAAAAAcCgAAAAAAAAAAAAAaygAAAAAAABsKAAAAAAAAAAAAABxKAAAAAAAAHIoAAAAAAAAAAAAAGwoAAAAAAAAbSgAAAAAAAAAAAAA",
+					"AQAAAAAAAAACAAAAaygAAAAAAABrKAAAAAAAAAAAAAAAAPC/bygAAAAAAABvKAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					25,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAAcrAAAAAAAAOysAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7yoAAAAAAADvKgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					26,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AgAAADorAAAAAAAAPisAAAAAAAAAAAAACysAAAAAAAAQKwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAIysAAAAAAAAjKwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					28,
+					2,
+					"right_delete",
+					null,
+					"AgAAAPQqAAAAAAAA9CoAAAAAAAABAAAAMfQqAAAAAAAA9CoAAAAAAAABAAAANQ",
+					"AQAAAAAAAAABAAAA9CoAAAAAAAD0KgAAAAAAAAAAAAAAsHZA"
+				],
+				[
+					30,
+					1,
+					"left_delete",
+					null,
+					"AQAAAPAqAAAAAAAA8CoAAAAAAAABAAAALQ",
+					"AQAAAAAAAAABAAAA8SoAAAAAAADxKgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					33,
+					1,
+					"right_delete",
+					null,
+					"AQAAAPkqAAAAAAAA+SoAAAAAAAABAAAANQ",
+					"AQAAAAAAAAABAAAA+SoAAAAAAAD5KgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					34,
+					1,
+					"insert",
+					{
+						"characters": "8"
+					},
+					"AQAAAPkqAAAAAAAA+ioAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+SoAAAAAAAD5KgAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		},
@@ -138,137 +255,21 @@
 			"file": "pippino_navigation/scripts/charuco_localization.py",
 			"settings":
 			{
-				"buffer_size": 7904,
+				"buffer_size": 7924,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			},
 			"undo_stack":
 			[
 				[
-					20,
-					1,
-					"",
-					null,
-					"AQAAAD8cAAAAAAAAYxwAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA/HAAAAAAAAD8cAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					23,
-					1,
-					"left_delete",
-					null,
-					"AQAAAD4cAAAAAAAAPhwAAAAAAAABAAAAIA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA/HAAAAAAAAD8cAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					28,
+					19,
 					1,
 					"insert",
 					{
-						"characters": "camera"
+						"characters": "175"
 					},
-					"BwAAAFAcAAAAAAAAURwAAAAAAAAAAAAAURwAAAAAAABRHAAAAAAAAAYAAABvdXRwdXRRHAAAAAAAAFIcAAAAAAAAAAAAAFIcAAAAAAAAUxwAAAAAAAAAAAAAUxwAAAAAAABUHAAAAAAAAAAAAABUHAAAAAAAAFUcAAAAAAAAAAAAAFUcAAAAAAAAVhwAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABQHAAAAAAAAFYcAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					33,
-					1,
-					"left_delete",
-					null,
-					"AQAAAFkcAAAAAAAAWRwAAAAAAAABAAAANA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABaHAAAAAAAAFocAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					34,
-					1,
-					"insert",
-					{
-						"characters": "2"
-					},
-					"AQAAAFkcAAAAAAAAWhwAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABZHAAAAAAAAFkcAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					37,
-					1,
-					"left_delete",
-					null,
-					"AQAAAF4cAAAAAAAAXhwAAAAAAAABAAAAMw",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABfHAAAAAAAAF8cAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					38,
-					1,
-					"insert",
-					{
-						"characters": "1"
-					},
-					"AQAAAF4cAAAAAAAAXxwAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABeHAAAAAAAAF4cAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					45,
-					1,
-					"insert",
-					{
-						"characters": "\n"
-					},
-					"AgAAABEcAAAAAAAAEhwAAAAAAAAAAAAAEhwAAAAAAAAWHAAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAARHAAAAAAAABEcAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					47,
-					1,
-					"",
-					null,
-					"AQAAABYcAAAAAAAAQhwAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAWHAAAAAAAABYcAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					52,
-					1,
-					"insert",
-					{
-						"characters": "camera"
-					},
-					"BwAAACccAAAAAAAAKBwAAAAAAAAAAAAAKBwAAAAAAAAoHAAAAAAAAAYAAABvdXRwdXQoHAAAAAAAACkcAAAAAAAAAAAAACkcAAAAAAAAKhwAAAAAAAAAAAAAKhwAAAAAAAArHAAAAAAAAAAAAAArHAAAAAAAACwcAAAAAAAAAAAAACwcAAAAAAAALRwAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAnHAAAAAAAAC0cAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					57,
-					1,
-					"cut",
-					null,
-					"AQAAAGocAAAAAAAAahwAAAAAAAApAAAACiAgICBjdjIucmVzaXplV2luZG93KCJjYW1lcmEiLCAyMDAsIDEwMCk",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACTHAAAAAAAAGocAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					60,
-					1,
-					"paste",
-					null,
-					"AQAAAEIcAAAAAAAAaxwAAAAAAAAAAAAA",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABCHAAAAAAAAEIcAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					67,
-					1,
-					"insert",
-					{
-						"characters": "6"
-					},
-					"AgAAAGIcAAAAAAAAYxwAAAAAAAAAAAAAYxwAAAAAAABjHAAAAAAAAAEAAAAy",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABiHAAAAAAAAGMcAAAAAAAAAAAAAAAA8L8"
-				],
-				[
-					70,
-					1,
-					"insert",
-					{
-						"characters": "4"
-					},
-					"AgAAAGccAAAAAAAAaBwAAAAAAAAAAAAAaBwAAAAAAABoHAAAAAAAAAEAAAAx",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABnHAAAAAAAAGgcAAAAAAAAAAAAAAAA8L8"
+					"BAAAAB4IAAAAAAAAHwgAAAAAAAAAAAAAHwgAAAAAAAAfCAAAAAAAAAQAAAAwNjA1HwgAAAAAAAAgCAAAAAAAAAAAAAAgCAAAAAAAACEIAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAHggAAAAAAAAiCAAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		}
@@ -390,43 +391,71 @@
 	"expanded_folders":
 	[
 		"/home/michele/pippino_ws/src",
+		"/home/michele/pippino_ws/src/pippino_bringup",
+		"/home/michele/pippino_ws/src/pippino_bringup/launch",
 		"/home/michele/pippino_ws/src/pippino_navigation",
 		"/home/michele/pippino_ws/src/pippino_navigation/config",
 		"/home/michele/pippino_ws/src/pippino_navigation/launch",
 		"/home/michele/pippino_ws/src/pippino_navigation/scripts",
-		"/home/michele/remote/pippino/pippino_ws/src"
+		"/home/michele/remote/pippino/pippino_ws/src",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/odom_calib",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/config",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/launch",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/meshes",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/launch",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/src"
 	],
 	"file_history":
 	[
-		"/home/michele/pippino_ws/src/pippino_navigation/scripts/transform_listener.py",
-		"/home/michele/pippino_ws/src/pippino_navigation/scripts/charuco_localization.py",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/_usb_plug.urdf.xacro",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/pippino.urdf",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/_d455.urdf.xacro",
+		"/home/michele/Documents/realsense_calibration/save.sh",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params_bak_galactic.yaml",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/launch/odom.launch.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/pippino.launch.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/launch/description.launch.py",
 		"/home/michele/pippino_ws/src/pippino_navigation/scripts/connect_to_charging_dock_aruco.py",
+		"/home/michele/pippino_ws/src/pippino_navigation/scripts/charuco_localization.py",
+		"/home/michele/remote/pippino/pippino_ws/src/d455.yaml",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/config/ekf.yaml",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_multi_camera_launch.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_launch.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/pippino.urdf",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params_galactic.yaml",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/odom_calib/t265_position_calib.json",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_d400_and_t265_launch.py",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params.yaml",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino-realsense-entrypoint.sh",
+		"/home/michele/pippino_ws/src/pippino_description/config/ekf.yaml",
+		"/home/michele/pippino_ws/src/pippino_description/launch/description.launch.py",
+		"/home/michele/pippino_ws/src/pippino_display/rviz/point_cloud.rviz",
+		"/home/michele/pippino_ws/src/pippino_display/rviz/pippino_config.rviz",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_d455_launch.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_launch_d455.py",
+		"/home/michele/pippino_ws/src/pippino_navigation/scripts/transform_listener.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/_usb_plug.urdf.xacro",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/_d455.urdf.xacro",
 		"/home/michele/Downloads/CLCC84_PCB/CLCC84_package.PcbDoc",
 		"/home/michele/Downloads/CLCC84_PCB/gerber/CLCC84_package.RUL",
 		"/home/michele/Downloads/CLCC84_PCB/gerber/CLCC84_package.REP",
 		"/home/michele/Downloads/CLCC84_PCB/gerber/CLCC84_package.TXT",
 		"/home/michele/Downloads/CLCC84_PCB/gerber/CLCC84_package-macro.APR_LIB",
 		"/home/michele/start_pippino_environment.sh",
-		"/home/michele/pippino_ws/src/pippino_description/launch/description.launch.py",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/pippino.launch.py",
-		"/home/michele/remote/pippino/pippino_ws/src/d455.yaml",
 		"/home/michele/Downloads/analog_issd_pkg.sv",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/launch/description.launch.py",
 		"/home/michele/test.sh",
 		"/home/michele/.bashrc",
 		"/home/michele/KiCad/Projects/Pippino_board_v2/pippino_board/bug_tracker.txt",
-		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params_galactic.yaml",
-		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params.yaml",
 		"/home/michele/remote/raspi/hass-setup/hass_config/home-assistant.log",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon_realsense.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_ubu18_realsense.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu20_base",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu18_realsense",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_navigation/config/nav2_params.yaml",
-		"/home/michele/pippino_ws/src/pippino_display/rviz/point_cloud.rviz",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_realsense.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_services.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon_services.sh",
@@ -452,10 +481,8 @@
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup2/launch/pippino.launch.py",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino-services-entrypoint_interactive.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/bringup.launch.py",
-		"/home/michele/pippino_ws/src/pippino_description/config/ekf.yaml",
 		"/home/michele/pippino_ws/src/pippino_navigation/config/bt_navigate_to_pose.xml",
 		"/home/michele/pippino_ws/src/pippino_navigation/launch/navigation.launch.py",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino-realsense-entrypoint.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/d455_wrapper4.0.yaml",
 		"/home/michele/pippino_ws/src/pippino_navigation/scripts/navigate_manual.py",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/run_interactive_realsense_depth.sh",
@@ -514,28 +541,18 @@
 		"/home/michele/pippino_ws/robot_localization_debug.txt",
 		"/home/michele/pippino_ws_jetson_src/d455.yaml",
 		"/home/michele/Documents/fake_process/runner.sh",
-		"/run/user/1000/gvfs/mtp:host=motorola_motorola_one_vision_ZY326KJQ4K/Internal shared storage/Tasker/js/send_sqs_request.js",
-		"/home/michele/remote/pi/pyscript/Door_Lock.py",
-		"/home/michele/remote/pi/pyscript/Garden_Daily.py",
-		"/home/michele/Documents/send_sqs_request.js",
-		"/home/michele/Documents/amazon_aws_test/sqs_keys.json",
-		"/home/michele/Documents/amazon_aws_test/sign.py",
-		"/home/michele/Documents/amazon_aws_test/poll_queue.py",
-		"/home/michele/Documents/amazon_aws_test/subscribe.py",
-		"/home/michele/Documents/amazon_aws_test/curl_get_sqs_req.sh",
-		"/home/michele/Documents/amazon_aws_test/send_to_queue.py",
-		"/home/michele/.aws/credentials",
-		"/home/michele/pippino_docker/pippino_container_with_realsense/Dockerfile"
+		"/run/user/1000/gvfs/mtp:host=motorola_motorola_one_vision_ZY326KJQ4K/Internal shared storage/Tasker/js/send_sqs_request.js"
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 46.0
 	},
 	"find_in_files":
 	{
 		"height": 137.0,
 		"where_history":
 		[
+			"",
 			"/home/michele/pippino_ws/src",
 			"/home/michele/remote/pippino/pippino_ws/src",
 			"",
@@ -548,6 +565,100 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"0605",
+			"NavigationResult",
+			"BasicNavigator",
+			"robot_navigator",
+			"listener_callback",
+			"create_subscription",
+			"listener_callback",
+			"\" ",
+			"false",
+			"False",
+			"false",
+			"False",
+			"false",
+			"False",
+			"false",
+			"False",
+			"false",
+			"False",
+			"false",
+			"False",
+			"True",
+			"true",
+			"True",
+			"true",
+			"True",
+			"camera/depth",
+			"D455",
+			"wheelbase_m_",
+			"wheel",
+			"drivewhl_l",
+			"odom",
+			"pose",
+			"odom",
+			"T265_pose_frxame",
+			"publish",
+			"ludeLaunchDescription(\n        #     PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/rs_launch.py']),\n        #     launch_arguments=set_configurable_parameters(params1).items(),\n        # ),",
+			" //",
+			"//",
+			"T265_link",
+			"T265_base_link",
+			"T265_pose_frame",
+			"base_link",
+			"odom",
+			"odom_to_base_link_tf_publisher_node",
+			"body_link",
+			"T265_base_link",
+			"enable_pose",
+			"false",
+			"ekf",
+			"publish_odometry",
+			"odom",
+			"                           ",
+			"odom",
+			"odometry/filtered",
+			"T265_pose_frame",
+			"T265_link",
+			"0",
+			"link",
+			"choose device by type",
+			"color_optical",
+			"aruco_marker",
+			"charging_station_joint",
+			"camera",
+			"sensor_d455",
+			"camera",
+			"camera_accel_optical_frame",
+			"camera_color_frame",
+			"camera_",
+			"camera_depth_optical_frame",
+			"camera_depth",
+			"/camera",
+			"Camera",
+			"camera",
+			"/camera/",
+			"/camera",
+			"camera",
+			"/camera",
+			"camera",
+			"camera/",
+			"camera",
+			"/camera/",
+			"camera",
+			"odom",
+			"camera",
+			"config_file",
+			"camera",
+			"T265",
+			"t265",
+			"config_file_t265",
+			"rs_",
+			"config_file",
+			"config_file_d455",
+			"config_file",
+			"file1",
 			".\n",
 			"boolean",
 			"msg",
@@ -581,101 +692,7 @@
 			"linear_velocity",
 			"heading_tolerance",
 			"reached_distance_goal",
-			"distance_goal_tolerance",
-			"_self",
-			"self",
-			"yaw_goal_tolerance",
-			"get_radians_to_goal",
-			"angle_to_aruco_perpendicular",
-			"connecto",
-			">\n",
-			"charging_station_connector",
-			"cylinder",
-			"camera_color",
-			"add_plug",
-			"parent",
-			"sensor_d455",
-			"usb_plug",
-			"box",
-			"usb_plug",
-			"property",
-			"name",
-			"usb_",
-			"heading_tolerance",
-			"delta_x",
-			"publisher_cmd_vel",
-			"goal_yaw_angle",
-			"get_heading_error",
-			"heading_error",
-			"stop",
-			"connect_to_dock",
-			"get_distance_to_goal",
-			"        distance_to_goal = self.get_distance_to_goal()\n        heading_error = self.get_heading_error()\n        yaw_goal_error = self.get_radians_to_goal()\n         \n        cmd_vel_msg = Twist()\n         \n        # If we are not yet at the position goal\n        if (math.fabs(distance_to_goal) > self.distance_goal_tolerance and self.reached_distance_goal == False):\n             \n            # If the robot's heading is off, fix it\n            if (math.fabs(heading_error) > self.heading_tolerance):\n             \n                if heading_error > 0:\n                    cmd_vel_msg.angular.z = self.angular_velocity\n                else:\n                    cmd_vel_msg.angular.z = -self.angular_velocity\n            else:\n                cmd_vel_msg.linear.x = self.linear_velocity\n             \n        # Orient towards the yaw goal angle\n        elif (math.fabs(yaw_goal_error) > self.yaw_goal_tolerance):\n             \n            if yaw_goal_error > 0:\n                cmd_vel_msg.angular.z = self.angular_velocity\n            else:\n                cmd_vel_msg.angular.z = -self.angular_velocity\n             \n            self.reached_distance_goal = True\n         \n        # Goal achieved, go to the ne",
-			"        cmd_vel_msg = Twist()\n         \n        # If we are not yet at the position goal\n        if (math.fabs(distance_to_goal) > self.distance_goal_tolerance and self.reached_distance_goal == False):\n             \n            # If the robot's heading is off, fix it\n            if (math.fabs(heading_error) > self.heading_tolerance):\n             \n                if heading_error > 0:\n                    cmd_vel_msg.angular.z = self.angular_velocity\n                else:\n                    cmd_vel_msg.angular.z = -self.angular_velocity\n            else:\n                cmd_vel_msg.linear.x = self.linear_velocity\n             ",
-			"        \"\"\"\n        Go to the line that is perpendicular to the AR tag\n        \"\"\"\n        distance_to_goal = self.get_distance_to_goal()\n        heading_error = self.get_heading_error()\n        yaw_goal_error = self.get_radians_to_goal()\n         \n        cmd_vel_msg = Twist()\n         \n        # If we are not yet at the position goal\n        if (math.fabs(distance_to_goal) > self.distance_goal_tolerance and self.reached_distance_goal == False):\n             \n            # If the robot's heading is off, fix it\n            if (math.fabs(heading_error) > self.heading_tolerance):\n                self.get_logger().info(str(heading_error))\n             \n                if heading_error > 0:\n                    cmd_vel_msg.angular.z = self.angular_velocity\n                else:\n                    cmd_vel_msg.angular.z = -self.angular_velocity\n            else:\n                cmd_vel_msg.linear.x = self.linear_velocity\n             \n        # Orient towards the yaw goal angle",
-			"z",
-			"Buffer",
-			"TransformException",
-			"from",
-			"Spawn",
-			"goal_idx",
-			"get_distance_to_goal",
-			"goal_idx",
-			"Float64MultiArray",
-			"get_pose",
-			"}')\n",
-			"z",
-			"aruco_marker_side_length",
-			"tdranslation",
-			"tranform",
-			"aruco_marker_name",
-			"goal_y",
-			"get_distance_to_goal",
-			"battery_state_subscriber",
-			"current_y",
-			"get_pose",
-			"map_to_base_link_pose2d",
-			"goal_x",
-			"navigate_to_dock",
-			"connect_to_dock",
-			"navigate_to_dock",
-			"connect_to_charging_dock_navigator",
-			"x",
-			"rvecs",
-			"sendTransform",
-			"logger",
-			"base_link",
-			"true",
-			"pointcloud",
-			"true",
-			"1280x720x15",
-			"bash",
-			"joint_state_publisher_node",
-			"sleeping",
-			":}')",
-			"}",
-			"transform",
-			"x",
-			"child",
-			"back_wheel",
-			"Aluminum",
-			"back_wheel",
-			"power_probe",
-			"visual",
-			"radius",
-			"power_probe",
-			"probe",
-			"Aluminum",
-			"back_wheel",
-			"transform",
-			"aruco_marker_name",
-			"TransformBroadcaster",
-			"poweroff",
-			"current_x",
-			"get_distance_to_goal",
-			"go_to_line",
-			"pose",
-			"pose_subscriber"
+			"distance_goal_tolerance"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -700,24 +717,26 @@
 			[
 				{
 					"buffer": 0,
+					"file": "pippino_navigation/scripts/transform_listener.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 8258,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1342,
+								1342
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -729,20 +748,51 @@
 				},
 				{
 					"buffer": 1,
-					"file": "pippino_navigation/scripts/charuco_localization.py",
+					"file": "/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/pippino.urdf",
 					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7904,
+						"buffer_size": 12484,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7272,
-								7272
+								11308,
+								11308
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7245.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "pippino_navigation/scripts/charuco_localization.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7924,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2081,
+								2081
 							]
 						],
 						"settings":
@@ -752,10 +802,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2829.0,
+						"translation.y": 441.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"stack_multiselect": false,
 					"type": "text"
 				}
@@ -764,7 +814,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 32.0
 	},
 	"input":
 	{
@@ -805,7 +855,7 @@
 	"project": "pippino_ws.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 60.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -843,7 +893,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 244.0,
+	"side_bar_width": 383.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

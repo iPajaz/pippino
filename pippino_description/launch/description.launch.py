@@ -48,9 +48,9 @@ def generate_launch_description():
                     plugin='depth_image_proc::PointCloudXyzNode',
                     name='point_cloud_xyz_node',
                     remappings=[
-                                ('camera_info', '/camera/depth/camera_info'),
-                                ('image_rect', '/camera/depth/image_rect_raw'),
-                                ('points', '/camera/depth/color/points')]
+                                ('camera_info', '/D455/depth/camera_info'),
+                                ('image_rect', '/D455/depth/image_rect_raw'),
+                                ('points', '/D455/depth/color/points')]
                 ),
             ],
             output='screen',

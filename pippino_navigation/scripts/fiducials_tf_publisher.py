@@ -53,7 +53,7 @@ class ArucoNode(Node):
 
     # Declare parameters
     self.declare_parameter("aruco_dictionary_name", "DICT_5X5_50")
-    self.declare_parameter("aruco_marker_side_length", 0.175)
+    self.declare_parameter("aruco_marker_side_length", 0.035)
     self.declare_parameter("camera_calibration_parameters_filename", "/home/michele/pippino_ws/src/pippino_navigation/config/calibration_charuco_manual.yaml")
     self.declare_parameter("image_topic", "/D455/color/image_raw")
     self.declare_parameter("aruco_marker_name", "aruco_marker")
@@ -116,10 +116,10 @@ class ArucoNode(Node):
       current_frame, self.this_aruco_dictionary, parameters=self.this_aruco_parameters,
       cameraMatrix=self.mtx, distCoeff=self.dst)
     
-    aruco_marker_visible_msg.data = marker_ids is not None and 35 in marker_ids
+    aruco_marker_visible_msg.data = marker_ids is not None and 20 in marker_ids
 
     # Check that at least one ArUco marker was detected
-    if aruco_marker_visible_msg.data:
+    if marker_ids is not None:
      
       # Draw a square around detected markers in the video frame
       cv2.aruco.drawDetectedMarkers(current_frame, corners, marker_ids)
@@ -145,8 +145,11 @@ class ArucoNode(Node):
         t = TransformStamped()
         t.header.stamp = self.get_clock().now().to_msg()
         t.header.frame_id = 'D455_color_optical_frame'
-        t.child_frame_id = self.aruco_marker_name
+        t.child_frame_id = f'{self.aruco_marker_name}_{marker_id[0]}'
        
+        # # x axis must always come out of the paper
+        # if rvecs[i][0][2] < 0:
+        #   tvecs[i][0][2] *= -1
         # Store the translation (i.e. position) information
         t.transform.translation.x = tvecs[i][0][0]
         t.transform.translation.y = tvecs[i][0][1]
@@ -154,8 +157,11 @@ class ArucoNode(Node):
  
         # rvecs 0=blue, 1=red, 2=green
 
-        print(f'{list(180/3.1415*val for val in rvecs[i][0])}')
+        print(f'{list(val for val in rvecs[i][0])}')
         # Store the rotation information
+
+
+
         rotation_matrix = np.eye(4)
         rotation_matrix[0:3, 0:3] = cv2.Rodrigues(np.array(rvecs[i][0]))[0]
         r = R.from_matrix(rotation_matrix[0:3, 0:3])
