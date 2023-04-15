@@ -1,0 +1,96 @@
+ARG BASE_IMAGE=unknown/unknown
+FROM $BASE_IMAGE
+
+# To avoid waiting for input during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONPATH=$PYTHONPATH:/usr/local/lib
+
+ARG ROS_DISTRO
+RUN echo "The selected ROS distro is: $ROS_DISTRO"
+RUN test -n "$ROS_DISTRO"
+
+ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+ENV ROS_PYTHON_VERSION=3
+ENV ROS_DISTRO=$ROS_DISTRO
+
+
+RUN apt-get update && apt-get -y upgrade && apt-get install -y --no-install-recommends \    
+    build-essential \
+    python3-vcstool \
+    cmake \
+    libusb-1.0-0 \
+    udev \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    git \
+    clang-tidy \
+    flex \
+    usbutils \
+    python3-rosdep \
+    software-properties-common \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+RUN git clone git://git.code.sourceforge.net/p/geographiclib/code ~/geographiclib \
+    && cd ~/geographiclib \
+    && mkdir build \
+    && cd build \
+    && cmake .. \
+    && make \
+    && make install \
+    && rm -rf ~/geographiclib
+
+RUN mkdir /services_ws
+WORKDIR /services_ws
+
+SHELL ["/bin/bash", "-c"]
+
+RUN source /opt/ros/${ROS_DISTRO}/install/setup.bash \
+    && rosinstall_generator --deps --rosdistro humble \
+    micro_ros_setup xacro joint_state_publisher \
+    image_pipeline diagnostics angles rmw_fastrtps \
+    geographic_info common_interfaces topic_tools robot_localization \
+    --exclude $( (ros2 pkg list) ) \
+    > ros2.${ROS_DISTRO}.services.rosinstall
+
+RUN mkdir src && cat ros2.${ROS_DISTRO}.services.rosinstall && \
+    vcs import src < ros2.${ROS_DISTRO}.services.rosinstall
+
+RUN cd /services_ws/src \
+    && git clone https://github.com/micro-ROS/micro_ros_setup.git -b ${ROS_DISTRO} --depth 1 --single-branch \
+    && git clone -b ros2 https://github.com/iPajaz/rplidar_ros.git --depth 1
+    # && git clone -b $ROS_DISTRO https://github.com/ros2/rmw_fastrtps.git --depth 1 \
+    # && git clone https://github.com/ros2-gbp/xacro-release.git -b master --depth 1 \
+    # && git clone https://github.com/ros/joint_state_publisher.git -b ros2 --depth 1 \
+    # && git clone -b $ROS_DISTRO https://github.com/ros-perception/image_pipeline.git --depth 1 \
+    # && git clone -b ros2 https://github.com/cra-ros-pkg/robot_localization.git --depth 1 \
+    # && git clone -b main https://github.com/ros-tooling/topic_tools.git --depth 1 \
+    # && git clone -b ros2 https://github.com/ros/angles.git --depth 1 \
+    # && git clone -b $ROS_DISTRO https://github.com/ros2/common_interfaces.git --depth 1 \
+    # && git clone -b ros2 https://github.com/ros/diagnostics --depth 1 \
+    # && git clone -b ros2 https://github.com/ros-geographic-info/geographic_info.git --depth 1
+
+
+RUN source /opt/ros/${ROS_DISTRO}/install/setup.bash \
+    && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2
+
+RUN source /opt/ros/${ROS_DISTRO}/install/setup.bash \
+    && source install/local_setup.bash \
+    && apt-get update \
+    && ros2 run micro_ros_setup create_agent_ws.sh \
+    && ros2 run micro_ros_setup build_agent.sh
+
+# Fix for loading cv_bridge with cuda 10.2
+# https://stackoverflow.com/questions/55224016/importerror-libcublas-so-10-0-cannot-open-shared-object-file-no-such-file-or
+ENV LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+RUN echo "source /opt/ros/${ROS_DISTRO}/install/setup.bash" >> /root/.bashrc
+RUN echo 'source /services_ws/install/local_setup.bash' >> /root/.bashrc
+RUN echo 'source /pippino_ws/install/local_setup.bash' >> /root/.bashrc
+
+RUN echo "alias run='ros2 launch pippino_bringup pippino.launch.py'" >> /root/.bashrc
+
+WORKDIR /root
+
+ENTRYPOINT ["/pippino_ws/src/pippino-services-entrypoint.sh"]

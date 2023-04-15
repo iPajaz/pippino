@@ -38,7 +38,16 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(os.path.join(navigation_launch_dir, 'navigation.launch.py')),
         condition=IfCondition(navigation)
     )
-    
+    # batt_state_relay_node = Node(
+    #     package='topic_tools',
+    #     executable='relay',
+    #     name='batt_state_relay',
+    #     parameters=['battery_level', 'batt_lvl']
+    # )
+    # batt_state_relay_process = ExecuteProcess(
+    #     cmd=['ros2', 'run', 'topic_tools', 'relay', 'battery_level', 'batt_level']
+    # )
+
     rplidar_node = Node(
         package='rplidar_ros2',
         executable='rplidar_scan_publisher',
@@ -76,6 +85,12 @@ def generate_launch_description():
     #     launch_arguments = {'config_file': '\'/realsense_ws/src/d455.yaml\''}.items(),
     # )
 
+    video_stream_controller_node = Node(
+        package='video_stream_controller',
+        executable='video_stream_controller_exe',
+        name='video_stream_controller',
+    )
+
     ld = LaunchDescription([
         DeclareLaunchArgument(name='navigation', default_value='True', description='Whether run the Navigation stack'),
         DeclareLaunchArgument(name='microros', default_value='True', description='Whether run the Microros agent node'),
@@ -88,12 +103,15 @@ def generate_launch_description():
         # launch.actions.TimerAction(period=3.0, actions=[rplidar_launch]),
         
 # Typical
-        micro_ros_agent_process,
         pippino_odom_launch,
-        rplidar_node,
 
-        launch.actions.TimerAction(period=3.0, actions=[start_description]),
-        launch.actions.TimerAction(period=6.0, actions=[start_navigation]),
+        launch.actions.TimerAction(period=1.0, actions=[rplidar_node]),
+        launch.actions.TimerAction(period=6.0, actions=[micro_ros_agent_process]),
+        # launch.actions.TimerAction(period=6.0, actions=[batt_state_relay_process]),
+        launch.actions.TimerAction(period=6.0, actions=[start_description]),
+        # launch.actions.TimerAction(period=9.0, actions=[start_navigation]),
+        video_stream_controller_node,
+
 
 
         # realsense_launch,

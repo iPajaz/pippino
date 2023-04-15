@@ -31,8 +31,8 @@ D455:
 
       # align_depth: true
 
-      enable_color: true
-      enable_depth: true
+      enable_color: false
+      enable_depth: false
       enable_gyro: false
       enable_accel: false
 

@@ -19,8 +19,8 @@ using std::placeholders::_1;
 #define PI     3.14159265
 #define TWO_PI 6.28319630 
 
-#define COUNTS_PER_METER_RIGHT 11500.0
-#define COUNTS_PER_METER_LEFT 11500.0
+#define COUNTS_PER_METER_RIGHT 10850.0
+#define COUNTS_PER_METER_LEFT 10850.0
 
 class PippinoDriver : public rclcpp::Node
 {
@@ -199,10 +199,10 @@ class PippinoDriver : public rclcpp::Node
 
     PippinoDriver() : Node("pippino_driver"), wheelbase_m_(0.25), odom_msg_(std::make_shared<nav_msgs::msg::Odometry>())
     {
-      this->declare_parameter("linear_scale_positive");
-      this->declare_parameter("linear_scale_negative");
-      this->declare_parameter("angular_scale_positive");
-      this->declare_parameter("angular_scale_negative");
+      this->declare_parameter<double>("linear_scale_positive");
+      this->declare_parameter<double>("linear_scale_negative");
+      this->declare_parameter<double>("angular_scale_positive");
+      this->declare_parameter<double>("angular_scale_negative");
 
       linear_scale_positive = this->get_parameter("linear_scale_positive");
       linear_scale_negative = this->get_parameter("linear_scale_negative");

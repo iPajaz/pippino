@@ -14,7 +14,7 @@ docker run -it --rm \
      --device-cgroup-rule "c 189:* rmw" \
      -v /home/michele/pippino_ws:/pippino_ws \
      --net=host \
-     pippino/ros2:realsense-galactic
+     pippino/ros2:realsense-$distro
      # --restart always \
 
 

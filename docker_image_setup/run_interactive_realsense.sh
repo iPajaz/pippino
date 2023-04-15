@@ -15,7 +15,7 @@ docker run -it --rm \
      -v /home/michele/pippino_ws:/pippino_ws \
      --net=host \
      --entrypoint="/bin/bash" \
-     pippino/ros2:realsense-galactic
+     pippino/ros2:realsense-$distro
 
 # . /pippino_ws/install/local_setup.bash ;. /realsense_ws/install/local_setup.bash
 # ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/esp32

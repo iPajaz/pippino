@@ -262,7 +262,7 @@
   <joint name="laser_joint" type="fixed">
     <parent link="body_link"/>
     <child link="laser"/>
-    <origin xyz="-0.067 0.0 0.134" rpy="0 0 3.1"/>
+    <origin xyz="-0.067 0.0 0.134" rpy="0 0 3.142"/>  <!-- The higher the rot, the more the laser points rotate counterclockwise wrt the robot -->
   </joint>
     
 <!--    <link name="camera_link">
@@ -350,7 +350,7 @@
     
  -->
 
-
+<!-- 
 
   <link name="aruco_marker">
     <visual>
@@ -383,7 +383,6 @@
     <parent link="aruco_marker"/>
     <child link="charging_station"/>
     <origin rpy="0 0 0" xyz="0.0 -0.008 -0.04"/>
-    <!-- <origin rpy="0 0 0" xyz="-0.015 -0.005 -0.02"/> -->
   </joint>
 
   <link name="charging_station_connector">
@@ -437,5 +436,5 @@
     <child link="charging_position_rough"/>
     <origin xyz="-0.1 0 0" rpy="0 0 0"/>
   </joint>
-
+ -->
 </robot>
