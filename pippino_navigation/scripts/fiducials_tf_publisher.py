@@ -53,7 +53,7 @@ class ArucoNode(Node):
 
     # Declare parameters
     self.declare_parameter("aruco_dictionary_name", "DICT_5X5_50")
-    self.declare_parameter("aruco_marker_side_length", 0.035)
+    self.declare_parameter("aruco_marker_side_length", 0.07)
     self.declare_parameter("camera_calibration_parameters_filename", "/home/michele/pippino_ws/src/pippino_navigation/config/calibration_charuco_manual.yaml")
     self.declare_parameter("image_topic", "/D455/color/image_raw")
     self.declare_parameter("aruco_marker_name", "aruco_marker")

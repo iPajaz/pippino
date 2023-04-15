@@ -53,9 +53,12 @@ class ArucoNode(Node):
 
     # Declare parameters
     self.declare_parameter("aruco_dictionary_name", "DICT_5X5_50")
-    self.declare_parameter("aruco_marker_side_length", 0.175)
-    self.declare_parameter("camera_calibration_parameters_filename", "/home/michele/pippino_ws/src/pippino_navigation/config/calibration_charuco_manual.yaml")
-    self.declare_parameter("image_topic", "/D455/color/image_raw")
+    self.declare_parameter("aruco_marker_side_length", 0.07)
+    # self.declare_parameter("camera_calibration_parameters_filename", "/home/michele/pippino_ws/src/pippino_navigation/config/calibration_D455_1280x800.yaml")
+    # self.declare_parameter("camera_calibration_parameters_filename", "/home/michele/pippino_ws/src/pippino_navigation/config/calibration_D455_640x360.yaml")
+    self.declare_parameter("camera_calibration_parameters_filename", "/home/michele/pippino_ws/src/pippino_navigation/config/calibration_T265_fisheye1.yaml")
+    # self.declare_parameter("image_topic", "/D455/color/image_raw")
+    self.declare_parameter("image_topic", "/T265/fisheye1/image_raw")
     self.declare_parameter("aruco_marker_name", "aruco_marker")
      
     # Read parameters
@@ -63,7 +66,7 @@ class ArucoNode(Node):
     self.aruco_marker_side_length = self.get_parameter("aruco_marker_side_length").get_parameter_value().double_value
     self.camera_calibration_parameters_filename = self.get_parameter(
       "camera_calibration_parameters_filename").get_parameter_value().string_value
-    image_topic = self.get_parameter("image_topic").get_parameter_value().string_value
+    self.image_topic = self.get_parameter("image_topic").get_parameter_value().string_value
     self.aruco_marker_name = self.get_parameter("aruco_marker_name").get_parameter_value().string_value
  
     # Check that we have a valid ArUco marker
@@ -88,7 +91,7 @@ class ArucoNode(Node):
     # from the video_frames topic. The queue size is 10 messages.
     self.subscription = self.create_subscription(
       Image, 
-      image_topic, 
+      self.image_topic, 
       self.listener_callback, 
       10)
     self.subscription # prevent unused variable warning
@@ -110,16 +113,22 @@ class ArucoNode(Node):
 
     # Convert ROS Image message to OpenCV image
     current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding="bgr8")
-     
-    # Detect ArUco markers in the video frame
-    (corners, marker_ids, rejected) = cv2.aruco.detectMarkers(
-      current_frame, self.this_aruco_dictionary, parameters=self.this_aruco_parameters,
-      cameraMatrix=self.mtx, distCoeff=self.dst)
-    
-    aruco_marker_visible_msg.data = marker_ids is not None and 35 in marker_ids
+
+    if "T265" in self.image_topic:
+      current_frame = cv2.fisheye.undistortImage(current_frame, self.mtx, self.dst, Knew=self.mtx, new_size=(1000, 1000))
+      # Detect ArUco markers in the video frame
+      (corners, marker_ids, rejected) = cv2.aruco.detectMarkers(
+        current_frame, self.this_aruco_dictionary, parameters=self.this_aruco_parameters,
+        cameraMatrix=np.eye(3), distCoeff=np.zeros(4))
+    else:
+      # Detect ArUco markers in the video frame
+      (corners, marker_ids, rejected) = cv2.aruco.detectMarkers(
+        current_frame, self.this_aruco_dictionary, parameters=self.this_aruco_parameters,
+        cameraMatrix=self.mtx, distCoeff=self.dst)
+    aruco_marker_visible_msg.data = True
 
     # Check that at least one ArUco marker was detected
-    if aruco_marker_visible_msg.data:
+    if aruco_marker_visible_msg.data and marker_ids is not None:
      
       # Draw a square around detected markers in the video frame
       cv2.aruco.drawDetectedMarkers(current_frame, corners, marker_ids)
@@ -139,6 +148,7 @@ class ArucoNode(Node):
       # x-axis points to the right
       # y-axis points straight down towards your toes
       # z-axis points straight ahead away from your eye, out of the camera
+      print()
       for i, marker_id in enumerate(marker_ids):  
  
         # Create the coordinate transform
@@ -155,6 +165,7 @@ class ArucoNode(Node):
         # rvecs 0=blue, 1=red, 2=green
 
         print(f'{list(180/3.1415*val for val in rvecs[i][0])}')
+        print(f'{list(val for val in tvecs[i][0])}')
         # Store the rotation information
         rotation_matrix = np.eye(4)
         rotation_matrix[0:3, 0:3] = cv2.Rodrigues(np.array(rvecs[i][0]))[0]

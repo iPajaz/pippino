@@ -1,0 +1,1561 @@
+Device info: 
+    Name                          : 	Intel RealSense D455
+    Serial Number                 : 	117122250638
+    Firmware Version              : 	05.13.00.50
+    Recommended Firmware Version  : 	05.13.00.50
+    Physical Port                 : 	/sys/devices/70090000.xusb/usb2/2-1/2-1.3/2-1.3.1/2-1.3.1:1.0/video4linux/video0
+    Debug Op Code                 : 	15
+    Advanced Mode                 : 	YES
+    Product Id                    : 	0B5C
+    Camera Locked                 : 	YES
+    Usb Type Descriptor           : 	3.2
+    Product Line                  : 	D400
+    Asic Serial Number            : 	114123060251
+    Firmware Update Id            : 	114123060251
+
+Stream Profiles supported by Stereo Module
+ Supported modes:
+    stream       resolution      fps       format   
+    Infrared	  1280x720	@ 30Hz	   UYVY
+    Infrared	  1280x720	@ 30Hz	   BGRA8
+    Infrared	  1280x720	@ 30Hz	   RGBA8
+    Infrared	  1280x720	@ 30Hz	   BGR8
+    Infrared	  1280x720	@ 30Hz	   RGB8
+    Infrared	  1280x720	@ 15Hz	   UYVY
+    Infrared	  1280x720	@ 15Hz	   BGRA8
+    Infrared	  1280x720	@ 15Hz	   RGBA8
+    Infrared	  1280x720	@ 15Hz	   BGR8
+    Infrared	  1280x720	@ 15Hz	   RGB8
+    Infrared	  1280x720	@ 5Hz	   UYVY
+    Infrared	  1280x720	@ 5Hz	   BGRA8
+    Infrared	  1280x720	@ 5Hz	   RGBA8
+    Infrared	  1280x720	@ 5Hz	   BGR8
+    Infrared	  1280x720	@ 5Hz	   RGB8
+    Infrared	  848x480	@ 90Hz	   UYVY
+    Infrared	  848x480	@ 90Hz	   BGRA8
+    Infrared	  848x480	@ 90Hz	   RGBA8
+    Infrared	  848x480	@ 90Hz	   BGR8
+    Infrared	  848x480	@ 90Hz	   RGB8
+    Infrared	  848x480	@ 60Hz	   UYVY
+    Infrared	  848x480	@ 60Hz	   BGRA8
+    Infrared	  848x480	@ 60Hz	   RGBA8
+    Infrared	  848x480	@ 60Hz	   BGR8
+    Infrared	  848x480	@ 60Hz	   RGB8
+    Infrared	  848x480	@ 30Hz	   UYVY
+    Infrared	  848x480	@ 30Hz	   BGRA8
+    Infrared	  848x480	@ 30Hz	   RGBA8
+    Infrared	  848x480	@ 30Hz	   BGR8
+    Infrared	  848x480	@ 30Hz	   RGB8
+    Infrared	  848x480	@ 15Hz	   UYVY
+    Infrared	  848x480	@ 15Hz	   BGRA8
+    Infrared	  848x480	@ 15Hz	   RGBA8
+    Infrared	  848x480	@ 15Hz	   BGR8
+    Infrared	  848x480	@ 15Hz	   RGB8
+    Infrared	  848x480	@ 5Hz	   UYVY
+    Infrared	  848x480	@ 5Hz	   BGRA8
+    Infrared	  848x480	@ 5Hz	   RGBA8
+    Infrared	  848x480	@ 5Hz	   BGR8
+    Infrared	  848x480	@ 5Hz	   RGB8
+    Infrared	  848x100	@ 100Hz	   UYVY
+    Infrared	  848x100	@ 100Hz	   BGRA8
+    Infrared	  848x100	@ 100Hz	   RGBA8
+    Infrared	  848x100	@ 100Hz	   BGR8
+    Infrared	  848x100	@ 100Hz	   RGB8
+    Infrared	  640x480	@ 90Hz	   UYVY
+    Infrared	  640x480	@ 90Hz	   BGRA8
+    Infrared	  640x480	@ 90Hz	   RGBA8
+    Infrared	  640x480	@ 90Hz	   BGR8
+    Infrared	  640x480	@ 90Hz	   RGB8
+    Infrared	  640x480	@ 60Hz	   UYVY
+    Infrared	  640x480	@ 60Hz	   BGRA8
+    Infrared	  640x480	@ 60Hz	   RGBA8
+    Infrared	  640x480	@ 60Hz	   BGR8
+    Infrared	  640x480	@ 60Hz	   RGB8
+    Infrared	  640x480	@ 30Hz	   UYVY
+    Infrared	  640x480	@ 30Hz	   BGRA8
+    Infrared	  640x480	@ 30Hz	   RGBA8
+    Infrared	  640x480	@ 30Hz	   BGR8
+    Infrared	  640x480	@ 30Hz	   RGB8
+    Infrared	  640x480	@ 15Hz	   UYVY
+    Infrared	  640x480	@ 15Hz	   BGRA8
+    Infrared	  640x480	@ 15Hz	   RGBA8
+    Infrared	  640x480	@ 15Hz	   BGR8
+    Infrared	  640x480	@ 15Hz	   RGB8
+    Infrared	  640x480	@ 5Hz	   UYVY
+    Infrared	  640x480	@ 5Hz	   BGRA8
+    Infrared	  640x480	@ 5Hz	   RGBA8
+    Infrared	  640x480	@ 5Hz	   BGR8
+    Infrared	  640x480	@ 5Hz	   RGB8
+    Infrared	  640x360	@ 90Hz	   UYVY
+    Infrared	  640x360	@ 90Hz	   BGRA8
+    Infrared	  640x360	@ 90Hz	   RGBA8
+    Infrared	  640x360	@ 90Hz	   BGR8
+    Infrared	  640x360	@ 90Hz	   RGB8
+    Infrared	  640x360	@ 60Hz	   UYVY
+    Infrared	  640x360	@ 60Hz	   BGRA8
+    Infrared	  640x360	@ 60Hz	   RGBA8
+    Infrared	  640x360	@ 60Hz	   BGR8
+    Infrared	  640x360	@ 60Hz	   RGB8
+    Infrared	  640x360	@ 30Hz	   UYVY
+    Infrared	  640x360	@ 30Hz	   BGRA8
+    Infrared	  640x360	@ 30Hz	   RGBA8
+    Infrared	  640x360	@ 30Hz	   BGR8
+    Infrared	  640x360	@ 30Hz	   RGB8
+    Infrared	  640x360	@ 15Hz	   UYVY
+    Infrared	  640x360	@ 15Hz	   BGRA8
+    Infrared	  640x360	@ 15Hz	   RGBA8
+    Infrared	  640x360	@ 15Hz	   BGR8
+    Infrared	  640x360	@ 15Hz	   RGB8
+    Infrared	  640x360	@ 5Hz	   UYVY
+    Infrared	  640x360	@ 5Hz	   BGRA8
+    Infrared	  640x360	@ 5Hz	   RGBA8
+    Infrared	  640x360	@ 5Hz	   BGR8
+    Infrared	  640x360	@ 5Hz	   RGB8
+    Infrared	  480x270	@ 90Hz	   UYVY
+    Infrared	  480x270	@ 90Hz	   BGRA8
+    Infrared	  480x270	@ 90Hz	   RGBA8
+    Infrared	  480x270	@ 90Hz	   BGR8
+    Infrared	  480x270	@ 90Hz	   RGB8
+    Infrared	  480x270	@ 60Hz	   UYVY
+    Infrared	  480x270	@ 60Hz	   BGRA8
+    Infrared	  480x270	@ 60Hz	   RGBA8
+    Infrared	  480x270	@ 60Hz	   BGR8
+    Infrared	  480x270	@ 60Hz	   RGB8
+    Infrared	  480x270	@ 30Hz	   UYVY
+    Infrared	  480x270	@ 30Hz	   BGRA8
+    Infrared	  480x270	@ 30Hz	   RGBA8
+    Infrared	  480x270	@ 30Hz	   BGR8
+    Infrared	  480x270	@ 30Hz	   RGB8
+    Infrared	  480x270	@ 15Hz	   UYVY
+    Infrared	  480x270	@ 15Hz	   BGRA8
+    Infrared	  480x270	@ 15Hz	   RGBA8
+    Infrared	  480x270	@ 15Hz	   BGR8
+    Infrared	  480x270	@ 15Hz	   RGB8
+    Infrared	  480x270	@ 5Hz	   UYVY
+    Infrared	  480x270	@ 5Hz	   BGRA8
+    Infrared	  480x270	@ 5Hz	   RGBA8
+    Infrared	  480x270	@ 5Hz	   BGR8
+    Infrared	  480x270	@ 5Hz	   RGB8
+    Infrared	  424x240	@ 90Hz	   UYVY
+    Infrared	  424x240	@ 90Hz	   BGRA8
+    Infrared	  424x240	@ 90Hz	   RGBA8
+    Infrared	  424x240	@ 90Hz	   BGR8
+    Infrared	  424x240	@ 90Hz	   RGB8
+    Infrared	  424x240	@ 60Hz	   UYVY
+    Infrared	  424x240	@ 60Hz	   BGRA8
+    Infrared	  424x240	@ 60Hz	   RGBA8
+    Infrared	  424x240	@ 60Hz	   BGR8
+    Infrared	  424x240	@ 60Hz	   RGB8
+    Infrared	  424x240	@ 30Hz	   UYVY
+    Infrared	  424x240	@ 30Hz	   BGRA8
+    Infrared	  424x240	@ 30Hz	   RGBA8
+    Infrared	  424x240	@ 30Hz	   BGR8
+    Infrared	  424x240	@ 30Hz	   RGB8
+    Infrared	  424x240	@ 15Hz	   UYVY
+    Infrared	  424x240	@ 15Hz	   BGRA8
+    Infrared	  424x240	@ 15Hz	   RGBA8
+    Infrared	  424x240	@ 15Hz	   BGR8
+    Infrared	  424x240	@ 15Hz	   RGB8
+    Infrared	  424x240	@ 5Hz	   UYVY
+    Infrared	  424x240	@ 5Hz	   BGRA8
+    Infrared	  424x240	@ 5Hz	   RGBA8
+    Infrared	  424x240	@ 5Hz	   BGR8
+    Infrared	  424x240	@ 5Hz	   RGB8
+    Infrared 1	  1280x800	@ 30Hz	   Y8
+    Infrared 1	  1280x800	@ 25Hz	   Y16
+    Infrared 1	  1280x800	@ 15Hz	   Y16
+    Infrared 1	  1280x800	@ 15Hz	   Y8
+    Infrared 1	  1280x720	@ 30Hz	   Y8
+    Infrared 1	  1280x720	@ 15Hz	   Y8
+    Infrared 1	  1280x720	@ 5Hz	   Y8
+    Infrared 1	  848x480	@ 90Hz	   Y8
+    Infrared 1	  848x480	@ 60Hz	   Y8
+    Infrared 1	  848x480	@ 30Hz	   Y8
+    Infrared 1	  848x480	@ 15Hz	   Y8
+    Infrared 1	  848x480	@ 5Hz	   Y8
+    Infrared 1	  848x100	@ 100Hz	   Y8
+    Infrared 1	  640x480	@ 90Hz	   Y8
+    Infrared 1	  640x480	@ 60Hz	   Y8
+    Infrared 1	  640x480	@ 30Hz	   Y8
+    Infrared 1	  640x480	@ 15Hz	   Y8
+    Infrared 1	  640x480	@ 5Hz	   Y8
+    Infrared 1	  640x400	@ 25Hz	   Y16
+    Infrared 1	  640x400	@ 15Hz	   Y16
+    Infrared 1	  640x360	@ 90Hz	   Y8
+    Infrared 1	  640x360	@ 60Hz	   Y8
+    Infrared 1	  640x360	@ 30Hz	   Y8
+    Infrared 1	  640x360	@ 15Hz	   Y8
+    Infrared 1	  640x360	@ 5Hz	   Y8
+    Infrared 1	  480x270	@ 90Hz	   Y8
+    Infrared 1	  480x270	@ 60Hz	   Y8
+    Infrared 1	  480x270	@ 30Hz	   Y8
+    Infrared 1	  480x270	@ 15Hz	   Y8
+    Infrared 1	  480x270	@ 5Hz	   Y8
+    Infrared 1	  424x240	@ 90Hz	   Y8
+    Infrared 1	  424x240	@ 60Hz	   Y8
+    Infrared 1	  424x240	@ 30Hz	   Y8
+    Infrared 1	  424x240	@ 15Hz	   Y8
+    Infrared 1	  424x240	@ 5Hz	   Y8
+    Infrared 2	  1280x800	@ 30Hz	   Y8
+    Infrared 2	  1280x800	@ 25Hz	   Y16
+    Infrared 2	  1280x800	@ 15Hz	   Y16
+    Infrared 2	  1280x800	@ 15Hz	   Y8
+    Infrared 2	  1280x720	@ 30Hz	   Y8
+    Infrared 2	  1280x720	@ 15Hz	   Y8
+    Infrared 2	  1280x720	@ 5Hz	   Y8
+    Infrared 2	  848x480	@ 90Hz	   Y8
+    Infrared 2	  848x480	@ 60Hz	   Y8
+    Infrared 2	  848x480	@ 30Hz	   Y8
+    Infrared 2	  848x480	@ 15Hz	   Y8
+    Infrared 2	  848x480	@ 5Hz	   Y8
+    Infrared 2	  848x100	@ 100Hz	   Y8
+    Infrared 2	  640x480	@ 90Hz	   Y8
+    Infrared 2	  640x480	@ 60Hz	   Y8
+    Infrared 2	  640x480	@ 30Hz	   Y8
+    Infrared 2	  640x480	@ 15Hz	   Y8
+    Infrared 2	  640x480	@ 5Hz	   Y8
+    Infrared 2	  640x400	@ 25Hz	   Y16
+    Infrared 2	  640x400	@ 15Hz	   Y16
+    Infrared 2	  640x360	@ 90Hz	   Y8
+    Infrared 2	  640x360	@ 60Hz	   Y8
+    Infrared 2	  640x360	@ 30Hz	   Y8
+    Infrared 2	  640x360	@ 15Hz	   Y8
+    Infrared 2	  640x360	@ 5Hz	   Y8
+    Infrared 2	  480x270	@ 90Hz	   Y8
+    Infrared 2	  480x270	@ 60Hz	   Y8
+    Infrared 2	  480x270	@ 30Hz	   Y8
+    Infrared 2	  480x270	@ 15Hz	   Y8
+    Infrared 2	  480x270	@ 5Hz	   Y8
+    Infrared 2	  424x240	@ 90Hz	   Y8
+    Infrared 2	  424x240	@ 60Hz	   Y8
+    Infrared 2	  424x240	@ 30Hz	   Y8
+    Infrared 2	  424x240	@ 15Hz	   Y8
+    Infrared 2	  424x240	@ 5Hz	   Y8
+    Depth	  1280x720	@ 30Hz	   Z16
+    Depth	  1280x720	@ 15Hz	   Z16
+    Depth	  1280x720	@ 5Hz	   Z16
+    Depth	  848x480	@ 90Hz	   Z16
+    Depth	  848x480	@ 60Hz	   Z16
+    Depth	  848x480	@ 30Hz	   Z16
+    Depth	  848x480	@ 15Hz	   Z16
+    Depth	  848x480	@ 5Hz	   Z16
+    Depth	  848x100	@ 100Hz	   Z16
+    Depth	  640x480	@ 90Hz	   Z16
+    Depth	  640x480	@ 60Hz	   Z16
+    Depth	  640x480	@ 30Hz	   Z16
+    Depth	  640x480	@ 15Hz	   Z16
+    Depth	  640x480	@ 5Hz	   Z16
+    Depth	  640x360	@ 90Hz	   Z16
+    Depth	  640x360	@ 60Hz	   Z16
+    Depth	  640x360	@ 30Hz	   Z16
+    Depth	  640x360	@ 15Hz	   Z16
+    Depth	  640x360	@ 5Hz	   Z16
+    Depth	  480x270	@ 90Hz	   Z16
+    Depth	  480x270	@ 60Hz	   Z16
+    Depth	  480x270	@ 30Hz	   Z16
+    Depth	  480x270	@ 15Hz	   Z16
+    Depth	  480x270	@ 5Hz	   Z16
+    Depth	  424x240	@ 90Hz	   Z16
+    Depth	  424x240	@ 60Hz	   Z16
+    Depth	  424x240	@ 30Hz	   Z16
+    Depth	  424x240	@ 15Hz	   Z16
+    Depth	  424x240	@ 5Hz	   Z16
+    Depth	  256x144	@ 90Hz	   Z16
+
+Stream Profiles supported by RGB Camera
+ Supported modes:
+    stream       resolution      fps       format   
+    Color	  1280x800	@ 30Hz	   RGB8
+    Color	  1280x800	@ 30Hz	   RAW16
+    Color	  1280x800	@ 30Hz	   Y16
+    Color	  1280x800	@ 30Hz	   BGRA8
+    Color	  1280x800	@ 30Hz	   RGBA8
+    Color	  1280x800	@ 30Hz	   BGR8
+    Color	  1280x800	@ 30Hz	   YUYV
+    Color	  1280x800	@ 15Hz	   RGB8
+    Color	  1280x800	@ 15Hz	   Y16
+    Color	  1280x800	@ 15Hz	   BGRA8
+    Color	  1280x800	@ 15Hz	   RGBA8
+    Color	  1280x800	@ 15Hz	   BGR8
+    Color	  1280x800	@ 15Hz	   YUYV
+    Color	  1280x800	@ 10Hz	   RGB8
+    Color	  1280x800	@ 10Hz	   Y16
+    Color	  1280x800	@ 10Hz	   BGRA8
+    Color	  1280x800	@ 10Hz	   RGBA8
+    Color	  1280x800	@ 10Hz	   BGR8
+    Color	  1280x800	@ 10Hz	   YUYV
+    Color	  1280x800	@ 5Hz	   RGB8
+    Color	  1280x800	@ 5Hz	   Y16
+    Color	  1280x800	@ 5Hz	   BGRA8
+    Color	  1280x800	@ 5Hz	   RGBA8
+    Color	  1280x800	@ 5Hz	   BGR8
+    Color	  1280x800	@ 5Hz	   YUYV
+    Color	  1280x720	@ 30Hz	   RGB8
+    Color	  1280x720	@ 30Hz	   Y16
+    Color	  1280x720	@ 30Hz	   BGRA8
+    Color	  1280x720	@ 30Hz	   RGBA8
+    Color	  1280x720	@ 30Hz	   BGR8
+    Color	  1280x720	@ 30Hz	   YUYV
+    Color	  1280x720	@ 15Hz	   RGB8
+    Color	  1280x720	@ 15Hz	   Y16
+    Color	  1280x720	@ 15Hz	   BGRA8
+    Color	  1280x720	@ 15Hz	   RGBA8
+    Color	  1280x720	@ 15Hz	   BGR8
+    Color	  1280x720	@ 15Hz	   YUYV
+    Color	  1280x720	@ 10Hz	   RGB8
+    Color	  1280x720	@ 10Hz	   Y16
+    Color	  1280x720	@ 10Hz	   BGRA8
+    Color	  1280x720	@ 10Hz	   RGBA8
+    Color	  1280x720	@ 10Hz	   BGR8
+    Color	  1280x720	@ 10Hz	   YUYV
+    Color	  1280x720	@ 5Hz	   RGB8
+    Color	  1280x720	@ 5Hz	   Y16
+    Color	  1280x720	@ 5Hz	   BGRA8
+    Color	  1280x720	@ 5Hz	   RGBA8
+    Color	  1280x720	@ 5Hz	   BGR8
+    Color	  1280x720	@ 5Hz	   YUYV
+    Color	  848x480	@ 60Hz	   RGB8
+    Color	  848x480	@ 60Hz	   Y16
+    Color	  848x480	@ 60Hz	   BGRA8
+    Color	  848x480	@ 60Hz	   RGBA8
+    Color	  848x480	@ 60Hz	   BGR8
+    Color	  848x480	@ 60Hz	   YUYV
+    Color	  848x480	@ 30Hz	   RGB8
+    Color	  848x480	@ 30Hz	   Y16
+    Color	  848x480	@ 30Hz	   BGRA8
+    Color	  848x480	@ 30Hz	   RGBA8
+    Color	  848x480	@ 30Hz	   BGR8
+    Color	  848x480	@ 30Hz	   YUYV
+    Color	  848x480	@ 15Hz	   RGB8
+    Color	  848x480	@ 15Hz	   Y16
+    Color	  848x480	@ 15Hz	   BGRA8
+    Color	  848x480	@ 15Hz	   RGBA8
+    Color	  848x480	@ 15Hz	   BGR8
+    Color	  848x480	@ 15Hz	   YUYV
+    Color	  848x480	@ 5Hz	   RGB8
+    Color	  848x480	@ 5Hz	   Y16
+    Color	  848x480	@ 5Hz	   BGRA8
+    Color	  848x480	@ 5Hz	   RGBA8
+    Color	  848x480	@ 5Hz	   BGR8
+    Color	  848x480	@ 5Hz	   YUYV
+    Color	  640x480	@ 60Hz	   RGB8
+    Color	  640x480	@ 60Hz	   Y16
+    Color	  640x480	@ 60Hz	   BGRA8
+    Color	  640x480	@ 60Hz	   RGBA8
+    Color	  640x480	@ 60Hz	   BGR8
+    Color	  640x480	@ 60Hz	   YUYV
+    Color	  640x480	@ 30Hz	   RGB8
+    Color	  640x480	@ 30Hz	   Y16
+    Color	  640x480	@ 30Hz	   BGRA8
+    Color	  640x480	@ 30Hz	   RGBA8
+    Color	  640x480	@ 30Hz	   BGR8
+    Color	  640x480	@ 30Hz	   YUYV
+    Color	  640x480	@ 15Hz	   RGB8
+    Color	  640x480	@ 15Hz	   Y16
+    Color	  640x480	@ 15Hz	   BGRA8
+    Color	  640x480	@ 15Hz	   RGBA8
+    Color	  640x480	@ 15Hz	   BGR8
+    Color	  640x480	@ 15Hz	   YUYV
+    Color	  640x480	@ 5Hz	   RGB8
+    Color	  640x480	@ 5Hz	   Y16
+    Color	  640x480	@ 5Hz	   BGRA8
+    Color	  640x480	@ 5Hz	   RGBA8
+    Color	  640x480	@ 5Hz	   BGR8
+    Color	  640x480	@ 5Hz	   YUYV
+    Color	  640x360	@ 90Hz	   RGB8
+    Color	  640x360	@ 90Hz	   Y16
+    Color	  640x360	@ 90Hz	   BGRA8
+    Color	  640x360	@ 90Hz	   RGBA8
+    Color	  640x360	@ 90Hz	   BGR8
+    Color	  640x360	@ 90Hz	   YUYV
+    Color	  640x360	@ 60Hz	   RGB8
+    Color	  640x360	@ 60Hz	   Y16
+    Color	  640x360	@ 60Hz	   BGRA8
+    Color	  640x360	@ 60Hz	   RGBA8
+    Color	  640x360	@ 60Hz	   BGR8
+    Color	  640x360	@ 60Hz	   YUYV
+    Color	  640x360	@ 30Hz	   RGB8
+    Color	  640x360	@ 30Hz	   Y16
+    Color	  640x360	@ 30Hz	   BGRA8
+    Color	  640x360	@ 30Hz	   RGBA8
+    Color	  640x360	@ 30Hz	   BGR8
+    Color	  640x360	@ 30Hz	   YUYV
+    Color	  640x360	@ 15Hz	   RGB8
+    Color	  640x360	@ 15Hz	   Y16
+    Color	  640x360	@ 15Hz	   BGRA8
+    Color	  640x360	@ 15Hz	   RGBA8
+    Color	  640x360	@ 15Hz	   BGR8
+    Color	  640x360	@ 15Hz	   YUYV
+    Color	  640x360	@ 5Hz	   RGB8
+    Color	  640x360	@ 5Hz	   Y16
+    Color	  640x360	@ 5Hz	   BGRA8
+    Color	  640x360	@ 5Hz	   RGBA8
+    Color	  640x360	@ 5Hz	   BGR8
+    Color	  640x360	@ 5Hz	   YUYV
+    Color	  480x270	@ 90Hz	   RGB8
+    Color	  480x270	@ 90Hz	   Y16
+    Color	  480x270	@ 90Hz	   BGRA8
+    Color	  480x270	@ 90Hz	   RGBA8
+    Color	  480x270	@ 90Hz	   BGR8
+    Color	  480x270	@ 90Hz	   YUYV
+    Color	  480x270	@ 60Hz	   RGB8
+    Color	  480x270	@ 60Hz	   Y16
+    Color	  480x270	@ 60Hz	   BGRA8
+    Color	  480x270	@ 60Hz	   RGBA8
+    Color	  480x270	@ 60Hz	   BGR8
+    Color	  480x270	@ 60Hz	   YUYV
+    Color	  480x270	@ 30Hz	   RGB8
+    Color	  480x270	@ 30Hz	   Y16
+    Color	  480x270	@ 30Hz	   BGRA8
+    Color	  480x270	@ 30Hz	   RGBA8
+    Color	  480x270	@ 30Hz	   BGR8
+    Color	  480x270	@ 30Hz	   YUYV
+    Color	  480x270	@ 15Hz	   RGB8
+    Color	  480x270	@ 15Hz	   Y16
+    Color	  480x270	@ 15Hz	   BGRA8
+    Color	  480x270	@ 15Hz	   RGBA8
+    Color	  480x270	@ 15Hz	   BGR8
+    Color	  480x270	@ 15Hz	   YUYV
+    Color	  480x270	@ 5Hz	   RGB8
+    Color	  480x270	@ 5Hz	   Y16
+    Color	  480x270	@ 5Hz	   BGRA8
+    Color	  480x270	@ 5Hz	   RGBA8
+    Color	  480x270	@ 5Hz	   BGR8
+    Color	  480x270	@ 5Hz	   YUYV
+    Color	  424x240	@ 90Hz	   RGB8
+    Color	  424x240	@ 90Hz	   Y16
+    Color	  424x240	@ 90Hz	   BGRA8
+    Color	  424x240	@ 90Hz	   RGBA8
+    Color	  424x240	@ 90Hz	   BGR8
+    Color	  424x240	@ 90Hz	   YUYV
+    Color	  424x240	@ 60Hz	   RGB8
+    Color	  424x240	@ 60Hz	   Y16
+    Color	  424x240	@ 60Hz	   BGRA8
+    Color	  424x240	@ 60Hz	   RGBA8
+    Color	  424x240	@ 60Hz	   BGR8
+    Color	  424x240	@ 60Hz	   YUYV
+    Color	  424x240	@ 30Hz	   RGB8
+    Color	  424x240	@ 30Hz	   Y16
+    Color	  424x240	@ 30Hz	   BGRA8
+    Color	  424x240	@ 30Hz	   RGBA8
+    Color	  424x240	@ 30Hz	   BGR8
+    Color	  424x240	@ 30Hz	   YUYV
+    Color	  424x240	@ 15Hz	   RGB8
+    Color	  424x240	@ 15Hz	   Y16
+    Color	  424x240	@ 15Hz	   BGRA8
+    Color	  424x240	@ 15Hz	   RGBA8
+    Color	  424x240	@ 15Hz	   BGR8
+    Color	  424x240	@ 15Hz	   YUYV
+    Color	  424x240	@ 5Hz	   RGB8
+    Color	  424x240	@ 5Hz	   Y16
+    Color	  424x240	@ 5Hz	   BGRA8
+    Color	  424x240	@ 5Hz	   RGBA8
+    Color	  424x240	@ 5Hz	   BGR8
+    Color	  424x240	@ 5Hz	   YUYV
+
+Stream Profiles supported by Motion Module
+ Supported modes:
+    stream       resolution      fps       format   
+    Accel	 N/A		@ 200Hz	   MOTION_XYZ32F
+    Accel	 N/A		@ 100Hz	   MOTION_XYZ32F
+    Gyro	 N/A		@ 400Hz	   MOTION_XYZ32F
+    Gyro	 N/A		@ 200Hz	   MOTION_XYZ32F
+
+Intrinsic Parameters:
+
+ Intrinsic of "Depth" / 256x144 / {Z16}
+  Width:      	256
+  Height:     	144
+  PPX:        	137.493774414062
+  PPY:        	59.1513061523438
+  Fx:         	648.37255859375
+  Fy:         	648.37255859375
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	22.33 x 12.67
+
+ Intrinsic of "Depth" / 424x240 / {Z16}
+  Width:      	424
+  Height:     	240
+  PPX:        	215.144805908203
+  PPY:        	115.743873596191
+  Fx:         	214.773406982422
+  Fy:         	214.773406982422
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.38
+
+ Intrinsic of "Depth" / 480x270 / {Z16}
+  Width:      	480
+  Height:     	270
+  PPX:        	243.560165405273
+  PPY:        	130.181732177734
+  Fx:         	243.139709472656
+  Fy:         	243.139709472656
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.07
+
+ Intrinsic of "Depth" / 640x360 / {Z16}
+  Width:      	640
+  Height:     	360
+  PPX:        	324.746887207031
+  PPY:        	173.575653076172
+  Fx:         	324.186279296875
+  Fy:         	324.186279296875
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.07
+
+ Intrinsic of "Depth" / 640x480 / {Z16}
+  Width:      	640
+  Height:     	480
+  PPX:        	325.696258544922
+  PPY:        	232.290786743164
+  Fx:         	389.023529052734
+  Fy:         	389.023529052734
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	78.87 x 63.33
+
+ Intrinsic of "Depth" / 848x100 / {Z16}
+  Width:      	848
+  Height:     	100
+  PPX:        	430.289611816406
+  PPY:        	41.4877471923828
+  Fx:         	429.546813964844
+  Fy:         	429.546813964844
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 13.27
+
+ Intrinsic of "Depth" / 848x480 / {Z16}
+  Width:      	848
+  Height:     	480
+  PPX:        	430.289611816406
+  PPY:        	231.487747192383
+  Fx:         	429.546813964844
+  Fy:         	429.546813964844
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.37
+
+ Intrinsic of "Depth" / 1280x720 / {Z16}
+  Width:      	1280
+  Height:     	720
+  PPX:        	649.493774414062
+  PPY:        	347.151306152344
+  Fx:         	648.37255859375
+  Fy:         	648.37255859375
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.07
+
+ Intrinsic of "Color" / 424x240 / {YUYV/RGB8/BGR8/RGBA8/BGRA8/Y16}
+  Width:      	424
+  Height:     	240
+  PPX:        	212.334426879883
+  PPY:        	122.554618835449
+  Fx:         	210.716079711914
+  Fy:         	210.479064941406
+  Distortion: 	Inverse Brown Conrady
+  Coeffs:     	-0.0586583726108074  	0.0697567984461784  	-2.99359435302904e-05  	-0.000911401526536793  	-0.0225986875593662  
+  FOV (deg):  	90.35 x 59.37
+
+ Intrinsic of "Color" / 480x270 / {YUYV/RGB8/BGR8/RGBA8/BGRA8/Y16}
+  Width:      	480
+  Height:     	270
+  PPX:        	240.378601074219
+  PPY:        	137.892028808594
+  Fx:         	238.546493530273
+  Fy:         	238.278182983398
+  Distortion: 	Inverse Brown Conrady
+  Coeffs:     	-0.0586583726108074  	0.0697567984461784  	-2.99359435302904e-05  	-0.000911401526536793  	-0.0225986875593662  
+  FOV (deg):  	90.35 x 59.06
+
+ Intrinsic of "Color" / 640x360 / {YUYV/RGB8/BGR8/RGBA8/BGRA8/Y16}
+  Width:      	640
+  Height:     	360
+  PPX:        	320.504791259766
+  PPY:        	183.856033325195
+  Fx:         	318.06201171875
+  Fy:         	317.704254150391
+  Distortion: 	Inverse Brown Conrady
+  Coeffs:     	-0.0586583726108074  	0.0697567984461784  	-2.99359435302904e-05  	-0.000911401526536793  	-0.0225986875593662  
+  FOV (deg):  	90.35 x 59.06
+
+ Intrinsic of "Color" / 640x480 / {YUYV/RGB8/BGR8/RGBA8/BGRA8/Y16}
+  Width:      	640
+  Height:     	480
+  PPX:        	320.605773925781
+  PPY:        	244.627243041992
+  Fx:         	381.674438476562
+  Fy:         	381.245056152344
+  Distortion: 	Inverse Brown Conrady
+  Coeffs:     	-0.0586583726108074  	0.0697567984461784  	-2.99359435302904e-05  	-0.000911401526536793  	-0.0225986875593662  
+  FOV (deg):  	79.95 x 64.38
+
+ Intrinsic of "Color" / 848x480 / {YUYV/RGB8/BGR8/RGBA8/BGRA8/Y16}
+  Width:      	848
+  Height:     	480
+  PPX:        	424.668853759766
+  PPY:        	245.109237670898
+  Fx:         	421.432159423828
+  Fy:         	420.958129882812
+  Distortion: 	Inverse Brown Conrady
+  Coeffs:     	-0.0586583726108074  	0.0697567984461784  	-2.99359435302904e-05  	-0.000911401526536793  	-0.0225986875593662  
+  FOV (deg):  	90.35 x 59.37
+
+ Intrinsic of "Color" / 1280x720 / {YUYV/RGB8/BGR8/RGBA8/BGRA8/Y16}
+  Width:      	1280
+  Height:     	720
+  PPX:        	641.009582519531
+  PPY:        	367.712066650391
+  Fx:         	636.1240234375
+  Fy:         	635.408508300781
+  Distortion: 	Inverse Brown Conrady
+  Coeffs:     	-0.0586583726108074  	0.0697567984461784  	-2.99359435302904e-05  	-0.000911401526536793  	-0.0225986875593662  
+  FOV (deg):  	90.35 x 59.06
+
+ Intrinsic of "Color" / 1280x800 / {YUYV/RGB8/BGR8/RGBA8/BGRA8/Y16/RAW16}
+  Width:      	1280
+  Height:     	800
+  PPX:        	641.009582519531
+  PPY:        	407.712066650391
+  Fx:         	636.1240234375
+  Fy:         	635.408447265625
+  Distortion: 	Inverse Brown Conrady
+  Coeffs:     	-0.0586583726108074  	0.0697567984461784  	-2.99359435302904e-05  	-0.000911401526536793  	-0.0225986875593662  
+  FOV (deg):  	90.35 x 64.38
+
+ Intrinsic of "Infrared" / 424x240 / {RGB8/BGR8/RGBA8/BGRA8/UYVY}
+  Width:      	424
+  Height:     	240
+  PPX:        	215.144805908203
+  PPY:        	115.743873596191
+  Fx:         	214.773406982422
+  Fy:         	214.773406982422
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.38
+
+ Intrinsic of "Infrared" / 480x270 / {RGB8/BGR8/RGBA8/BGRA8/UYVY}
+  Width:      	480
+  Height:     	270
+  PPX:        	243.560165405273
+  PPY:        	130.181732177734
+  Fx:         	243.139709472656
+  Fy:         	243.139709472656
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.07
+
+ Intrinsic of "Infrared" / 640x360 / {RGB8/BGR8/RGBA8/BGRA8/UYVY}
+  Width:      	640
+  Height:     	360
+  PPX:        	324.746887207031
+  PPY:        	173.575653076172
+  Fx:         	324.186279296875
+  Fy:         	324.186279296875
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.07
+
+ Intrinsic of "Infrared" / 640x480 / {RGB8/BGR8/RGBA8/BGRA8/UYVY}
+  Width:      	640
+  Height:     	480
+  PPX:        	325.696258544922
+  PPY:        	232.290786743164
+  Fx:         	389.023529052734
+  Fy:         	389.023529052734
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	78.87 x 63.33
+
+ Intrinsic of "Infrared" / 848x100 / {RGB8/BGR8/RGBA8/BGRA8/UYVY}
+  Width:      	848
+  Height:     	100
+  PPX:        	430.289611816406
+  PPY:        	41.4877471923828
+  Fx:         	429.546813964844
+  Fy:         	429.546813964844
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 13.27
+
+ Intrinsic of "Infrared" / 848x480 / {RGB8/BGR8/RGBA8/BGRA8/UYVY}
+  Width:      	848
+  Height:     	480
+  PPX:        	430.289611816406
+  PPY:        	231.487747192383
+  Fx:         	429.546813964844
+  Fy:         	429.546813964844
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.37
+
+ Intrinsic of "Infrared" / 1280x720 / {RGB8/BGR8/RGBA8/BGRA8/UYVY}
+  Width:      	1280
+  Height:     	720
+  PPX:        	649.493774414062
+  PPY:        	347.151306152344
+  Fx:         	648.37255859375
+  Fy:         	648.37255859375
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.07
+
+ Intrinsic of "Infrared 1" / 424x240 / {Y8}
+  Width:      	424
+  Height:     	240
+  PPX:        	215.144805908203
+  PPY:        	115.743873596191
+  Fx:         	214.773406982422
+  Fy:         	214.773406982422
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.38
+
+ Intrinsic of "Infrared 1" / 480x270 / {Y8}
+  Width:      	480
+  Height:     	270
+  PPX:        	243.560165405273
+  PPY:        	130.181732177734
+  Fx:         	243.139709472656
+  Fy:         	243.139709472656
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.07
+
+ Intrinsic of "Infrared 1" / 640x360 / {Y8}
+  Width:      	640
+  Height:     	360
+  PPX:        	324.746887207031
+  PPY:        	173.575653076172
+  Fx:         	324.186279296875
+  Fy:         	324.186279296875
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.07
+
+ Intrinsic of "Infrared 1" / 640x480 / {Y8}
+  Width:      	640
+  Height:     	480
+  PPX:        	325.696258544922
+  PPY:        	232.290786743164
+  Fx:         	389.023529052734
+  Fy:         	389.023529052734
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	78.87 x 63.33
+
+ Intrinsic of "Infrared 1" / 848x100 / {Y8}
+  Width:      	848
+  Height:     	100
+  PPX:        	430.289611816406
+  PPY:        	41.4877471923828
+  Fx:         	429.546813964844
+  Fy:         	429.546813964844
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 13.27
+
+ Intrinsic of "Infrared 1" / 848x480 / {Y8}
+  Width:      	848
+  Height:     	480
+  PPX:        	430.289611816406
+  PPY:        	231.487747192383
+  Fx:         	429.546813964844
+  Fy:         	429.546813964844
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.37
+
+ Intrinsic of "Infrared 1" / 1280x720 / {Y8}
+  Width:      	1280
+  Height:     	720
+  PPX:        	649.493774414062
+  PPY:        	347.151306152344
+  Fx:         	648.37255859375
+  Fy:         	648.37255859375
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.07
+
+ Intrinsic of "Infrared 1" / 1280x800 / {Y8}
+  Width:      	1280
+  Height:     	800
+  PPX:        	649.493774414062
+  PPY:        	387.151306152344
+  Fx:         	648.37255859375
+  Fy:         	648.37255859375
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 63.33
+
+ Intrinsic of "Infrared 2" / 424x240 / {Y8}
+  Width:      	424
+  Height:     	240
+  PPX:        	215.144805908203
+  PPY:        	115.743873596191
+  Fx:         	214.773406982422
+  Fy:         	214.773406982422
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.38
+
+ Intrinsic of "Infrared 2" / 480x270 / {Y8}
+  Width:      	480
+  Height:     	270
+  PPX:        	243.560165405273
+  PPY:        	130.181732177734
+  Fx:         	243.139709472656
+  Fy:         	243.139709472656
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.07
+
+ Intrinsic of "Infrared 2" / 640x360 / {Y8}
+  Width:      	640
+  Height:     	360
+  PPX:        	324.746887207031
+  PPY:        	173.575653076172
+  Fx:         	324.186279296875
+  Fy:         	324.186279296875
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.07
+
+ Intrinsic of "Infrared 2" / 640x480 / {Y8}
+  Width:      	640
+  Height:     	480
+  PPX:        	325.696258544922
+  PPY:        	232.290786743164
+  Fx:         	389.023529052734
+  Fy:         	389.023529052734
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	78.87 x 63.33
+
+ Intrinsic of "Infrared 2" / 848x100 / {Y8}
+  Width:      	848
+  Height:     	100
+  PPX:        	430.289611816406
+  PPY:        	41.4877471923828
+  Fx:         	429.546813964844
+  Fy:         	429.546813964844
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 13.27
+
+ Intrinsic of "Infrared 2" / 848x480 / {Y8}
+  Width:      	848
+  Height:     	480
+  PPX:        	430.289611816406
+  PPY:        	231.487747192383
+  Fx:         	429.546813964844
+  Fy:         	429.546813964844
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.37
+
+ Intrinsic of "Infrared 2" / 1280x720 / {Y8}
+  Width:      	1280
+  Height:     	720
+  PPX:        	649.493774414062
+  PPY:        	347.151306152344
+  Fx:         	648.37255859375
+  Fy:         	648.37255859375
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 58.07
+
+ Intrinsic of "Infrared 2" / 1280x800 / {Y8}
+  Width:      	1280
+  Height:     	800
+  PPX:        	649.493774414062
+  PPY:        	387.151306152344
+  Fx:         	648.37255859375
+  Fy:         	648.37255859375
+  Distortion: 	Brown Conrady
+  Coeffs:     	0  	0  	0  	0  	0  
+  FOV (deg):  	89.25 x 63.33
+
+Motion Intrinsic Parameters:
+
+Motion Intrinsic of "Gyro"	  MOTION_XYZ32F
+Bias Variances: 	0.000000000000000  0.000000000000000  0.000000000000000  
+Noise Variances: 	0.000000000000000  0.000000000000000  0.000000000000000  
+Sensitivity : 
+     1.000000       0.000000       0.000000      -0.000011  
+     0.000000       1.000000       0.000000      -0.000029  
+     0.000000       0.000000       1.000000      -0.000011  
+
+
+Motion Intrinsic of "Accel"	  MOTION_XYZ32F
+Bias Variances: 	0.000000000000000  0.000000000000000  0.000000000000000  
+Noise Variances: 	0.000000000000000  0.000000000000000  0.000000000000000  
+Sensitivity : 
+     1.004814      -0.007748      -0.004979      -0.101308  
+     0.010527       1.007711      -0.007197       0.046708  
+     0.010743       0.023454       1.003654      -0.099668  
+
+
+
+Extrinsic Parameters:
+Extrinsic from "Depth"	  To	  "Depth" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Depth"	  To	  "Color" :
+ Rotation Matrix:
+   0.999995         0.00112          0.00295981    
+  -0.00113441       0.999987         0.00487269    
+  -0.00295432      -0.00487602       0.999984      
+
+ Translation Vector: -0.0591068677604198  0.00031639018561691  0.000499798043165356  
+
+Extrinsic from "Depth"	  To	  "Infrared" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Depth"	  To	  "Infrared 1" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Depth"	  To	  "Infrared 2" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: -0.0950350016355515  0  0  
+
+Extrinsic from "Depth"	  To	  "Gyro" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: -0.0302200000733137  0.00740000000223517  0.0160199999809265  
+
+Extrinsic from "Depth"	  To	  "Accel" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: -0.0302200000733137  0.00740000000223517  0.0160199999809265  
+
+Extrinsic from "Color"	  To	  "Depth" :
+ Rotation Matrix:
+   0.999995        -0.00113441      -0.00295432    
+   0.00112          0.999987        -0.00487602    
+   0.00295981       0.00487269       0.999984      
+
+ Translation Vector: 0.0591084025800228  -0.00024774979101494  -0.000326386449160054  
+
+Extrinsic from "Color"	  To	  "Color" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Color"	  To	  "Infrared" :
+ Rotation Matrix:
+   0.999995        -0.00113441      -0.00295432    
+   0.00112          0.999987        -0.00487602    
+   0.00295981       0.00487269       0.999984      
+
+ Translation Vector: 0.0591084025800228  -0.00024774979101494  -0.000326386449160054  
+
+Extrinsic from "Color"	  To	  "Infrared 1" :
+ Rotation Matrix:
+   0.999995        -0.00113441      -0.00295432    
+   0.00112          0.999987        -0.00487602    
+   0.00295981       0.00487269       0.999984      
+
+ Translation Vector: 0.0591084025800228  -0.00024774979101494  -0.000326386449160054  
+
+Extrinsic from "Color"	  To	  "Infrared 2" :
+ Rotation Matrix:
+   0.999995        -0.00113441      -0.00295432    
+   0.00112          0.999987        -0.00487602    
+   0.00295981       0.00487269       0.999984      
+
+ Translation Vector: -0.0359265990555286  -0.00024774979101494  -0.000326386449160054  
+
+Extrinsic from "Color"	  To	  "Gyro" :
+ Rotation Matrix:
+   0.999995        -0.00113441      -0.00295432    
+   0.00112          0.999987        -0.00487602    
+   0.00295981       0.00487269       0.999984      
+
+ Translation Vector: 0.0288884025067091  0.00715225003659725  0.0156936142593622  
+
+Extrinsic from "Color"	  To	  "Accel" :
+ Rotation Matrix:
+   0.999995        -0.00113441      -0.00295432    
+   0.00112          0.999987        -0.00487602    
+   0.00295981       0.00487269       0.999984      
+
+ Translation Vector: 0.0288884025067091  0.00715225003659725  0.0156936142593622  
+
+Extrinsic from "Infrared"	  To	  "Depth" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Infrared"	  To	  "Color" :
+ Rotation Matrix:
+   0.999995         0.00112          0.00295981    
+  -0.00113441       0.999987         0.00487269    
+  -0.00295432      -0.00487602       0.999984      
+
+ Translation Vector: -0.0591068677604198  0.00031639018561691  0.000499798043165356  
+
+Extrinsic from "Infrared"	  To	  "Infrared" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Infrared"	  To	  "Infrared 1" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Infrared"	  To	  "Infrared 2" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: -0.0950350016355515  0  0  
+
+Extrinsic from "Infrared"	  To	  "Gyro" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: -0.0302200000733137  0.00740000000223517  0.0160199999809265  
+
+Extrinsic from "Infrared"	  To	  "Accel" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: -0.0302200000733137  0.00740000000223517  0.0160199999809265  
+
+Extrinsic from "Infrared 1"	  To	  "Depth" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Infrared 1"	  To	  "Color" :
+ Rotation Matrix:
+   0.999995         0.00112          0.00295981    
+  -0.00113441       0.999987         0.00487269    
+  -0.00295432      -0.00487602       0.999984      
+
+ Translation Vector: -0.0591068677604198  0.00031639018561691  0.000499798043165356  
+
+Extrinsic from "Infrared 1"	  To	  "Infrared" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Infrared 1"	  To	  "Infrared 1" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Infrared 1"	  To	  "Infrared 2" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: -0.0950350016355515  0  0  
+
+Extrinsic from "Infrared 1"	  To	  "Gyro" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: -0.0302200000733137  0.00740000000223517  0.0160199999809265  
+
+Extrinsic from "Infrared 1"	  To	  "Accel" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: -0.0302200000733137  0.00740000000223517  0.0160199999809265  
+
+Extrinsic from "Infrared 2"	  To	  "Depth" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0.0950350016355515  0  0  
+
+Extrinsic from "Infrared 2"	  To	  "Color" :
+ Rotation Matrix:
+   0.999995         0.00112          0.00295981    
+  -0.00113441       0.999987         0.00487269    
+  -0.00295432      -0.00487602       0.999984      
+
+ Translation Vector: 0.0359276570379734  0.000208581594051793  0.000219034584006295  
+
+Extrinsic from "Infrared 2"	  To	  "Infrared" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0.0950350016355515  0  0  
+
+Extrinsic from "Infrared 2"	  To	  "Infrared 1" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0.0950350016355515  0  0  
+
+Extrinsic from "Infrared 2"	  To	  "Infrared 2" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Infrared 2"	  To	  "Gyro" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0.0648149996995926  0.00740000000223517  0.0160199999809265  
+
+Extrinsic from "Infrared 2"	  To	  "Accel" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0.0648149996995926  0.00740000000223517  0.0160199999809265  
+
+Extrinsic from "Gyro"	  To	  "Depth" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0.0302200000733137  -0.00740000000223517  -0.0160199999809265  
+
+Extrinsic from "Gyro"	  To	  "Color" :
+ Rotation Matrix:
+   0.999995         0.00112          0.00295981    
+  -0.00113441       0.999987         0.00487269    
+  -0.00295432      -0.00487602       0.999984      
+
+ Translation Vector: -0.0289427228271961  -0.00719585921615362  -0.01557313837111  
+
+Extrinsic from "Gyro"	  To	  "Infrared" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0.0302200000733137  -0.00740000000223517  -0.0160199999809265  
+
+Extrinsic from "Gyro"	  To	  "Infrared 1" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0.0302200000733137  -0.00740000000223517  -0.0160199999809265  
+
+Extrinsic from "Gyro"	  To	  "Infrared 2" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: -0.0648149996995926  -0.00740000000223517  -0.0160199999809265  
+
+Extrinsic from "Gyro"	  To	  "Gyro" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Gyro"	  To	  "Accel" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Accel"	  To	  "Depth" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0.0302200000733137  -0.00740000000223517  -0.0160199999809265  
+
+Extrinsic from "Accel"	  To	  "Color" :
+ Rotation Matrix:
+   0.999995         0.00112          0.00295981    
+  -0.00113441       0.999987         0.00487269    
+  -0.00295432      -0.00487602       0.999984      
+
+ Translation Vector: -0.0289427228271961  -0.00719585921615362  -0.01557313837111  
+
+Extrinsic from "Accel"	  To	  "Infrared" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0.0302200000733137  -0.00740000000223517  -0.0160199999809265  
+
+Extrinsic from "Accel"	  To	  "Infrared 1" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0.0302200000733137  -0.00740000000223517  -0.0160199999809265  
+
+Extrinsic from "Accel"	  To	  "Infrared 2" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: -0.0648149996995926  -0.00740000000223517  -0.0160199999809265  
+
+Extrinsic from "Accel"	  To	  "Gyro" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Accel"	  To	  "Accel" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Device info: 
+    Name                          : 	Intel RealSense T265
+    Serial Number                 : 	224622112036
+    Firmware Version              : 	0.2.0.951
+    Physical Port                 : 	2-1.3.2-7
+    Product Id                    : 	0B37
+    Usb Type Descriptor           : 	3.1
+    Product Line                  : 	T200
+
+Stream Profiles supported by Tracking Module
+ Supported modes:
+    stream       resolution      fps       format   
+    Fisheye 1	  848x800	@ 30Hz	   Y8
+    Fisheye 2	  848x800	@ 30Hz	   Y8
+    Gyro	 N/A		@ 200Hz	   MOTION_XYZ32F
+    Accel	 N/A		@ 62Hz	   MOTION_XYZ32F
+    Pose	 N/A		@ 200Hz	   6DOF
+
+Intrinsic Parameters:
+
+ Intrinsic of "Fisheye 1" / 848x800 / {Y8}
+  Width:      	848
+  Height:     	800
+  PPX:        	427.016204833984
+  PPY:        	389.666412353516
+  Fx:         	286.844207763672
+  Fy:         	286.76708984375
+  Distortion: 	Kannala Brandt4
+  Coeffs:     	-0.016013290733099  	0.057983260601759  	-0.0539293698966503  	0.0113047696650028  	0  
+  FOV (deg):  	111.8 x 108.7
+
+ Intrinsic of "Fisheye 2" / 848x800 / {Y8}
+  Width:      	848
+  Height:     	800
+  PPX:        	428.499298095703
+  PPY:        	397.422912597656
+  Fx:         	286.919586181641
+  Fy:         	286.880615234375
+  Distortion: 	Kannala Brandt4
+  Coeffs:     	-0.0118756899610162  	0.0474727489054203  	-0.0440096594393253  	0.00799669325351715  	0  
+  FOV (deg):  	111.8 x 108.7
+
+Motion Intrinsic Parameters:
+
+Motion Intrinsic of "Gyro"	  MOTION_XYZ32F
+Bias Variances: 	0.000000499999999  0.000000499999999  0.000000499999999  
+Noise Variances: 	0.000005148030141  0.000005148030141  0.000005148030141  
+Sensitivity : 
+     1.006354       0.000000       0.000000       0.002895  
+     0.000000       1.006877       0.000000       0.001221  
+     0.000000       0.000000       0.997094      -0.000222  
+
+
+Motion Intrinsic of "Accel"	  MOTION_XYZ32F
+Bias Variances: 	0.000099999997474  0.000099999997474  0.000099999997474  
+Noise Variances: 	0.000066952452471  0.000066952452471  0.000066952452471  
+Sensitivity : 
+     1.022012       0.000000       0.000000       0.101367  
+     0.000000       1.035255       0.000000      -0.221720  
+     0.000000       0.000000       1.011119      -0.083486  
+
+
+
+Extrinsic Parameters:
+Extrinsic from "Fisheye 1"	  To	  "Fisheye 1" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Fisheye 1"	  To	  "Fisheye 2" :
+ Rotation Matrix:
+   0.999997        -0.0019724       -0.00156868    
+   0.00196455       0.999986        -0.0049892     
+   0.0015785        0.0049861        0.999986      
+
+ Translation Vector: -0.0634802803397179  -0.000252555299084634  5.9317477280274e-05  
+
+Extrinsic from "Fisheye 1"	  To	  "Gyro" :
+ Rotation Matrix:
+  -0.999962        -0.00495704       0.00719929    
+   0.00499428      -0.999974         0.00516307    
+   0.00717351       0.00519883       0.999961      
+
+ Translation Vector: 0.0106995906680822  -5.34387727384456e-05  -7.67565143178217e-05  
+
+Extrinsic from "Fisheye 1"	  To	  "Accel" :
+ Rotation Matrix:
+  -0.999962        -0.00495704       0.00719929    
+   0.00499428      -0.999974         0.00516307    
+   0.00717351       0.00519883       0.999961      
+
+ Translation Vector: 0.0106995906680822  -5.34387727384456e-05  -7.67565143178217e-05  
+
+Extrinsic from "Fisheye 1"	  To	  "Pose" :
+ Rotation Matrix:
+   0.999962         0.00495704      -0.00719929    
+   0.00499428      -0.999974         0.00516307    
+  -0.00717351      -0.00519883      -0.999961      
+
+ Translation Vector: -0.0317399203777313  -9.45840874919668e-05  0.000147943763295189  
+
+Extrinsic from "Fisheye 2"	  To	  "Fisheye 1" :
+ Rotation Matrix:
+   0.999997         0.00196455       0.0015785     
+  -0.0019724        0.999986         0.0049861     
+  -0.00156868      -0.0049892        0.999986      
+
+ Translation Vector: 0.063480481505394  0.000127047358546406  -0.000160156865604222  
+
+Extrinsic from "Fisheye 2"	  To	  "Fisheye 2" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Fisheye 2"	  To	  "Gyro" :
+ Rotation Matrix:
+  -0.99996         -0.00695737       0.00559603    
+   0.00695851      -0.999976         0.000184915   
+   0.00559461       0.000223848      0.999984      
+
+ Translation Vector: -0.0527802482247353  0.00013572939496953  0.000219131004996598  
+
+Extrinsic from "Fisheye 2"	  To	  "Accel" :
+ Rotation Matrix:
+  -0.99996         -0.00695737       0.00559603    
+   0.00695851      -0.999976         0.000184915   
+   0.00559461       0.000223848      0.999984      
+
+ Translation Vector: -0.0527802482247353  0.00013572939496953  0.000219131004996598  
+
+Extrinsic from "Fisheye 2"	  To	  "Pose" :
+ Rotation Matrix:
+   0.99996          0.00695737      -0.00559603    
+   0.00695851      -0.999976         0.000184915   
+  -0.00559461      -0.000223848     -0.999984      
+
+ Translation Vector: 0.0317399203777313  9.45840802160092e-05  -0.000147943763295189  
+
+Extrinsic from "Gyro"	  To	  "Fisheye 1" :
+ Rotation Matrix:
+  -0.999962         0.00499428       0.00717351    
+  -0.00495704      -0.999974         0.00519883    
+   0.00719929       0.00516307       0.999961      
+
+ Translation Vector: 0.0107000004500151  -7.27595761418343e-12  7.27595761418343e-12  
+
+Extrinsic from "Gyro"	  To	  "Fisheye 2" :
+ Rotation Matrix:
+  -0.99996          0.00695851       0.00559461    
+  -0.00695737      -0.999976         0.000223848   
+   0.00559603       0.000184915      0.999984      
+
+ Translation Vector: -0.0527803152799606  -0.000231534620979801  7.62073977966793e-05  
+
+Extrinsic from "Gyro"	  To	  "Gyro" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Gyro"	  To	  "Accel" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: -0  -0  -0  
+
+Extrinsic from "Gyro"	  To	  "Pose" :
+ Rotation Matrix:
+  -1  -0  -0
+   0   1   0
+  -0  -0  -1
+
+ Translation Vector: -0.0210403297096491  -4.11453147535212e-05  7.11872489773668e-05  
+
+Extrinsic from "Accel"	  To	  "Fisheye 1" :
+ Rotation Matrix:
+  -0.999962         0.00499428       0.00717351    
+  -0.00495704      -0.999974         0.00519883    
+   0.00719929       0.00516307       0.999961      
+
+ Translation Vector: 0.0107000004500151  -7.27595761418343e-12  7.27595761418343e-12  
+
+Extrinsic from "Accel"	  To	  "Fisheye 2" :
+ Rotation Matrix:
+  -0.99996          0.00695851       0.00559461    
+  -0.00695737      -0.999976         0.000223848   
+   0.00559603       0.000184915      0.999984      
+
+ Translation Vector: -0.0527803152799606  -0.000231534620979801  7.62073977966793e-05  
+
+Extrinsic from "Accel"	  To	  "Gyro" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Accel"	  To	  "Accel" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+
+Extrinsic from "Accel"	  To	  "Pose" :
+ Rotation Matrix:
+  -1  -0  -0
+   0   1   0
+  -0  -0  -1
+
+ Translation Vector: -0.0210403297096491  -4.11453147535212e-05  7.11872489773668e-05  
+
+Extrinsic from "Pose"	  To	  "Fisheye 1" :
+ Rotation Matrix:
+   0.999962         0.00499428      -0.00717351    
+   0.00495704      -0.999974        -0.00519883    
+  -0.00719929       0.00516307      -0.999961      
+
+ Translation Vector: 0.031740240752697  6.35236719972454e-05  -8.00784328021109e-05  
+
+Extrinsic from "Pose"	  To	  "Fisheye 2" :
+ Rotation Matrix:
+   0.99996          0.00695851      -0.00559461    
+   0.00695737      -0.999976        -0.000223848   
+  -0.00559603       0.000184915     -0.999984      
+
+ Translation Vector: -0.0317401401698589  -0.000126277664094232  2.9658738640137e-05  
+
+Extrinsic from "Pose"	  To	  "Gyro" :
+ Rotation Matrix:
+  -1   0  -0
+  -0   1  -0
+  -0   0  -1
+
+ Translation Vector: -0.0210403297096491  4.11453147535212e-05  7.11872489773668e-05  
+
+Extrinsic from "Pose"	  To	  "Accel" :
+ Rotation Matrix:
+  -1   0  -0
+  -0   1  -0
+  -0   0  -1
+
+ Translation Vector: -0.0210403297096491  4.11453147535212e-05  7.11872489773668e-05  
+
+Extrinsic from "Pose"	  To	  "Pose" :
+ Rotation Matrix:
+   1   0   0
+   0   1   0
+   0   0   1
+
+ Translation Vector: 0  0  0  
+

@@ -96,10 +96,10 @@ class ArucoFrameListener(Node):
 
         # print(t.header.stamp, rclpy.time.Time())
 
-        self.delta_y = t.transform.translation.y# - 0.0027
+        self.delta_y = t.transform.translation.y  # - 0.0027
         #y vertical, z distance
         # delta_y = t.transform.translation.y
-        self.delta_x = t.transform.translation.x# - 0.07 - 0.14
+        self.delta_x = t.transform.translation.x  # - 0.07 - 0.14
         # print(t.transform.rotation)
         _,_,self.yaw_to_position = quat2euler([t.transform.rotation.w, t.transform.rotation.x, t.transform.rotation.y, t.transform.rotation.z], axes='syxz')
         # a,b,c = quat2euler([t.transform.rotation.w, t.transform.rotation.x, t.transform.rotation.y, t.transform.rotation.z], axes='syxz')

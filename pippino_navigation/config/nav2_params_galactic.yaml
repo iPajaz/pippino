@@ -13,7 +13,11 @@ amcl:
     do_beamskip: False
     global_frame_id: "map"
     lambda_short: 0.1
-    initial_pose: [0.0, 0.0, 0.0, 0.0]
+    initial_pose: 
+      x: 3.30
+      y: -0.55
+      z: 0.0
+      yaw: 0.0
     set_initial_pose: True
     laser_likelihood_max_dist: 2.0
     laser_max_range: 12.0

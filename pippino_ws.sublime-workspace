@@ -4,16 +4,64 @@
 		"selected_items":
 		[
 			[
+				"tcli",
+				"t265_param_cli"
+			],
+			[
+				"t",
+				"t265_req_future"
+			],
+			[
+				"ROS",
+				"ROS_DISTRO"
+			],
+			[
+				"pico",
+				"PippinoCommander"
+			],
+			[
+				"ROSD",
+				"ROS_DISTRO"
+			],
+			[
+				"vido",
+				"video_stream_controller"
+			],
+			[
+				"un",
+				"undistorted_image"
+			],
+			[
+				"compreimag",
+				"CompressedImage"
+			],
+			[
+				"aruco",
+				"aruco_detection_node"
+			],
+			[
+				"charsta",
+				"charging_station"
+			],
+			[
+				"ya",
+				"yaw_to_position"
+			],
+			[
+				"charposiro",
+				"CHARGING_POSITION_REACHED"
+			],
+			[
+				"charpo",
+				"CHARGING_POSITION_REACHED"
+			],
+			[
 				"T2",
 				"T265_link"
 			],
 			[
 				"msg",
 				"aruco_marker_visible_msg"
-			],
-			[
-				"ya",
-				"yaw_to_location"
 			],
 			[
 				"yat",
@@ -26,10 +74,6 @@
 			[
 				"final",
 				"final_yaw_correction"
-			],
-			[
-				"charpo",
-				"charging_position"
 			],
 			[
 				"chargin_",
@@ -92,10 +136,391 @@
 	"buffers":
 	[
 		{
-			"file": "pippino_navigation/scripts/transform_listener.py",
+			"file": "/home/michele/remote/pippino/pippino_ws/src/pippino-realsense-entrypoint.sh",
+			"redo_stack":
+			[
+				[
+					83,
+					1,
+					"swap_line_up",
+					null,
+					"AgAAAO0AAAAAAAAA7QAAAAAAAAAwAAAACXNvdXJjZSAvb3B0L3Jvcy8kUk9TX0RJU1RSTy9pbnN0YWxsL3NldHVwLmJhc2gK8gAAAAAAAAAiAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAABQEAAAAAAAAFAQAAAAAAAAAAAAAAYG5A"
+				],
+				[
+					81,
+					1,
+					"swap_line_down",
+					null,
+					"AgAAAPIAAAAAAAAAGgEAAAAAAAAAAAAASgEAAAAAAABKAQAAAAAAACgAAAAJc291cmNlIC9vcHQvcm9zLyRST1NfRElTVFJPL3NldHVwLmJhc2gK",
+					"AQAAAAAAAAABAAAAOgEAAAAAAAA6AQAAAAAAAAAAAAAAYG5A"
+				],
+				[
+					80,
+					1,
+					"swap_line_up",
+					null,
+					"AgAAAPIAAAAAAAAA8gAAAAAAAAAoAAAACXNvdXJjZSAvb3B0L3Jvcy8kUk9TX0RJU1RSTy9zZXR1cC5iYXNoCiIBAAAAAAAASgEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAACgEAAAAAAAAKAQAAAAAAAAAAAAAAYG5A"
+				],
+				[
+					79,
+					1,
+					"swap_line_down",
+					null,
+					"BAAAAPIAAAAAAAAAGgEAAAAAAAAAAAAASgEAAAAAAABKAQAAAAAAACgAAAAJc291cmNlIC9vcHQvcm9zLyRST1NfRElTVFJPL3NldHVwLmJhc2gK7QAAAAAAAAAVAQAAAAAAAAAAAAAaAQAAAAAAABoBAAAAAAAAKAAAAAlzb3VyY2UgL29wdC9yb3MvJFJPU19ESVNUUk8vc2V0dXAuYmFzaAo",
+					"AQAAAAAAAAABAAAAOgEAAAAAAAA6AQAAAAAAAAAAAAAAYG5A"
+				],
+				[
+					77,
+					1,
+					"insert",
+					{
+						"characters": "humble"
+					},
+					"BwAAAOIAAAAAAAAA4gAAAAAAAAABAAAAZeEAAAAAAAAA4QAAAAAAAAABAAAAbOAAAAAAAAAA4AAAAAAAAAABAAAAYt8AAAAAAAAA3wAAAAAAAAABAAAAbd4AAAAAAAAA3gAAAAAAAAABAAAAdd4AAAAAAAAA5gAAAAAAAAAAAAAA3QAAAAAAAADdAAAAAAAAAAEAAABo",
+					"AQAAAAAAAAABAAAA4wAAAAAAAADjAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					72,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAOYAAAAAAAAA5gAAAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAA5wAAAAAAAADnAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					70,
+					1,
+					"insert",
+					{
+						"characters": "galactic"
+					},
+					"CAAAAOQAAAAAAAAA5AAAAAAAAAABAAAAY+MAAAAAAAAA4wAAAAAAAAABAAAAaeIAAAAAAAAA4gAAAAAAAAABAAAAdOEAAAAAAAAA4QAAAAAAAAABAAAAY+AAAAAAAAAA4AAAAAAAAAABAAAAYd8AAAAAAAAA3wAAAAAAAAABAAAAbN4AAAAAAAAA3gAAAAAAAAABAAAAYd0AAAAAAAAA3QAAAAAAAAABAAAAZw",
+					"AQAAAAAAAAABAAAA5QAAAAAAAADlAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					69,
+					1,
+					"insert_snippet",
+					{
+						"contents": "\"$0\""
+					},
+					"AQAAANwAAAAAAAAA3AAAAAAAAAACAAAAIiI",
+					"AQAAAAAAAAABAAAA3QAAAAAAAADdAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					68,
+					1,
+					"run_macro_file",
+					{
+						"file": "res://Packages/Default/Delete Left Right.sublime-macro"
+					},
+					"AgAAANwAAAAAAAAA3QAAAAAAAAAAAAAA3AAAAAAAAADdAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA3AAAAAAAAADcAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					67,
+					1,
+					"insert_snippet",
+					{
+						"contents": "'$0'"
+					},
+					"AQAAANwAAAAAAAAA3AAAAAAAAAACAAAAJyc",
+					"AQAAAAAAAAABAAAA3QAAAAAAAADdAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					66,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAANsAAAAAAAAA2wAAAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAA3AAAAAAAAADcAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					65,
+					1,
+					"insert",
+					{
+						"characters": " =="
+					},
+					"AwAAANoAAAAAAAAA2gAAAAAAAAABAAAAPdkAAAAAAAAA2QAAAAAAAAABAAAAPdgAAAAAAAAA2AAAAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAA2wAAAAAAAADbAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					64,
+					1,
+					"insert_completion",
+					{
+						"completion": "ROS_DISTRO",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "ROS_DISTRO"
+					},
+					"AgAAAM4AAAAAAAAAzgAAAAAAAAAKAAAAUk9TX0RJU1RST84AAAAAAAAA0AAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2AAAAAAAAADYAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					63,
+					1,
+					"insert",
+					{
+						"characters": "$ro"
+					},
+					"AwAAAM8AAAAAAAAAzwAAAAAAAAABAAAAb84AAAAAAAAAzgAAAAAAAAABAAAAcs0AAAAAAAAAzQAAAAAAAAABAAAAJA",
+					"AQAAAAAAAAABAAAA0AAAAAAAAADQAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					62,
+					1,
+					"left_delete",
+					null,
+					"AQAAAM0AAAAAAAAAzgAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAzQAAAAAAAADNAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					61,
+					1,
+					"insert",
+					{
+						"characters": "@"
+					},
+					"AgAAAM4AAAAAAAAA8QAAAAAAAAAAAAAAzQAAAAAAAADNAAAAAAAAAAEAAABA",
+					"AQAAAAAAAAABAAAAzgAAAAAAAADOAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					51,
+					1,
+					"insert",
+					{
+						"characters": "\nfi"
+					},
+					"BgAAAFUBAAAAAAAAVQEAAAAAAAAAAAAAVQEAAAAAAABWAQAAAAAAAAAAAABXAQAAAAAAAFcBAAAAAAAAAQAAAGlWAQAAAAAAAFYBAAAAAAAAAQAAAGZVAQAAAAAAAFUBAAAAAAAAAQAAAAlUAQAAAAAAAFQBAAAAAAAAAQAAAAo",
+					"AQAAAAAAAAABAAAAVwEAAAAAAABXAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					49,
+					1,
+					"right_delete",
+					null,
+					"AgAAACUBAAAAAAAAJQEAAAAAAAABAAAACSUBAAAAAAAAJgEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJgEAAAAAAAAmAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					48,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAACQBAAAAAAAAJAEAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAAJQEAAAAAAAAlAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					46,
+					1,
+					"insert",
+					{
+						"characters": "else"
+					},
+					"BAAAACMBAAAAAAAAIwEAAAAAAAABAAAAZSIBAAAAAAAAIgEAAAAAAAABAAAAcyEBAAAAAAAAIQEAAAAAAAABAAAAbCABAAAAAAAAIAEAAAAAAAABAAAAZQ",
+					"AQAAAAAAAAABAAAAJAEAAAAAAAAkAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					45,
+					1,
+					"unindent",
+					null,
+					"AgAAACABAAAAAAAAIQEAAAAAAAAAAAAAIAEAAAAAAAAhAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAIAEAAAAAAAAgAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					44,
+					1,
+					"delete_word",
+					{
+						"forward": false
+					},
+					"AQAAACIBAAAAAAAAJgEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAIgEAAAAAAAAiAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					43,
+					1,
+					"indent",
+					null,
+					"AQAAACABAAAAAAAAIAEAAAAAAAABAAAACQ",
+					"AQAAAAAAAAABAAAAJgEAAAAAAAAmAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					42,
+					1,
+					"insert",
+					{
+						"characters": "\nelse"
+					},
+					"BgAAACQBAAAAAAAAJAEAAAAAAAABAAAAZSMBAAAAAAAAIwEAAAAAAAABAAAAcyIBAAAAAAAAIgEAAAAAAAABAAAAbCEBAAAAAAAAIQEAAAAAAAABAAAAZSABAAAAAAAAIAEAAAAAAAABAAAACR8BAAAAAAAAHwEAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAAJQEAAAAAAAAlAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					41,
+					1,
+					"left_delete",
+					null,
+					"AwAAAB8BAAAAAAAAIAEAAAAAAAAAAAAAIAEAAAAAAAAhAQAAAAAAAAAAAAAhAQAAAAAAACIBAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAHwEAAAAAAAAfAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					38,
+					1,
+					"right_delete",
+					null,
+					"AgAAAPgAAAAAAAAA+AAAAAAAAAABAAAACfgAAAAAAAAA+QAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+QAAAAAAAAD5AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					37,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAPcAAAAAAAAA9wAAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAA+AAAAAAAAAD4AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					36,
+					1,
+					"delete_word",
+					{
+						"forward": true
+					},
+					"AQAAAPcAAAAAAAAA+gAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA9wAAAAAAAAD3AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					35,
+					1,
+					"insert",
+					{
+						"characters": " then"
+					},
+					"BQAAAPYAAAAAAAAA9gAAAAAAAAABAAAAbvUAAAAAAAAA9QAAAAAAAAABAAAAZfQAAAAAAAAA9AAAAAAAAAABAAAAaPMAAAAAAAAA8wAAAAAAAAABAAAAdPIAAAAAAAAA8gAAAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAA9wAAAAAAAAD3AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					34,
+					1,
+					"insert",
+					{
+						"characters": ";"
+					},
+					"AQAAAPEAAAAAAAAA8QAAAAAAAAABAAAAOw",
+					"AQAAAAAAAAABAAAA8gAAAAAAAADyAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					32,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAMoAAAAAAAAAygAAAAAAAAABAAAAIA",
+					"AQAAAAAAAAABAAAAywAAAAAAAADLAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					31,
+					1,
+					"insert",
+					{
+						"characters": "if"
+					},
+					"AgAAAMkAAAAAAAAAyQAAAAAAAAABAAAAZsgAAAAAAAAAyAAAAAAAAAABAAAAaQ",
+					"AQAAAAAAAAABAAAAygAAAAAAAADKAAAAAAAAAAAAAAAAAPC/"
+				]
+			],
 			"settings":
 			{
-				"buffer_size": 8258,
+				"buffer_size": 573,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": "galactic"
+					},
+					"CQAAAFoAAAAAAAAAWwAAAAAAAAAAAAAAWwAAAAAAAABbAAAAAAAAAAYAAABodW1ibGVbAAAAAAAAAFwAAAAAAAAAAAAAAFwAAAAAAAAAXQAAAAAAAAAAAAAAXQAAAAAAAABeAAAAAAAAAAAAAABeAAAAAAAAAF8AAAAAAAAAAAAAAF8AAAAAAAAAYAAAAAAAAAAAAAAAYAAAAAAAAABhAAAAAAAAAAAAAABhAAAAAAAAAGIAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAWgAAAAAAAABgAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu20_galactic/Dockerfile_ubu20_base",
+			"settings":
+			{
+				"buffer_size": 1215,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon_realsense.sh",
+			"settings":
+			{
+				"buffer_size": 419,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": "galactic"
+					},
+					"CQAAAE8AAAAAAAAAUAAAAAAAAAAAAAAAUAAAAAAAAABQAAAAAAAAAAYAAABodW1ibGVQAAAAAAAAAFEAAAAAAAAAAAAAAFEAAAAAAAAAUgAAAAAAAAAAAAAAUgAAAAAAAABTAAAAAAAAAAAAAABTAAAAAAAAAFQAAAAAAAAAAAAAAFQAAAAAAAAAVQAAAAAAAAAAAAAAVQAAAAAAAABWAAAAAAAAAAAAAABWAAAAAAAAAFcAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATwAAAAAAAABVAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "pippino_bringup/launch/bringup.launch.py",
+			"settings":
+			{
+				"buffer_size": 3373,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAMsMAAAAAAAAzQwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2AwAAAAAAADYDAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "/home/michele/remote/pippino/pippino_ws/src/pippino-services-entrypoint.sh",
+			"settings":
+			{
+				"buffer_size": 555,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			},
@@ -106,104 +531,64 @@
 					1,
 					"insert",
 					{
-						"characters": "0"
+						"characters": "\n\n"
 					},
-					"AgAAALsEAAAAAAAAvAQAAAAAAAAAAAAAvAQAAAAAAAC8BAAAAAAAAAEAAAAz",
-					"AQAAAAAAAAABAAAAuwQAAAAAAAC8BAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					4,
-					1,
-					"left_delete",
-					null,
-					"AQAAALsEAAAAAAAAuwQAAAAAAAABAAAAMA",
-					"AQAAAAAAAAABAAAAvAQAAAAAAAC8BAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					5,
-					1,
-					"insert",
-					{
-						"characters": "1"
-					},
-					"AQAAALsEAAAAAAAAvAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAuwQAAAAAAAC7BAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					6,
-					1,
-					"insert",
-					{
-						"characters": "2"
-					},
-					"AQAAALwEAAAAAAAAvQQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAvAQAAAAAAAC8BAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					7,
-					2,
-					"left_delete",
-					null,
-					"AgAAALwEAAAAAAAAvAQAAAAAAAABAAAAMrsEAAAAAAAAuwQAAAAAAAABAAAAMQ",
-					"AQAAAAAAAAABAAAAvQQAAAAAAAC9BAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					8,
-					1,
-					"insert",
-					{
-						"characters": "3"
-					},
-					"AQAAALsEAAAAAAAAvAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAuwQAAAAAAAC7BAAAAAAAAAAAAAAAAPC/"
+					"AgAAACkCAAAAAAAAKgIAAAAAAAAAAAAAKgIAAAAAAAArAgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAKQIAAAAAAAApAgAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		},
 		{
-			"file": "/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/pippino.urdf",
+			"file": "/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_realsense.sh",
 			"settings":
 			{
-				"buffer_size": 12484,
+				"buffer_size": 731,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			},
 			"undo_stack":
 			[
 				[
-					10,
+					7,
 					1,
 					"insert",
 					{
-						"characters": "14"
+						"characters": "galactic"
 					},
-					"BgAAAHEoAAAAAAAAcigAAAAAAAAAAAAAcigAAAAAAAByKAAAAAAAAAQAAAAwNjA1aigAAAAAAABrKAAAAAAAAAAAAABrKAAAAAAAAGsoAAAAAAAABAAAADA2MDVvKAAAAAAAAHAoAAAAAAAAAAAAAGsoAAAAAAAAbCgAAAAAAAAAAAAA",
-					"AQAAAAAAAAACAAAAaigAAAAAAABuKAAAAAAAAAAAAAAAAPC/cSgAAAAAAAB1KAAAAAAAAAAAAAAAAPC/"
-				],
+					"CQAAAE8AAAAAAAAAUAAAAAAAAAAAAAAAUAAAAAAAAABQAAAAAAAAAAYAAABodW1ibGVQAAAAAAAAAFEAAAAAAAAAAAAAAFEAAAAAAAAAUgAAAAAAAAAAAAAAUgAAAAAAAABTAAAAAAAAAAAAAABTAAAAAAAAAFQAAAAAAAAAAAAAAFQAAAAAAAAAVQAAAAAAAAAAAAAAVQAAAAAAAABWAAAAAAAAAAAAAABWAAAAAAAAAFcAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATwAAAAAAAABVAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "/home/michele/remote/pippino/pippino_ws/src/video_stream_controller/video_stream_controller/video_stream_controller.py",
+			"settings":
+			{
+				"buffer_size": 7705,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
 				[
-					11,
+					20,
 					1,
-					"left_delete",
-					null,
-					"AgAAAHAoAAAAAAAAcCgAAAAAAAABAAAANGsoAAAAAAAAaygAAAAAAAABAAAANA",
-					"AQAAAAAAAAACAAAAbCgAAAAAAABsKAAAAAAAAAAAAAAAAPC/cSgAAAAAAABxKAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					12,
-					1,
-					"insert",
+					"toggle_comment",
 					{
-						"characters": "75"
+						"block": false
 					},
-					"BAAAAG8oAAAAAAAAcCgAAAAAAAAAAAAAaygAAAAAAABsKAAAAAAAAAAAAABxKAAAAAAAAHIoAAAAAAAAAAAAAGwoAAAAAAAAbSgAAAAAAAAAAAAA",
-					"AQAAAAAAAAACAAAAaygAAAAAAABrKAAAAAAAAAAAAAAAAPC/bygAAAAAAABvKAAAAAAAAAAAAAAAAPC/"
+					"BQAAAP4KAAAAAAAA/goAAAAAAAACAAAAIyBfDwAAAAAAAGEPAAAAAAAAAAAAABEaAAAAAAAAERoAAAAAAAACAAAAIyB0GwAAAAAAAHQbAAAAAAAAAgAAACMgwhwAAAAAAADCHAAAAAAAAAIAAAAjIA",
+					"AQAAAAAAAAAFAAAABQsAAAAAAAAiCwAAAAAAAAAAAAAAAPC/ZQ8AAAAAAACCDwAAAAAAAAAAAAAAAPC/GBoAAAAAAAA1GgAAAAAAAAAAAAAAAPC/fRsAAAAAAACaGwAAAAAAAAAAAAAAAPC/zRwAAAAAAADqHAAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					25,
+					22,
 					1,
-					"duplicate_line",
-					null,
-					"AQAAAAcrAAAAAAAAOysAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA7yoAAAAAAADvKgAAAAAAAAAAAAAAAPC/"
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAF8PAAAAAAAAXw8AAAAAAAACAAAAIyA",
+					"AQAAAAAAAAABAAAAcQ8AAAAAAABxDwAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					26,
@@ -212,66 +597,424 @@
 					{
 						"block": false
 					},
-					"AgAAADorAAAAAAAAPisAAAAAAAAAAAAACysAAAAAAAAQKwAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAIysAAAAAAAAjKwAAAAAAAAAAAAAAAPC/"
+					"BAAAAH0KAAAAAAAAfQoAAAAAAAACAAAAIyAyCgAAAAAAADIKAAAAAAAAAgAAACMg0wkAAAAAAADTCQAAAAAAAAIAAAAjIJsJAAAAAAAAmwkAAAAAAAACAAAAIyA",
+					"AQAAAAAAAAABAAAAqwkAAAAAAACNCgAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					28,
-					2,
-					"right_delete",
-					null,
-					"AgAAAPQqAAAAAAAA9CoAAAAAAAABAAAAMfQqAAAAAAAA9CoAAAAAAAABAAAANQ",
-					"AQAAAAAAAAABAAAA9CoAAAAAAAD0KgAAAAAAAAAAAAAAsHZA"
-				],
-				[
-					30,
+					35,
 					1,
 					"left_delete",
 					null,
-					"AQAAAPAqAAAAAAAA8CoAAAAAAAABAAAALQ",
-					"AQAAAAAAAAABAAAA8SoAAAAAAADxKgAAAAAAAAAAAAAAAPC/"
+					"AQAAAK0JAAAAAAAArQkAAAAAAAABAAAAMQ",
+					"AQAAAAAAAAABAAAArgkAAAAAAACuCQAAAAAAAAAAAAAAAPC/"
 				],
 				[
-					33,
-					1,
-					"right_delete",
-					null,
-					"AQAAAPkqAAAAAAAA+SoAAAAAAAABAAAANQ",
-					"AQAAAAAAAAABAAAA+SoAAAAAAAD5KgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					34,
+					36,
 					1,
 					"insert",
 					{
-						"characters": "8"
+						"characters": "21"
 					},
-					"AQAAAPkqAAAAAAAA+ioAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAA+SoAAAAAAAD5KgAAAAAAAAAAAAAAAPC/"
+					"AgAAAK0JAAAAAAAArgkAAAAAAAAAAAAArgkAAAAAAACvCQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAArQkAAAAAAACtCQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					37,
+					2,
+					"left_delete",
+					null,
+					"AgAAAK4JAAAAAAAArgkAAAAAAAABAAAAMa0JAAAAAAAArQkAAAAAAAABAAAAMg",
+					"AQAAAAAAAAABAAAArwkAAAAAAACvCQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					38,
+					1,
+					"insert",
+					{
+						"characters": "12"
+					},
+					"AgAAAK0JAAAAAAAArgkAAAAAAAAAAAAArgkAAAAAAACvCQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAArQkAAAAAAACtCQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					39,
+					1,
+					"left_delete",
+					null,
+					"AQAAAK4JAAAAAAAArgkAAAAAAAABAAAAMg",
+					"AQAAAAAAAAABAAAArwkAAAAAAACvCQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					50,
+					1,
+					"insert",
+					{
+						"characters": "1"
+					},
+					"AgAAAAERAAAAAAAAAhEAAAAAAAAAAAAA6Q8AAAAAAADqDwAAAAAAAAAAAAA",
+					"AQAAAAAAAAACAAAA6Q8AAAAAAADpDwAAAAAAAAAAAAAAAPC/AREAAAAAAAABEQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					59,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"BgAAAN8NAAAAAAAA3w0AAAAAAAACAAAAIyDPDQAAAAAAAM8NAAAAAAAAAgAAACMgpQ0AAAAAAAClDQAAAAAAAAIAAAAjIH8NAAAAAAAAfw0AAAAAAAACAAAAIyBfDQAAAAAAAF8NAAAAAAAAAgAAACMgIQ0AAAAAAAAhDQAAAAAAAAIAAAAjIA",
+					"AQAAAAAAAAABAAAALA0AAAAAAADiDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					62,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"BgAAAKIOAAAAAAAAog4AAAAAAAACAAAAIyCSDgAAAAAAAJIOAAAAAAAAAgAAACMgZg4AAAAAAABmDgAAAAAAAAIAAAAjID4OAAAAAAAAPg4AAAAAAAACAAAAIyAoDgAAAAAAACgOAAAAAAAAAgAAACMg6A0AAAAAAADoDQAAAAAAAAIAAAAjIA",
+					"AQAAAAAAAAABAAAA6A0AAAAAAACmDgAAAAAAAAAAAAAAAFJA"
+				],
+				[
+					67,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AgAAAGgUAAAAAAAAaBQAAAAAAAACAAAAIyA8FAAAAAAAADwUAAAAAAAAAgAAACMg",
+					"AQAAAAAAAAABAAAARxQAAAAAAABzFAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					75,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AgAAAPQWAAAAAAAA9BYAAAAAAAACAAAAIyCbFgAAAAAAAJsWAAAAAAAAAgAAACMg",
+					"AQAAAAAAAAABAAAAphYAAAAAAAD/FgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					78,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AgAAAIwXAAAAAAAAjhcAAAAAAAAAAAAAORcAAAAAAAA7FwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAMRcAAAAAAAC0FwAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					97,
+					1,
+					"paste",
+					null,
+					"AgAAAPcWAAAAAAAABhcAAAAAAAAAAAAABhcAAAAAAAAGFwAAAAAAABoAAABjb21wcmVzc2VkX2ltYWdlX3B1Ymxpc2hlcg",
+					"AQAAAAAAAAABAAAA9xYAAAAAAAARFwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					117,
+					2,
+					"left_delete",
+					null,
+					"AgAAAC0EAAAAAAAALQQAAAAAAAAKAAAAY29tcHJlc3NlZCwEAAAAAAAALAQAAAAAAAABAAAALw",
+					"AQAAAAAAAAABAAAALQQAAAAAAAA3BAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					122,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"CAAAAOgTAAAAAAAA6BMAAAAAAAACAAAAIyDGEwAAAAAAAMYTAAAAAAAAAgAAACMgihMAAAAAAACKEwAAAAAAAAIAAAAjIDUTAAAAAAAANRMAAAAAAAACAAAAIyDiEgAAAAAAAOISAAAAAAAAAgAAACMgyRIAAAAAAADJEgAAAAAAAAIAAAAjIKkSAAAAAAAAqRIAAAAAAAACAAAAIyB9EgAAAAAAAH0SAAAAAAAAAgAAACMg",
+					"AQAAAAAAAAABAAAAihIAAAAAAAD1EwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					140,
+					1,
+					"paste",
+					null,
+					"AgAAAOMTAAAAAAAA8hMAAAAAAAAAAAAA8hMAAAAAAADyEwAAAAAAABoAAABjb21wcmVzc2VkX2ltYWdlX3B1Ymxpc2hlcg",
+					"AQAAAAAAAAABAAAA4xMAAAAAAAD9EwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					143,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AgAAAEAUAAAAAAAAQhQAAAAAAAAAAAAAFhQAAAAAAAAYFAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVRQAAAAAAAAsFAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					152,
+					1,
+					"insert",
+					{
+						"characters": "\nro"
+					},
+					"BAAAANUTAAAAAAAA1hMAAAAAAAAAAAAA1hMAAAAAAADeEwAAAAAAAAAAAADeEwAAAAAAAN8TAAAAAAAAAAAAAN8TAAAAAAAA4BMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA1RMAAAAAAADVEwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					153,
+					3,
+					"left_delete",
+					null,
+					"AwAAAN8TAAAAAAAA3xMAAAAAAAABAAAAb94TAAAAAAAA3hMAAAAAAAABAAAActoTAAAAAAAA2hMAAAAAAAAEAAAAICAgIA",
+					"AQAAAAAAAAABAAAA4BMAAAAAAADgEwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					154,
+					1,
+					"insert",
+					{
+						"characters": " \tself.ge"
+					},
+					"CQAAANoTAAAAAAAA2xMAAAAAAAAAAAAA2xMAAAAAAADeEwAAAAAAAAAAAADeEwAAAAAAAN8TAAAAAAAAAAAAAN8TAAAAAAAA4BMAAAAAAAAAAAAA4BMAAAAAAADhEwAAAAAAAAAAAADhEwAAAAAAAOITAAAAAAAAAAAAAOITAAAAAAAA4xMAAAAAAAAAAAAA4xMAAAAAAADkEwAAAAAAAAAAAADkEwAAAAAAAOUTAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2hMAAAAAAADaEwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					155,
+					1,
+					"insert_completion",
+					{
+						"completion": "get_logger",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "get_logger"
+					},
+					"AgAAAOMTAAAAAAAA4xMAAAAAAAACAAAAZ2XjEwAAAAAAAO0TAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA5RMAAAAAAADlEwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					156,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAO0TAAAAAAAA7xMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7RMAAAAAAADtEwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					158,
+					1,
+					"insert",
+					{
+						"characters": ".info"
+					},
+					"BQAAAO8TAAAAAAAA8BMAAAAAAAAAAAAA8BMAAAAAAADxEwAAAAAAAAAAAADxEwAAAAAAAPITAAAAAAAAAAAAAPITAAAAAAAA8xMAAAAAAAAAAAAA8xMAAAAAAAD0EwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA7xMAAAAAAADvEwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					159,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAPQTAAAAAAAA9hMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA9BMAAAAAAAD0EwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					160,
+					1,
+					"insert_snippet",
+					{
+						"contents": "\"$0\""
+					},
+					"AQAAAPUTAAAAAAAA9xMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA9RMAAAAAAAD1EwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					161,
+					1,
+					"insert",
+					{
+						"characters": "o"
+					},
+					"AQAAAPYTAAAAAAAA9xMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA9hMAAAAAAAD2EwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					162,
+					1,
+					"left_delete",
+					null,
+					"AQAAAPYTAAAAAAAA9hMAAAAAAAABAAAAbw",
+					"AQAAAAAAAAABAAAA9xMAAAAAAAD3EwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					163,
+					1,
+					"insert",
+					{
+						"characters": "publishing"
+					},
+					"CgAAAPYTAAAAAAAA9xMAAAAAAAAAAAAA9xMAAAAAAAD4EwAAAAAAAAAAAAD4EwAAAAAAAPkTAAAAAAAAAAAAAPkTAAAAAAAA+hMAAAAAAAAAAAAA+hMAAAAAAAD7EwAAAAAAAAAAAAD7EwAAAAAAAPwTAAAAAAAAAAAAAPwTAAAAAAAA/RMAAAAAAAAAAAAA/RMAAAAAAAD+EwAAAAAAAAAAAAD+EwAAAAAAAP8TAAAAAAAAAAAAAP8TAAAAAAAAABQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA9hMAAAAAAAD2EwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					172,
+					1,
+					"insert",
+					{
+						"characters": "IMAG"
+					},
+					"BQAAAFYNAAAAAAAAVw0AAAAAAAAAAAAAVw0AAAAAAABXDQAAAAAAAA8AAABDb21wcmVzc2VkSW1hZ2VXDQAAAAAAAFgNAAAAAAAAAAAAAFgNAAAAAAAAWQ0AAAAAAAAAAAAAWQ0AAAAAAABaDQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVg0AAAAAAABlDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					173,
+					3,
+					"left_delete",
+					null,
+					"AwAAAFkNAAAAAAAAWQ0AAAAAAAABAAAAR1gNAAAAAAAAWA0AAAAAAAABAAAAQVcNAAAAAAAAVw0AAAAAAAABAAAATQ",
+					"AQAAAAAAAAABAAAAWg0AAAAAAABaDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					174,
+					1,
+					"insert_completion",
+					{
+						"completion": "Image",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "Image"
+					},
+					"AgAAAFYNAAAAAAAAVg0AAAAAAAABAAAASVYNAAAAAAAAWw0AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAVw0AAAAAAABXDQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					177,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AgAAAOsKAAAAAAAA7QoAAAAAAAAAAAAAuwoAAAAAAAC9CgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+woAAAAAAADLCgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					180,
+					1,
+					"insert",
+					{
+						"characters": "/cpo"
+					},
+					"BAAAAGoMAAAAAAAAawwAAAAAAAAAAAAAawwAAAAAAABsDAAAAAAAAAAAAABsDAAAAAAAAG0MAAAAAAAAAAAAAG0MAAAAAAAAbgwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAagwAAAAAAABqDAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					181,
+					1,
+					"left_delete",
+					null,
+					"AQAAAG0MAAAAAAAAbQwAAAAAAAABAAAAbw",
+					"AQAAAAAAAAABAAAAbgwAAAAAAABuDAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					182,
+					1,
+					"insert",
+					{
+						"characters": "om"
+					},
+					"AgAAAG0MAAAAAAAAbgwAAAAAAAAAAAAAbgwAAAAAAABvDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbQwAAAAAAABtDAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					183,
+					3,
+					"left_delete",
+					null,
+					"AwAAAG4MAAAAAAAAbgwAAAAAAAABAAAAbW0MAAAAAAAAbQwAAAAAAAABAAAAb2wMAAAAAAAAbAwAAAAAAAABAAAAcA",
+					"AQAAAAAAAAABAAAAbwwAAAAAAABvDAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					184,
+					1,
+					"insert",
+					{
+						"characters": "ompressed"
+					},
+					"CQAAAGwMAAAAAAAAbQwAAAAAAAAAAAAAbQwAAAAAAABuDAAAAAAAAAAAAABuDAAAAAAAAG8MAAAAAAAAAAAAAG8MAAAAAAAAcAwAAAAAAAAAAAAAcAwAAAAAAABxDAAAAAAAAAAAAABxDAAAAAAAAHIMAAAAAAAAAAAAAHIMAAAAAAAAcwwAAAAAAAAAAAAAcwwAAAAAAAB0DAAAAAAAAAAAAAB0DAAAAAAAAHUMAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAbAwAAAAAAABsDAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					191,
+					1,
+					"insert",
+					{
+						"characters": "Image"
+					},
+					"BgAAAEYMAAAAAAAARwwAAAAAAAAAAAAARwwAAAAAAABHDAAAAAAAAA8AAABDb21wcmVzc2VkSW1hZ2VHDAAAAAAAAEgMAAAAAAAAAAAAAEgMAAAAAAAASQwAAAAAAAAAAAAASQwAAAAAAABKDAAAAAAAAAAAAABKDAAAAAAAAEsMAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAARgwAAAAAAABVDAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					194,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AgAAAGoUAAAAAAAAahQAAAAAAAACAAAAIyA+FAAAAAAAAD4UAAAAAAAAAgAAACMg",
+					"AQAAAAAAAAABAAAATRQAAAAAAAB5FAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					199,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"CQAAAAIUAAAAAAAABBQAAAAAAAAAAAAA1RMAAAAAAADXEwAAAAAAAAAAAAC1EwAAAAAAALcTAAAAAAAAAAAAAHsTAAAAAAAAfRMAAAAAAAAAAAAAKBMAAAAAAAAqEwAAAAAAAAAAAADXEgAAAAAAANkSAAAAAAAAAAAAAMASAAAAAAAAwhIAAAAAAAAAAAAAohIAAAAAAACkEgAAAAAAAAAAAAB4EgAAAAAAAHoSAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAdBIAAAAAAAA5FAAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					203,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AgAAAAYXAAAAAAAACBcAAAAAAAAAAAAArxYAAAAAAACxFgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAApxYAAAAAAAA5FwAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					207,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AgAAAJsXAAAAAAAAmxcAAAAAAAACAAAAIyBGFwAAAAAAAEYXAAAAAAAAAgAAACMg",
+					"AQAAAAAAAAABAAAAPhcAAAAAAADFFwAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					212,
+					2,
+					"left_delete",
+					null,
+					"AgAAAGEMAAAAAAAAYQwAAAAAAAAKAAAAY29tcHJlc3NlZGAMAAAAAAAAYAwAAAAAAAABAAAALw",
+					"AQAAAAAAAAABAAAAYQwAAAAAAABrDAAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		},
 		{
-			"file": "pippino_navigation/scripts/charuco_localization.py",
+			"contents": "Searching 187 files for \"video\"\n\n~/pippino_ws/src/pippino_bringup/launch/bringup.launch.py:\n   32      )\n   33  \n   34:     web_video_server_node = launch_ros.actions.Node(\n   35:         package='web_video_server',\n   36:         executable='web_video_server',\n   37:         name='web_video_server',\n   38      )\n   39  \n   ..\n   74          # launch.actions.TimerAction(period=1.0, actions=[start_navigation]),\n   75          # launch.actions.TimerAction(period=1.0, actions=[start_display]),\n   76:         web_video_server_node,\n   77          rosbridge_server_node,\n   78          teleop_twist_joy_node,\n\n~/pippino_ws/src/pippino_navigation/config/calib_all.txt:\n    4      Firmware Version              : \t05.13.00.50\n    5      Recommended Firmware Version  : \t05.13.00.50\n    6:     Physical Port                 : \t/sys/devices/70090000.xusb/usb2/2-1/2-1.3/2-1.3.1/2-1.3.1:1.0/video4linux/video0\n    7      Debug Op Code                 : \t15\n    8      Advanced Mode                 : \tYES\n\n~/pippino_ws/src/pippino_navigation/scripts/charuco_localization.py:\n   89        \n   90      # Create the subscriber. This subscriber will receive an Image\n   91:     # from the video_frames topic. The queue size is 10 messages.\n   92      self.subscription = self.create_subscription(\n   93        Image, \n   ..\n  109      \"\"\"\n  110      # Display the message on the console\n  111:     # self.get_logger().info('Receiving video frame')\n  112      aruco_marker_visible_msg = Bool()\n  113  \n  ...\n  117      if \"T265\" in self.image_topic:\n  118        current_frame = cv2.fisheye.undistortImage(current_frame, self.mtx, self.dst, Knew=self.mtx, new_size=(1000, 1000))\n  119:       # Detect ArUco markers in the video frame\n  120        (corners, marker_ids, rejected) = cv2.aruco.detectMarkers(\n  121          current_frame, self.this_aruco_dictionary, parameters=self.this_aruco_parameters,\n  122          cameraMatrix=np.eye(3), distCoeff=np.zeros(4))\n  123      else:\n  124:       # Detect ArUco markers in the video frame\n  125        (corners, marker_ids, rejected) = cv2.aruco.detectMarkers(\n  126          current_frame, self.this_aruco_dictionary, parameters=self.this_aruco_parameters,\n  ...\n  131      if aruco_marker_visible_msg.data and marker_ids is not None:\n  132       \n  133:       # Draw a square around detected markers in the video frame\n  134        cv2.aruco.drawDetectedMarkers(current_frame, corners, marker_ids)\n  135   \n\n~/pippino_ws/src/pippino_navigation/scripts/fiducials_tf_publisher.py:\n   86        \n   87      # Create the subscriber. This subscriber will receive an Image\n   88:     # from the video_frames topic. The queue size is 10 messages.\n   89      self.subscription = self.create_subscription(\n   90        Image, \n   ..\n  106      \"\"\"\n  107      # Display the message on the console\n  108:     # self.get_logger().info('Receiving video frame')\n  109      aruco_marker_visible_msg = Bool()\n  110  \n  ...\n  112      current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding=\"bgr8\")\n  113       \n  114:     # Detect ArUco markers in the video frame\n  115      (corners, marker_ids, rejected) = cv2.aruco.detectMarkers(\n  116        current_frame, self.this_aruco_dictionary, parameters=self.this_aruco_parameters,\n  ...\n  122      if marker_ids is not None:\n  123       \n  124:       # Draw a square around detected markers in the video frame\n  125        cv2.aruco.drawDetectedMarkers(current_frame, corners, marker_ids)\n  126   \n\n~/pippino_ws/src/pippino_navigation/scripts/undistort_fisheye.py:\n   56           \n   57          # Create the subscriber. This subscriber will receive an Image\n   58:         # from the video_frames topic. The queue size is 10 messages.\n   59          self.subscription = self.create_subscription(\n   60              Image, \n\n~/pippino_ws/src/web_video_server/CHANGELOG.rst:\n    1  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    2: Changelog for package web_video_server\n    3  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    4  \n    .\n    9  0.2.1 (2019-06-05)\n   10  ------------------\n   11: * Restream buffered frames with minimum publish rate (`#88 <https://github.com/RobotWebTools/web_video_server/issues/88>`_)\n   12    * Restream buffered frames with minimum publish rate\n   13    * Implement restreaming for ros_compressed_streamer\n   14: * Update travis config (`#89 <https://github.com/RobotWebTools/web_video_server/issues/89>`_)\n   15: * Fall back to mjpeg if ros_compressed is unavailable (`#87 <https://github.com/RobotWebTools/web_video_server/issues/87>`_)\n   16  * Contributors: Jihoon Lee, Viktor Kunovski, sfalexrog\n   17  \n   18  0.2.0 (2019-01-30)\n   19  ------------------\n   20: * Add \"default_stream_type\" parameter (`#84 <https://github.com/RobotWebTools/web_video_server/issues/84>`_)\n   21    This allows users to specify default stream type in their .launch files. Using a \"ros_compressed\" stream type sometimes\n   22    results in a much lower resource consumption, and having it set as a default is much nicer for end users.\n   23: * Add a workaround for MultipartStream constant busy state (`#83 <https://github.com/RobotWebTools/web_video_server/issues/83>`_)\n   24    * Add a workaround for MultipartStream constant busy state\n   25    * Remove C++11 features\n   26: * lax rule for topic name (`#77 <https://github.com/RobotWebTools/web_video_server/issues/77>`_)\n   27: * Add PngStreamer (`#74 <https://github.com/RobotWebTools/web_video_server/issues/74>`_)\n   28: * fix SteadyTimer check for backported ROS versions (`#71 <https://github.com/RobotWebTools/web_video_server/issues/71>`_)\n   29    i.e. on current kinetic\n   30: * Pkg format 2 (`#68 <https://github.com/RobotWebTools/web_video_server/issues/68>`_)\n   31    * use package format 2\n   32    * add missing dependency on sensor_msgs\n   33: * fixed undeclared CODEC_FLAG_GLOBAL_HEADER (`#65 <https://github.com/RobotWebTools/web_video_server/issues/65>`_)\n   34  * Contributors: Andreas Klintberg, Dirk Thomas, Felix Ruess, Kazuto Murase, Viktor Kunovski, sfalexrog\n   35  \n   36  0.1.0 (2018-07-01)\n   37  ------------------\n   38: * Avoid queuing of images on slow ethernet connection (`#64 <https://github.com/RobotWebTools/web_video_server/issues/64>`_)\n   39: * use SteadyTimer (if available) for cleaning up inactive streams (`#63 <https://github.com/RobotWebTools/web_video_server/issues/63>`_)\n   40    * use SteadyTimer for cleaning up inactive streams\n   41    so that cleanup works correctly even if system time changes\n   ..\n   43    * possibility to use SteadyTimer on older ROS versions\n   44    when SteadyTimer has been backported to those...\n   45: * Fix segfault in libav_streamer destructor (resolves `#59 <https://github.com/RobotWebTools/web_video_server/issues/59>`_) (`#60 <https://github.com/RobotWebTools/web_video_server/issues/60>`_)\n   46: * Fix vp8 in kinetic add vp9 and h264 support (`#52 <https://github.com/RobotWebTools/web_video_server/issues/52>`_)\n   47    * fix vp8 in kinetic\n   48    * add h264 and vp9 support\n   49: * Add Indigo test matrix in travis configuration (`#50 <https://github.com/RobotWebTools/web_video_server/issues/50>`_)\n   50: * Set image streamer as inactive if topic is not available (`#53 <https://github.com/RobotWebTools/web_video_server/issues/53>`_)\n   51:   * Resolves `#38 <https://github.com/RobotWebTools/web_video_server/issues/38>`_\n   52: * Fix Build for ubuntu 14.04 (`#48 <https://github.com/RobotWebTools/web_video_server/issues/48>`_)\n   53:   * fix issue `#47 <https://github.com/RobotWebTools/web_video_server/issues/47>`_\n   54    * fix double free\n   55: * Revert \"use SteadyTimer for cleaning up inactive streams (`#45 <https://github.com/RobotWebTools/web_video_server/issues/45>`_)\" (`#51 <https://github.com/RobotWebTools/web_video_server/issues/51>`_)\n   56    This reverts commit ae74f19ada22f288a7c7a99ada7a1b9b6037c7ce.\n   57: * use SteadyTimer for cleaning up inactive streams (`#45 <https://github.com/RobotWebTools/web_video_server/issues/45>`_)\n   58    so that cleanup works correctly even if system time changes\n   59: * Use trusty instead of xenial.  See `travis-ci/travis-ci#7260 <https://github.com/travis-ci/travis-ci/issues/7260>`_ (`#49 <https://github.com/RobotWebTools/web_video_server/issues/49>`_)\n   60    * Also see `RobotWebTools/rosbridge_suite#311 <https://github.com/RobotWebTools/rosbridge_suite/issues/311>`_\n   61  * Contributors: Felix Ruess, James Bailey, Jihoon Lee, randoms, schallerr\n   ..\n   63  0.0.7 (2017-11-20)\n   64  ------------------\n   65: * Ffmpeg 3 (`#43 <https://github.com/RobotWebTools/web_video_server/issues/43>`_)\n   66    * Correct use of deprecated parameters\n   67    codec_context\\_->rc_buffer_aggressivity marked as \"currently useless\", so removed\n   ..\n   72    * Use new encoding api for newer versions\n   73    * codec_context is deprecated, use packet flags\n   74: * Update travis configuration to test against kinetic (`#44 <https://github.com/RobotWebTools/web_video_server/issues/44>`_)\n   75: * fixed misuse of remove_if (`#35 <https://github.com/RobotWebTools/web_video_server/issues/35>`_)\n   76: * Merge pull request `#33 <https://github.com/RobotWebTools/web_video_server/issues/33>`_ from achim-k/patch-1\n   77:   web_video_server: fix bool function not returning\n   78    This fix is required when compiling the package with `clang`. Otherwise a SIGILL (Illegal instruction) is triggered.\n   79  * Contributors: Hans-Joachim Krauch, Jan, Jihoon Lee, russelhowe\n   ..\n   81  0.0.6 (2017-01-17)\n   82  ------------------\n   83: * Fixed topic list to display all image topics, fixing Issue `#18 <https://github.com/RobotWebTools/web_video_server/issues/18>`_.\n   84  * Contributors: Eric\n   85  \n   86  0.0.5 (2016-10-13)\n   87  ------------------\n   88: * Merge pull request `#23 <https://github.com/RobotWebTools/web_video_server/issues/23>`_ from iki-wgt/develop\n   89    More information when server creation is failed\n   90  * Removed empty line\n   ..\n   99  * Switch to checkout async_web_server_cpp from source\n  100  * Upgrade for change in signature of async_web_server_cpp request handler\n  101: * Added ros compressed video streamer type\n  102    This directly passes the ros compressed frame data to the http socket without reencoding it\n  103  * Switched from passing image transport to passing node handle to streamer constructors\n\n~/pippino_ws/src/web_video_server/CMakeLists.txt:\n    1  cmake_minimum_required(VERSION 3.5)\n    2: project(web_video_server)\n    3  \n    4  find_package(ament_cmake_ros REQUIRED)\n    .\n   42  ## Declare a cpp executable\n   43  add_executable(${PROJECT_NAME}\n   44:   src/web_video_server.cpp\n   45    src/image_streamer.cpp\n   46    src/libav_streamer.cpp\n\n~/pippino_ws/src/web_video_server/mainpage.dox:\n    3  \n    4  \\b A ROS Node to Stream Image Topics Via multiple formats including MJPEG and VP8\n    5: web_video_server converts ROS image streams into an MJPEG or other encoding and streams them via a socket connection.\n    6  */\n    7  \n\n~/pippino_ws/src/web_video_server/package.xml:\n    1  <?xml version=\"1.0\"?>\n    2  <package format=\"2\">\n    3:   <name>web_video_server</name>\n    4    <version>1.0.0</version>\n    5    <description>HTTP Streaming of ROS Image Topics in Multiple Formats</description>\n    .\n   10    <license>BSD</license>\n   11  \n   12:   <url type=\"website\">http://ros.org/wiki/web_video_server</url>\n   13:   <url type=\"bugtracker\">https://github.com/RobotWebTools/web_video_server/issues</url>\n   14:   <url type=\"repository\">https://github.com/RobotWebTools/web_video_server</url>\n   15  \n   16    <buildtool_depend>ament_cmake_ros</buildtool_depend>\n\n~/pippino_ws/src/web_video_server/README.md:\n    1: web_video_server [![Build Status](https://api.travis-ci.org/RobotWebTools/web_video_server.png)](https://travis-ci.org/RobotWebTools/web_video_server)\n    2  ================\n    3  \n    4  #### HTTP Streaming of ROS Image Topics in Multiple Formats\n    5: This node combines the capabilities of [ros_web_video](https://github.com/RobotWebTools/ros_web_video) and [mjpeg_server](https://github.com/RobotWebTools/mjpeg_server) into a single node.\n    6  \n    7: For full documentation, see [the ROS wiki](http://ros.org/wiki/web_video_server).\n    8  \n    9: [Doxygen](http://docs.ros.org/indigo/api/web_video_server/html/) files can be found on the ROS wiki.\n   10  \n   11  This project is released as part of the [Robot Web Tools](http://robotwebtools.org/) effort.\n   12  \n   13  ### License\n   14: web_video_server is released with a BSD license. For full terms and conditions, see the [LICENSE](LICENSE) file.\n   15  \n   16  ### Authors\n\n~/pippino_ws/src/web_video_server/include/web_video_server/h264_streamer.h:\n    3  \n    4  #include <image_transport/image_transport.hpp>\n    5: #include \"web_video_server/libav_streamer.h\"\n    6  #include \"async_web_server_cpp/http_request.hpp\"\n    7  #include \"async_web_server_cpp/http_connection.hpp\"\n    8  \n    9: namespace web_video_server\n   10  {\n   11  \n\n~/pippino_ws/src/web_video_server/include/web_video_server/image_streamer.h:\n    9  #include \"async_web_server_cpp/http_request.hpp\"\n   10  \n   11: namespace web_video_server\n   12  {\n   13  \n\n~/pippino_ws/src/web_video_server/include/web_video_server/jpeg_streamers.h:\n    3  \n    4  #include <image_transport/image_transport.hpp>\n    5: #include \"web_video_server/image_streamer.h\"\n    6  #include \"async_web_server_cpp/http_request.hpp\"\n    7  #include \"async_web_server_cpp/http_connection.hpp\"\n    8: #include \"web_video_server/multipart_stream.h\"\n    9  \n   10: namespace web_video_server\n   11  {\n   12  \n\n~/pippino_ws/src/web_video_server/include/web_video_server/libav_streamer.h:\n    3  \n    4  #include <image_transport/image_transport.hpp>\n    5: #include \"web_video_server/image_streamer.h\"\n    6  #include \"async_web_server_cpp/http_request.hpp\"\n    7  #include \"async_web_server_cpp/http_connection.hpp\"\n    .\n   19  }\n   20  \n   21: namespace web_video_server\n   22  {\n   23  \n   ..\n   39    AVCodec* codec_;\n   40    AVCodecContext* codec_context_;\n   41:   AVStream* video_stream_;\n   42  \n   43    AVDictionary* opt_;   // container format options\n\n~/pippino_ws/src/web_video_server/include/web_video_server/multipart_stream.h:\n    7  #include <queue>\n    8  \n    9: namespace web_video_server\n   10  {\n   11  \n\n~/pippino_ws/src/web_video_server/include/web_video_server/png_streamers.h:\n    3  \n    4  #include <image_transport/image_transport.hpp>\n    5: #include \"web_video_server/image_streamer.h\"\n    6  #include \"async_web_server_cpp/http_request.hpp\"\n    7  #include \"async_web_server_cpp/http_connection.hpp\"\n    8: #include \"web_video_server/multipart_stream.h\"\n    9  \n   10: namespace web_video_server\n   11  {\n   12  \n\n~/pippino_ws/src/web_video_server/include/web_video_server/ros_compressed_streamer.h:\n    3  \n    4  #include <sensor_msgs/msg/compressed_image.hpp>\n    5: #include \"web_video_server/image_streamer.h\"\n    6  #include \"async_web_server_cpp/http_request.hpp\"\n    7  #include \"async_web_server_cpp/http_connection.hpp\"\n    8: #include \"web_video_server/multipart_stream.h\"\n    9  \n   10: namespace web_video_server\n   11  {\n   12  \n\n~/pippino_ws/src/web_video_server/include/web_video_server/vp8_streamer.h:\n   39  \n   40  #include <image_transport/image_transport.hpp>\n   41: #include \"web_video_server/libav_streamer.h\"\n   42  #include \"async_web_server_cpp/http_request.hpp\"\n   43  #include \"async_web_server_cpp/http_connection.hpp\"\n   44  \n   45: namespace web_video_server\n   46  {\n   47  \n\n~/pippino_ws/src/web_video_server/include/web_video_server/vp9_streamer.h:\n    3  \n    4  #include <image_transport/image_transport.hpp>\n    5: #include \"web_video_server/libav_streamer.h\"\n    6  #include \"async_web_server_cpp/http_request.hpp\"\n    7  #include \"async_web_server_cpp/http_connection.hpp\"\n    8  \n    9: namespace web_video_server\n   10  {\n   11  \n\n~/pippino_ws/src/web_video_server/include/web_video_server/web_video_server.h:\n    1: #ifndef WEB_VIDEO_SERVER_H_\n    2: #define WEB_VIDEO_SERVER_H_\n    3  \n    4  #include <rclcpp/rclcpp.hpp>\n    5  #include <cv_bridge/cv_bridge.h>\n    6  #include <vector>\n    7: #include \"web_video_server/image_streamer.h\"\n    8  #include \"async_web_server_cpp/http_server.hpp\"\n    9  #include \"async_web_server_cpp/http_request.hpp\"\n   10  #include \"async_web_server_cpp/http_connection.hpp\"\n   11  \n   12: namespace web_video_server\n   13  {\n   14  \n   15  /**\n   16:  * @class WebVideoServer\n   17   * @brief\n   18   */\n   19: class WebVideoServer\n   20  {\n   21  public:\n   ..\n   24     * @return\n   25     */\n   26:   WebVideoServer(rclcpp::Node::SharedPtr &nh, rclcpp::Node::SharedPtr &private_nh);\n   27  \n   28    /**\n   29     * @brief  Destructor - Cleans up\n   30     */\n   31:   virtual ~WebVideoServer();\n   32  \n   33    /**\n\n~/pippino_ws/src/web_video_server/src/h264_streamer.cpp:\n    1: #include \"web_video_server/h264_streamer.h\"\n    2  \n    3: namespace web_video_server\n    4  {\n    5  \n    6  H264Streamer::H264Streamer(const async_web_server_cpp::HttpRequest& request,\n    7                           async_web_server_cpp::HttpConnectionPtr connection, rclcpp::Node::SharedPtr nh) :\n    8:     LibavStreamer(request, connection, nh, \"mp4\", \"libx264\", \"video/mp4\")\n    9  {\n   10    /* possible quality presets:\n   ..\n   36  \n   37  H264StreamerType::H264StreamerType() :\n   38:     LibavStreamerType(\"mp4\", \"libx264\", \"video/mp4\")\n   39  {\n   40  }\n\n~/pippino_ws/src/web_video_server/src/image_streamer.cpp:\n    1: #include \"web_video_server/image_streamer.h\"\n    2  #include <cv_bridge/cv_bridge.h>\n    3  #include <iostream>\n    4  \n    5: namespace web_video_server\n    6  {\n    7  \n\n~/pippino_ws/src/web_video_server/src/jpeg_streamers.cpp:\n    1: #include \"web_video_server/jpeg_streamers.h\"\n    2  #include \"async_web_server_cpp/http_reply.hpp\"\n    3  \n    4: namespace web_video_server\n    5  {\n    6  \n    .\n   74    async_web_server_cpp::HttpReply::builder(async_web_server_cpp::HttpReply::ok)\n   75        .header(\"Connection\", \"close\")\n   76:       .header(\"Server\", \"web_video_server\")\n   77        .header(\"Cache-Control\",\n   78                \"no-cache, no-store, must-revalidate, pre-check=0, post-check=0, \"\n\n~/pippino_ws/src/web_video_server/src/libav_streamer.cpp:\n    1: #include \"web_video_server/libav_streamer.h\"\n    2  #include \"async_web_server_cpp/http_reply.hpp\"\n    3  \n    .\n    6  #define CODEC_FLAG_GLOBAL_HEADER AV_CODEC_FLAG_GLOBAL_HEADER\n    7  \n    8: namespace web_video_server\n    9  {\n   10  \n   ..\n   53                               const std::string &format_name, const std::string &codec_name,\n   54                               const std::string &content_type) :\n   55:     ImageTransportImageStreamer(request, connection, nh), output_format_(0), format_context_(0), codec_(0), codec_context_(0), video_stream_(\n   56          0), frame_(0), sws_context_(0), first_image_timestamp_(0), format_name_(\n   57          format_name), codec_name_(codec_name), content_type_(content_type), opt_(0), io_buffer_(0)\n   ..\n  140    // Load codec\n  141    if (codec_name_.empty()) // use default codec if none specified\n  142:     codec_ = avcodec_find_encoder(output_format_->video_codec);\n  143    else\n  144      codec_ = avcodec_find_encoder_by_name(codec_name_.c_str());\n  ...\n  150      throw std::runtime_error(\"Error looking up codec\");\n  151    }\n  152:   video_stream_ = avformat_new_stream(format_context_, codec_);\n  153:   if (!video_stream_)\n  154    {\n  155      async_web_server_cpp::HttpReply::stock_reply(async_web_server_cpp::HttpReply::internal_server_error)(request_,\n  156                                                                                                           connection_,\n  157                                                                                                           NULL, NULL);\n  158:     throw std::runtime_error(\"Error creating video stream\");\n  159    }\n  160:   codec_context_ = video_stream_->codec;\n  161  \n  162    // Set options\n  ...\n  170    codec_context_->delay = 0;\n  171  \n  172:   video_stream_->time_base.num = 1;\n  173:   video_stream_->time_base.den = 1000;\n  174  \n  175    codec_context_->time_base.num = 1;\n  ...\n  195                                                                                                           connection_,\n  196                                                                                                           NULL, NULL);\n  197:     throw std::runtime_error(\"Could not open video codec\");\n  198    }\n  199  \n  ...\n  217    uint8_t *header_raw_buffer;\n  218    // define meta data\n  219:   av_dict_set(&format_context_->metadata, \"author\", \"ROS web_video_server\", 0);\n  220    av_dict_set(&format_context_->metadata, \"title\", topic_.c_str(), 0);\n  221  \n  222    // Send response headers\n  223    async_web_server_cpp::HttpReply::builder(async_web_server_cpp::HttpReply::ok).header(\"Connection\", \"close\").header(\n  224:       \"Server\", \"web_video_server\").header(\"Cache-Control\",\n  225                                             \"no-cache, no-store, must-revalidate, pre-check=0, post-check=0, max-age=0\").header(\n  226        \"Pragma\", \"no-cache\").header(\"Expires\", \"0\").header(\"Max-Age\", \"0\").header(\"Trailer\", \"Expires\").header(\n  227        \"Content-type\", content_type_).header(\"Access-Control-Allow-Origin\", \"*\").write(connection_);\n  228  \n  229:   // Send video stream header\n  230    if (avformat_write_header(format_context_, &opt_) < 0)\n  231    {\n  ...\n  297    int buf_size = 6 * output_width_ * output_height_;\n  298    pkt.data = (uint8_t*)av_malloc(buf_size);\n  299:   pkt.size = avcodec_encode_video(codec_context_, pkt.data, buf_size, frame_);\n  300    got_packet = pkt.size > 0;\n  301  #elif (LIBAVCODEC_VERSION_MAJOR < 57)\n  302    pkt.data = NULL; // packet data will be allocated by the encoder\n  303    pkt.size = 0;\n  304:   if (avcodec_encode_video2(codec_context_, &pkt, frame_, &got_packet) < 0)\n  305    {\n  306:      throw std::runtime_error(\"Error encoding video frame\");\n  307    }\n  308  #else\n  ...\n  311    if (avcodec_send_frame(codec_context_, frame_) < 0)\n  312    {\n  313:     throw std::runtime_error(\"Error encoding video frame\");\n  314    }\n  315    if (avcodec_receive_packet(codec_context_, &pkt) < 0)\n  ...\n  325  \n  326      double seconds = (time - first_image_timestamp_).seconds();\n  327:     // Encode video at 1/0.95 to minimize delay\n  328:     pkt.pts = (int64_t)(seconds / av_q2d(video_stream_->time_base) * 0.95);\n  329      if (pkt.pts <= 0)\n  330        pkt.pts = 1;\n  ...\n  334        pkt.flags |= AV_PKT_FLAG_KEY;\n  335  \n  336:     pkt.stream_index = video_stream_->index;\n  337  \n  338      if (av_write_frame(format_context_, &pkt))\n  ...\n  375  {\n  376    std::stringstream ss;\n  377:   ss << \"<video src=\\\"/stream?\";\n  378    ss << request.query;\n  379:   ss << \"\\\" autoplay=\\\"true\\\" preload=\\\"none\\\"></video>\";\n  380    return ss.str();\n  381  }\n\n~/pippino_ws/src/web_video_server/src/multipart_stream.cpp:\n    1: #include \"web_video_server/multipart_stream.h\"\n    2  #include \"async_web_server_cpp/http_reply.hpp\"\n    3  \n    4: namespace web_video_server\n    5  {\n    6  \n    .\n   15  void MultipartStream::sendInitialHeader() {\n   16    async_web_server_cpp::HttpReply::builder(async_web_server_cpp::HttpReply::ok).header(\"Connection\", \"close\").header(\n   17:       \"Server\", \"web_video_server\").header(\"Cache-Control\",\n   18                                             \"no-cache, no-store, must-revalidate, pre-check=0, post-check=0, max-age=0\").header(\n   19        \"Pragma\", \"no-cache\").header(\"Content-type\", \"multipart/x-mixed-replace;boundary=\"+boundry_).header(\n\n~/pippino_ws/src/web_video_server/src/png_streamers.cpp:\n    1: #include \"web_video_server/png_streamers.h\"\n    2  #include \"async_web_server_cpp/http_reply.hpp\"\n    3  \n    4: namespace web_video_server\n    5  {\n    6  \n    .\n   74    async_web_server_cpp::HttpReply::builder(async_web_server_cpp::HttpReply::ok)\n   75        .header(\"Connection\", \"close\")\n   76:       .header(\"Server\", \"web_video_server\")\n   77        .header(\"Cache-Control\",\n   78                \"no-cache, no-store, must-revalidate, pre-check=0, post-check=0, \"\n\n~/pippino_ws/src/web_video_server/src/ros_compressed_streamer.cpp:\n    1: #include \"web_video_server/ros_compressed_streamer.h\"\n    2  \n    3: namespace web_video_server\n    4  {\n    5  \n\n~/pippino_ws/src/web_video_server/src/vp8_streamer.cpp:\n   35   *********************************************************************/\n   36  \n   37: #include \"web_video_server/vp8_streamer.h\"\n   38  \n   39: namespace web_video_server\n   40  {\n   41  \n   42  Vp8Streamer::Vp8Streamer(const async_web_server_cpp::HttpRequest& request,\n   43                           async_web_server_cpp::HttpConnectionPtr connection, rclcpp::Node::SharedPtr nh) :\n   44:     LibavStreamer(request, connection, nh, \"webm\", \"libvpx\", \"video/webm\")\n   45  {\n   46    quality_ = request.get_query_param_value_or_default(\"quality\", \"realtime\");\n   ..\n   78  \n   79  Vp8StreamerType::Vp8StreamerType() :\n   80:     LibavStreamerType(\"webm\", \"libvpx\", \"video/webm\")\n   81  {\n   82  }\n\n~/pippino_ws/src/web_video_server/src/vp9_streamer.cpp:\n    1: #include \"web_video_server/vp9_streamer.h\"\n    2  \n    3: namespace web_video_server\n    4  {\n    5  \n    6  Vp9Streamer::Vp9Streamer(const async_web_server_cpp::HttpRequest& request,\n    7                           async_web_server_cpp::HttpConnectionPtr connection, rclcpp::Node::SharedPtr nh) :\n    8:     LibavStreamer(request, connection, nh, \"webm\", \"libvpx-vp9\", \"video/webm\")\n    9  {\n   10  }\n   ..\n   25  \n   26  Vp9StreamerType::Vp9StreamerType() :\n   27:     LibavStreamerType(\"webm\", \"libvpx-vp9\", \"video/webm\")\n   28  {\n   29  }\n\n~/pippino_ws/src/web_video_server/src/web_video_server.cpp:\n    7  #include <opencv2/opencv.hpp>\n    8  \n    9: #include \"web_video_server/web_video_server.h\"\n   10: #include \"web_video_server/ros_compressed_streamer.h\"\n   11: #include \"web_video_server/jpeg_streamers.h\"\n   12: #include \"web_video_server/png_streamers.h\"\n   13: #include \"web_video_server/vp8_streamer.h\"\n   14: #include \"web_video_server/h264_streamer.h\"\n   15: #include \"web_video_server/vp9_streamer.h\"\n   16  #include \"async_web_server_cpp/http_reply.hpp\"\n   17  \n   ..\n   19  using namespace boost::placeholders;\n   20  \n   21: namespace web_video_server\n   22  {\n   23  \n   ..\n   50  }\n   51  \n   52: WebVideoServer::WebVideoServer(rclcpp::Node::SharedPtr &nh, rclcpp::Node::SharedPtr &private_nh) :\n   53      nh_(nh), handler_group_(\n   54          async_web_server_cpp::HttpReply::stock_reply(async_web_server_cpp::HttpReply::not_found))\n   ..\n  103    stream_types_[\"vp9\"] = boost::shared_ptr<ImageStreamerType>(new Vp9StreamerType());\n  104  \n  105:   handler_group_.addHandlerForPath(\"/\", boost::bind(&WebVideoServer::handle_list_streams, this, _1, _2, _3, _4));\n  106:   handler_group_.addHandlerForPath(\"/stream\", boost::bind(&WebVideoServer::handle_stream, this, _1, _2, _3, _4));\n  107    handler_group_.addHandlerForPath(\"/stream_viewer\",\n  108:                                    boost::bind(&WebVideoServer::handle_stream_viewer, this, _1, _2, _3, _4));\n  109:   handler_group_.addHandlerForPath(\"/snapshot\", boost::bind(&WebVideoServer::handle_snapshot, this, _1, _2, _3, _4));\n  110  \n  111    try\n  ...\n  123  }\n  124  \n  125: WebVideoServer::~WebVideoServer()\n  126  {\n  127  }\n  128  \n  129: void WebVideoServer::setup_cleanup_inactive_streams()\n  130  {\n  131:   std::function<void()> callback = std::bind(&WebVideoServer::cleanup_inactive_streams, this);\n  132    cleanup_timer_ = nh_->create_wall_timer(500ms, callback);\n  133  }\n  134  \n  135: void WebVideoServer::spin()\n  136  {\n  137    server_->run();\n  ...\n  146  }\n  147  \n  148: void WebVideoServer::restreamFrames( double max_age )\n  149  {\n  150    boost::mutex::scoped_lock lock(subscriber_mutex_);\n  ...\n  158  }\n  159  \n  160: void WebVideoServer::cleanup_inactive_streams()\n  161  {\n  162    boost::mutex::scoped_lock lock(subscriber_mutex_, boost::try_to_lock);\n  ...\n  177  }\n  178  \n  179: bool WebVideoServer::handle_stream(const async_web_server_cpp::HttpRequest &request,\n  180                                     async_web_server_cpp::HttpConnectionPtr connection, const char* begin,\n  181                                     const char* end)\n  ...\n  221  }\n  222  \n  223: bool WebVideoServer::handle_snapshot(const async_web_server_cpp::HttpRequest &request,\n  224                                       async_web_server_cpp::HttpConnectionPtr connection, const char* begin,\n  225                                       const char* end)\n  ...\n  233  }\n  234  \n  235: bool WebVideoServer::handle_stream_viewer(const async_web_server_cpp::HttpRequest &request,\n  236                                            async_web_server_cpp::HttpConnectionPtr connection, const char* begin,\n  237                                            const char* end)\n  ...\n  267  \n  268      async_web_server_cpp::HttpReply::builder(async_web_server_cpp::HttpReply::ok).header(\"Connection\", \"close\").header(\n  269:         \"Server\", \"web_video_server\").header(\"Content-type\", \"text/html;\").write(connection);\n  270  \n  271      std::stringstream ss;\n  ...\n  284  }\n  285  \n  286: bool WebVideoServer::handle_list_streams(const async_web_server_cpp::HttpRequest &request,\n  287                                           async_web_server_cpp::HttpConnectionPtr connection, const char* begin,\n  288                                           const char* end)\n  ...\n  311  \n  312    async_web_server_cpp::HttpReply::builder(async_web_server_cpp::HttpReply::ok).header(\"Connection\", \"close\").header(\n  313:       \"Server\", \"web_video_server\").header(\"Cache-Control\",\n  314                                             \"no-cache, no-store, must-revalidate, pre-check=0, post-check=0, max-age=0\").header(\n  315        \"Pragma\", \"no-cache\").header(\"Content-type\", \"text/html;\").write(connection);\n  ...\n  379  {\n  380    rclcpp::init(argc, argv);\n  381:   auto nh = std::make_shared<rclcpp::Node>(\"web_video_server\");\n  382:   auto private_nh = std::make_shared<rclcpp::Node>(\"_web_video_server\");\n  383  \n  384:   web_video_server::WebVideoServer server(nh, private_nh);\n  385    server.setup_cleanup_inactive_streams();\n  386    server.spin();\n\n~/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/#run_interactive.sh#:\n   12       --device-cgroup-rule \"c 189:* rmw\" \\\n   13       --device=/dev/esp32 \\\n   14:      --device=/dev/video0 --device=/dev/video1 --device=/dev/video2 \\\n   15       --device=\"/dev/HID-SENSOR-2000e1.3.auto\" \\\n   16       -v /home/michele/pippino_ws:/pippino_ws \\\n\n~/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/run_daemon.sh~:\n   11       --device-cgroup-rule \"c 189:* rmw\" \\\n   12       --device=/dev/rplidar --device=/dev/esp32 \\\n   13:      --device=/dev/video0 --device=/dev/video1 --device=/dev/video2 \\\n   14       --device=\"/dev/HID-SENSOR-2000e1.3.auto\" \\\n   15       -v /home/michele/pippino_ws:/pippino_ws \\\n\n~/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/run_interactive.sh~:\n    8       --device-cgroup-rule \"c 189:* rmw\" \\\n    9       --device=/dev/esp32 \\\n   10:      --device=/dev/video0 --device=/dev/video1 --device=/dev/video2 \\\n   11       --device=\"/dev/HID-SENSOR-2000e1.3.auto\" \\\n   12       -v /home/michele/pippino_ws:/pippino_ws \\\n\n~/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/run_interactive_withdev.sh:\n   11       --device-cgroup-rule \"c 189:* rmw\" \\\n   12       --device=/dev/rplidar --device=/dev/esp32 \\\n   13:      --device=/dev/video0 --device=/dev/video1 --device=/dev/video2 \\\n   14       --device=\"/dev/HID-SENSOR-2000e1.3.auto\" \\\n   15       -v /home/michele/pippino_ws:/pippino_ws \\\n\n~/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/run_interactive_withdev.sh~:\n   10       --device-cgroup-rule \"c 189:* rmw\" \\\n   11       --device=/dev/rplidar --device=/dev/esp32 \\\n   12:      --device=/dev/video0 --device=/dev/video1 --device=/dev/video2 \\\n   13       --device=\"/dev/HID-SENSOR-2000e1.3.auto\" \\\n   14       -v /home/michele/pippino_ws:/pippino_ws \\\n\n~/remote/pippino/pippino_ws/src/pippino_bringup/launch/pippino.launch.py:\n   86      # )\n   87  \n   88:     video_stream_controller_node = Node(\n   89:         package='video_stream_controller',\n   90:         executable='video_stream_controller_exe',\n   91:         name='video_stream_controller',\n   92      )\n   93  \n   ..\n  111          launch.actions.TimerAction(period=6.0, actions=[start_description]),\n  112          # launch.actions.TimerAction(period=9.0, actions=[start_navigation]),\n  113:         video_stream_controller_node,\n  114  \n  115  \n\n~/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_d400_and_t265_launch.py:\n   31              launch_arguments=rs_launch.set_configurable_parameters(local_parameters).items(),\n   32          ),\n   33:         # video_stream_controller_node,\n   34      ])\n   35  \n\n~/remote/pippino/pippino_ws/src/pippino_bringup/tools/uhubctl:\n    <binary>\n\n~/remote/pippino/pippino_ws/src/pippino_navigation/config_obsolete/calib_all.txt:\n    4      Firmware Version              : \t05.13.00.50\n    5      Recommended Firmware Version  : \t05.13.00.50\n    6:     Physical Port                 : \t/sys/devices/70090000.xusb/usb2/2-1/2-1.3/2-1.3.1/2-1.3.1:1.0/video4linux/video0\n    7      Debug Op Code                 : \t15\n    8      Advanced Mode                 : \tYES\n\n~/remote/pippino/pippino_ws/src/pippino_navigation/scripts/charuco_localization.py:\n   83        \n   84      # Create the subscriber. This subscriber will receive an Image\n   85:     # from the video_frames topic. The queue size is 10 messages.\n   86      self.subscription = self.create_subscription(\n   87        Image, \n   ..\n  102      \"\"\"\n  103      # Display the message on the console\n  104:     # self.get_logger().info('Receiving video frame')\n  105    \n  106      # Convert ROS Image message to OpenCV image\n  107      current_frame = self.bridge.imgmsg_to_cv2(data)\n  108       \n  109:     # Detect ArUco markers in the video frame\n  110      (corners, marker_ids, rejected) = cv2.aruco.detectMarkers(\n  111        current_frame, self.this_aruco_dictionary, parameters=self.this_aruco_parameters,\n  ...\n  115      if marker_ids is not None:\n  116       \n  117:       # Draw a square around detected markers in the video frame\n  118        cv2.aruco.drawDetectedMarkers(current_frame, corners, marker_ids)\n  119   \n\n~/remote/pippino/pippino_ws/src/video_stream_controller/package.xml:\n    2  <?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\" schematypens=\"http://www.w3.org/2001/XMLSchema\"?>\n    3  <package format=\"3\">\n    4:   <name>video_stream_controller</name>\n    5    <version>0.0.0</version>\n    6:   <description>Video Stream Controller, that can turn on or off video streams from Pippino's cameras.</description>\n    7    <maintainer email=\"michele.demarchi.85@gmail.com\">root</maintainer>\n    8    <license>TODO: License declaration</license>\n\n~/remote/pippino/pippino_ws/src/video_stream_controller/setup.cfg:\n    1  [develop]\n    2: script_dir=$base/lib/video_stream_controller\n    3  [install]\n    4: install_scripts=$base/lib/video_stream_controller\n    5  \n\n~/remote/pippino/pippino_ws/src/video_stream_controller/setup.py:\n    1  from setuptools import setup\n    2  \n    3: package_name = 'video_stream_controller'\n    4  \n    5  setup(\n    .\n   21      entry_points={\n   22          'console_scripts': [\n   23:             'video_stream_controller_exe = video_stream_controller.video_stream_controller:main',\n   24          ],\n   25      },\n\n~/remote/pippino/pippino_ws/src/video_stream_controller/video_stream_controller/video_stream_controller.py:\n   20  \n   21  \n   22: class VideoStreamController(Node):\n   23      \"\"\"\n   24      Create an ArucoDetection class, which is a subclass of the Node class.\n   ..\n   34          self.declare_parameter(\"color_image_topic\", \"/D455/color/image_raw\")\n   35          self.declare_parameter(\"fisheye_image_topic\", \"/T265/fisheye1/image_raw\")\n   36:         self.declare_parameter(\"camera_calibration_parameters_filename\", \"/pippino_ws/src/video_stream_controller/config/calibration_T265_fisheye1.yaml\")\n   37  \n   38  \n   ..\n   77          self.image_publisher = self.create_publisher(\n   78              CompressedImage,\n   79:             '/video',\n   80              1\n   81          )\n   82          # self.compressed_image_publisher = self.create_publisher(\n   83          #     Image,\n   84:         #     '/video',\n   85          #     5\n   86          # )\n   ..\n  179      rclpy.init(args=args)\n  180  \n  181:     video_stream_controller = VideoStreamController()\n  182  \n  183:     rclpy.spin(video_stream_controller)\n  184  \n  185      rclpy.shutdown()\n\n217 matches across 44 files\n\n\nSearching 187 files for \"/video\"\n\n~/pippino_ws/src/pippino_navigation/config/calib_all.txt:\n    4      Firmware Version              : \t05.13.00.50\n    5      Recommended Firmware Version  : \t05.13.00.50\n    6:     Physical Port                 : \t/sys/devices/70090000.xusb/usb2/2-1/2-1.3/2-1.3.1/2-1.3.1:1.0/video4linux/video0\n    7      Debug Op Code                 : \t15\n    8      Advanced Mode                 : \tYES\n\n~/pippino_ws/src/web_video_server/src/libav_streamer.cpp:\n  377    ss << \"<video src=\\\"/stream?\";\n  378    ss << request.query;\n  379:   ss << \"\\\" autoplay=\\\"true\\\" preload=\\\"none\\\"></video>\";\n  380    return ss.str();\n  381  }\n\n~/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/#run_interactive.sh#:\n   12       --device-cgroup-rule \"c 189:* rmw\" \\\n   13       --device=/dev/esp32 \\\n   14:      --device=/dev/video0 --device=/dev/video1 --device=/dev/video2 \\\n   15       --device=\"/dev/HID-SENSOR-2000e1.3.auto\" \\\n   16       -v /home/michele/pippino_ws:/pippino_ws \\\n\n~/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/run_daemon.sh~:\n   11       --device-cgroup-rule \"c 189:* rmw\" \\\n   12       --device=/dev/rplidar --device=/dev/esp32 \\\n   13:      --device=/dev/video0 --device=/dev/video1 --device=/dev/video2 \\\n   14       --device=\"/dev/HID-SENSOR-2000e1.3.auto\" \\\n   15       -v /home/michele/pippino_ws:/pippino_ws \\\n\n~/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/run_interactive.sh~:\n    8       --device-cgroup-rule \"c 189:* rmw\" \\\n    9       --device=/dev/esp32 \\\n   10:      --device=/dev/video0 --device=/dev/video1 --device=/dev/video2 \\\n   11       --device=\"/dev/HID-SENSOR-2000e1.3.auto\" \\\n   12       -v /home/michele/pippino_ws:/pippino_ws \\\n\n~/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/run_interactive_withdev.sh:\n   11       --device-cgroup-rule \"c 189:* rmw\" \\\n   12       --device=/dev/rplidar --device=/dev/esp32 \\\n   13:      --device=/dev/video0 --device=/dev/video1 --device=/dev/video2 \\\n   14       --device=\"/dev/HID-SENSOR-2000e1.3.auto\" \\\n   15       -v /home/michele/pippino_ws:/pippino_ws \\\n\n~/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/run_interactive_withdev.sh~:\n   10       --device-cgroup-rule \"c 189:* rmw\" \\\n   11       --device=/dev/rplidar --device=/dev/esp32 \\\n   12:      --device=/dev/video0 --device=/dev/video1 --device=/dev/video2 \\\n   13       --device=\"/dev/HID-SENSOR-2000e1.3.auto\" \\\n   14       -v /home/michele/pippino_ws:/pippino_ws \\\n\n~/remote/pippino/pippino_ws/src/pippino_navigation/config_obsolete/calib_all.txt:\n    4      Firmware Version              : \t05.13.00.50\n    5      Recommended Firmware Version  : \t05.13.00.50\n    6:     Physical Port                 : \t/sys/devices/70090000.xusb/usb2/2-1/2-1.3/2-1.3.1/2-1.3.1:1.0/video4linux/video0\n    7      Debug Op Code                 : \t15\n    8      Advanced Mode                 : \tYES\n\n~/remote/pippino/pippino_ws/src/video_stream_controller/setup.cfg:\n    1  [develop]\n    2: script_dir=$base/lib/video_stream_controller\n    3  [install]\n    4: install_scripts=$base/lib/video_stream_controller\n    5  \n\n~/remote/pippino/pippino_ws/src/video_stream_controller/video_stream_controller/video_stream_controller.py:\n   34          self.declare_parameter(\"color_image_topic\", \"/D455/color/image_raw\")\n   35          self.declare_parameter(\"fisheye_image_topic\", \"/T265/fisheye1/image_raw\")\n   36:         self.declare_parameter(\"camera_calibration_parameters_filename\", \"/pippino_ws/src/video_stream_controller/config/calibration_T265_fisheye1.yaml\")\n   37  \n   38  \n   ..\n   77          self.image_publisher = self.create_publisher(\n   78              CompressedImage,\n   79:             '/video',\n   80              1\n   81          )\n   82          # self.compressed_image_publisher = self.create_publisher(\n   83          #     Image,\n   84:         #     '/video',\n   85          #     5\n   86          # )\n\n25 matches across 10 files\n",
 			"settings":
 			{
-				"buffer_size": 7924,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			},
-			"undo_stack":
-			[
-				[
-					19,
-					1,
-					"insert",
-					{
-						"characters": "175"
-					},
-					"BAAAAB4IAAAAAAAAHwgAAAAAAAAAAAAAHwgAAAAAAAAfCAAAAAAAAAQAAAAwNjA1HwgAAAAAAAAgCAAAAAAAAAAAAAAgCAAAAAAAACEIAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAHggAAAAAAAAiCAAAAAAAAAAAAAAAAPC/"
-				]
-			]
+				"buffer_size": 40883,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
 		}
 	],
 	"build_system": "",
@@ -302,6 +1045,42 @@
 		"selected_items":
 		[
 			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"pyt",
+				"Set Syntax: Python"
+			],
+			[
+				"py",
+				"Set Syntax: Python"
+			],
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"SYNTPY",
+				"Set Syntax: Python"
+			],
+			[
+				"SYNDOCK",
+				"Set Syntax: Dockerfile"
+			],
+			[
+				"pytho",
+				"Set Syntax: Python"
+			],
+			[
+				"docker",
+				"Set Syntax: Dockerfile"
+			],
+			[
 				"veri",
 				"Set Syntax: Verilog"
 			],
@@ -314,24 +1093,8 @@
 				"Set Syntax: Bash"
 			],
 			[
-				"docker",
-				"Set Syntax: Dockerfile"
-			],
-			[
-				"py",
-				"Set Syntax: Python"
-			],
-			[
 				"syntpy",
 				"Set Syntax: Python"
-			],
-			[
-				"wra",
-				"Word Wrap: Toggle"
-			],
-			[
-				"wrap",
-				"Wrap at Ruler"
 			],
 			[
 				"makef",
@@ -392,45 +1155,106 @@
 	[
 		"/home/michele/pippino_ws/src",
 		"/home/michele/pippino_ws/src/pippino_bringup",
+		"/home/michele/pippino_ws/src/pippino_bringup/config",
 		"/home/michele/pippino_ws/src/pippino_bringup/launch",
-		"/home/michele/pippino_ws/src/pippino_navigation",
-		"/home/michele/pippino_ws/src/pippino_navigation/config",
-		"/home/michele/pippino_ws/src/pippino_navigation/launch",
-		"/home/michele/pippino_ws/src/pippino_navigation/scripts",
 		"/home/michele/remote/pippino/pippino_ws/src",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu20_galactic",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/odom_calib",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/config",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/launch",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/meshes",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/launch",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/src"
+		"/home/michele/remote/pippino/pippino_ws/src/video_stream_controller",
+		"/home/michele/remote/pippino/pippino_ws/src/video_stream_controller/video_stream_controller"
 	],
 	"file_history":
 	[
+		"/home/michele/pippino_ws/src/video_stream_controller/video_stream_controller/video_stream_controller.py",
+		"/home/michele/remote/pippino/pippino_ws/src/video_stream_controller/video_stream_controller/video_stream_controller.py",
+		"/home/michele/pippino_ws/src/pippino_bringup/launch/bringup.launch.py",
+		"/home/michele/remote/pippino/pippino_ws/src/cyclonedds.xml",
+		"/home/michele/pippino_ws/src/cyclonedds.xml",
+		"/home/michele/.bashrc",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino-realsense-entrypoint.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino-services-entrypoint.sh",
+		"/home/michele/pippino_ws/src/pippino_navigation/launch/navigation.launch.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/pippino.launch.py",
+		"/home/michele/pippino_ws/src/pippino_commander/pippino_commander/pippino_commander.py",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/Dockerfile_ubu_base",
+		"/home/michele/ros2_humble/setup_and_build.sh",
+		"/home/michele/pippino_ws/src/pippino_commander/package.xml",
+		"/home/michele/pippino_ws/src/pippino_commander/setup.py",
+		"/home/michele/pippino_ws/src/pippino_commander/setup.cfg",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params_galactic.yaml",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/Dockerfile_ubu_realsense",
+		"/home/michele/.bash_history",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/build_ubu_realsense.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_d400_and_t265_launch.py",
+		"/home/michele/pippino_ws/src/pippino_controller/pippino_controller/pippino_controller.py",
+		"/home/michele/pippino_ws/src/pippino_controller/setup.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/pippino.urdf",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/build_ubu_base.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/Dockerfile_ubu_services",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon_realsense.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/stop_daemons.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_realsense.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon_services.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_navigation/CMakeLists.txt",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_services.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/stop_daemon_services.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino-services-entrypoint_interactive.sh",
+		"/home/michele/Downloads/test_ros/ros2.humble.test.rosinstall",
+		"/home/michele/Downloads/Part 3 (4).ics",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/build_ubu_services.sh",
+		"/home/michele/.ssh/authorized_keys",
+		"/home/michele/KiCad/Projects/Pippino_board_brushless_v2/pippino_board/bug_tracker.txt",
+		"/home/michele/Downloads/OpenCV-4.5.0-aarch64-ubuntu20.zip",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu20_galactic/Dockerfile_ubu20_realsense",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu20_galactic/Dockerfile_ubu20_base",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu20_realsense",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_ubu20_realsense.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_ubu20_base.sh",
+		"/home/michele/pippino_ws/src/pippino_navigation/maps/upper_floor.yaml",
+		"/home/michele/pippino_ws/src/pippino_navigation/scripts/fiducials_tf_publisher.py",
+		"/home/michele/remote/pippino/pippino_ws/src/video_stream_controller/package.xml",
+		"/home/michele/remote/pippino/pippino_ws/src/video_stream_controller/setup.py",
+		"/home/michele/pippino_ws/src/pippino_bringup/config/joystick.yaml",
+		"/home/michele/pippino_ws/src/pippino_navigation/scripts/undistort_fisheye.py",
+		"/home/michele/remote/pippino/pippino_ws/src/video_stream_controller/test/test_pep257.py",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/calibration_T265_fisheye1.yaml",
+		"/home/michele/pippino_ws/src/pippino_bringup/CMakeLists.txt",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu20_services",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu18_realsense",
+		"/home/michele/pippino_ws/src/pippino_navigation/scripts/charuco_localization.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/src/pippino_odom.cpp",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/launch/odom.launch.py",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu20_base",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_ubu18_realsense.sh",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/calib_all.txt",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/calibration_charuco_manual.yaml",
+		"/home/michele/autodock_ws/src/aruco_detection/config/calibration_D455_1280x800.yaml",
+		"/home/michele/autodock_ws/src/aruco_detection/config/calibration_D455_640x360.yaml",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/calibration_D455_640x360.yaml",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/calibration_D455_1280x800.yaml",
+		"/home/michele/remote/pippino/pippino_ws/src/cyclonedds2.xml",
+		"/home/michele/Git/PlatformIO/Projects/ESP01_Pippino_Charging_Dock/ESP01_Pippino_Charging_Dock.code-workspace",
+		"/home/michele/remote/pippino/pippino_ws/src/d455.yaml",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemons.sh",
+		"/home/michele/pippino_ws/src/pippino_navigation/scripts/navigate_to_aruco.py",
+		"/home/michele/history",
+		"/home/michele/pippino_ws/src/pippino_navigation/scripts/navigate_to_aruco_fsm_v2.py",
+		"/home/michele/pippino_ws/src/pippino_navigation/scripts/navigate_to_aruco_fsm_v1.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/charging_dock.urdf",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/launch/description.launch.py",
+		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/charging_dock.xacro",
+		"/home/michele/pippino_ws/src/pippino_bringup/useful_commands/commands.txt",
 		"/home/michele/Documents/realsense_calibration/save.sh",
 		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params_bak_galactic.yaml",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/launch/odom.launch.py",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/pippino.launch.py",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/launch/description.launch.py",
 		"/home/michele/pippino_ws/src/pippino_navigation/scripts/connect_to_charging_dock_aruco.py",
-		"/home/michele/pippino_ws/src/pippino_navigation/scripts/charuco_localization.py",
-		"/home/michele/remote/pippino/pippino_ws/src/d455.yaml",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/config/ekf.yaml",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_multi_camera_launch.py",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_launch.py",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/pippino.urdf",
-		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params_galactic.yaml",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/odom_calib/t265_position_calib.json",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_d400_and_t265_launch.py",
 		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params.yaml",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino-realsense-entrypoint.sh",
 		"/home/michele/pippino_ws/src/pippino_description/config/ekf.yaml",
 		"/home/michele/pippino_ws/src/pippino_description/launch/description.launch.py",
 		"/home/michele/pippino_ws/src/pippino_display/rviz/point_cloud.rviz",
@@ -448,17 +1272,9 @@
 		"/home/michele/start_pippino_environment.sh",
 		"/home/michele/Downloads/analog_issd_pkg.sv",
 		"/home/michele/test.sh",
-		"/home/michele/.bashrc",
 		"/home/michele/KiCad/Projects/Pippino_board_v2/pippino_board/bug_tracker.txt",
 		"/home/michele/remote/raspi/hass-setup/hass_config/home-assistant.log",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon_realsense.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_ubu18_realsense.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu20_base",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu18_realsense",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_navigation/config/nav2_params.yaml",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_realsense.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_services.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon_services.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/Dockerfile_ubu18_realsense4",
 		"/home/michele/remote/raspi_HDD/Accounts/Backup-codes-demarchisoft.txt",
 		"/home/michele/Documents/Pw-secret.txt",
@@ -469,83 +1285,21 @@
 		"/home/michele/Documents/onion_sites.txt",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/build_ubu18_realsense4.sh",
 		"/home/michele/pippino_ws/src/pippino_description/src/description/pippino.urdf",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/src/pippino_odom.cpp",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/pippino2.urdf",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/_materials.urdf.xacro",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/CMakeLists.txt",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino-services-entrypoint.sh",
 		"/home/michele/pippino_ws/src/iri_point_cloud_hole_detection/src/iri_point_cloud_hole_detection_alg_node.cpp",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_navigation/config/default_params.yaml",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_navigation/config/nav2_params_galactic.yaml",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_ws.sublime-project",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup2/launch/pippino.launch.py",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino-services-entrypoint_interactive.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/bringup.launch.py",
 		"/home/michele/pippino_ws/src/pippino_navigation/config/bt_navigate_to_pose.xml",
-		"/home/michele/pippino_ws/src/pippino_navigation/launch/navigation.launch.py",
-		"/home/michele/remote/pippino/pippino_ws/src/d455_wrapper4.0.yaml",
-		"/home/michele/pippino_ws/src/pippino_navigation/scripts/navigate_manual.py",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/obsolete/run_interactive_realsense_depth.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_ubu20_base.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_ubu20_services.sh",
-		"/home/michele/pippino_ws/src/pippino_navigation/scripts/navigate_to_aruco.py",
-		"/home/michele/pippino_ws/src/pippino_bringup/launch/bringup.launch.py",
-		"/home/michele/pippino_ws/src/pippino_bringup/CMakeLists.txt",
-		"/home/michele/pippino_ws/src/pippino_bringup/package.xml",
-		"/home/michele/pippino_ws/src/pippino_description/package.xml",
-		"/home/michele/pippino_ws/src/pippino_display/launch/display.launch.py",
-		"/home/michele/pippino_ws/src/pippino_description/CMakeLists.txt",
-		"/home/michele/pippino_ws/src/pippino_navigation/CMakeLists.txt",
-		"/home/michele/pippino_ws/src/pippino_navigation/package.xml",
-		"/home/michele/pippino_ws/src/pippino_display/CMakeLists.txt",
-		"/home/michele/pippino_ws/src/pippino_navigation/config/ekf2.yaml",
-		"/home/michele/pippino_ws/src/pippino_description/config/nav2_params.yaml",
-		"/home/michele/pippino_ws/src/pippino_description/config/nav2_params_bak_foxy.yaml",
-		"/home/michele/pippino_ws/src/pippino_description/config/bt_navigate_to_pose.xml",
-		"/home/michele/remote/pippino/pippino_ws/src/script.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/stop_daemons.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu20_services-2",
-		"/home/michele/remote/pippino/pippino_ws/src/rplidar_ros/src/rplidar_scan_publisher.cpp",
-		"/home/michele/pippino_ws/src/pippino_description/launch/test.py",
-		"/home/michele/pippino_ws/src/pippino_description/config/nav2_params_bak_galactic.yaml",
-		"/home/michele/pippino_ws/src/pippino_description/config/ekf2.yaml",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_ubu20_services",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/CMakeLists.txt",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/package.xml",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/package.xml",
-		"/home/michele/pippino_ws/src/pippino_description/launch/nav2.launch.py",
-		"/home/michele/pippino_ws/src/pippino_description/config/default_params.yaml",
-		"/home/michele/pippino_ws/src/pippino_bringup/launch/pippino.launch.py",
-		"/home/michele/remote/pippino/pippino_ws/src/.gitignore",
-		"/home/michele/pippino_ws/src/pippino_odom/src/pippino_odom.cpp",
-		"/home/michele/pippino_ws/src/.gitignore",
-		"/home/michele/pippino_ws/src/pippino_ws.sublime-project",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_realsense_depth.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/package.xml",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/launch/display.launch.py",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_image_5.0_rs2.50.0_stage1.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_stage2",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/Dockerfile_stage1",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_image_5.0_rs2.50.0_stage2.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_image_g6.1_rs2.50.0_stage1.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/build_image_6.1_rs2.43.0_stage2.sh",
-		"/home/michele/remote/pippino/realsense_ws/src/d455.yaml",
-		"/home/michele/Documents/navid-vpn/aictx-ta.key",
-		"/home/michele/Documents/navid-vpn/aictx-ca.crt",
-		"/home/michele/remote/pippino/pippino_ws/src",
-		"/home/michele/Documents/nav2_bot_ws/src/sam_bot_description/launch/display.launch.py",
-		"/home/michele/Documents/nav2_bot_ws/src/sam_bot_description/src/description/sam_bot_description.urdf",
-		"/home/michele/Documents/nav2_bot_ws/src/sam_bot_description/config/ekf.yaml",
-		"/home/michele/pippino_ws/robot_localization_debug.txt",
-		"/home/michele/pippino_ws_jetson_src/d455.yaml",
-		"/home/michele/Documents/fake_process/runner.sh",
-		"/run/user/1000/gvfs/mtp:host=motorola_motorola_one_vision_ZY326KJQ4K/Internal shared storage/Tasker/js/send_sqs_request.js"
+		"/home/michele/remote/pippino/pippino_ws/src/d455_wrapper4.0.yaml"
 	],
 	"find":
 	{
-		"height": 46.0
+		"height": 45.0
 	},
 	"find_in_files":
 	{
@@ -565,134 +1319,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"0605",
-			"NavigationResult",
-			"BasicNavigator",
-			"robot_navigator",
-			"listener_callback",
-			"create_subscription",
-			"listener_callback",
-			"\" ",
-			"false",
-			"False",
-			"false",
-			"False",
-			"false",
-			"False",
-			"false",
-			"False",
-			"false",
-			"False",
-			"false",
-			"False",
-			"True",
-			"true",
-			"True",
-			"true",
-			"True",
-			"camera/depth",
-			"D455",
-			"wheelbase_m_",
-			"wheel",
-			"drivewhl_l",
-			"odom",
+			"/video",
+			"video",
+			"image_publisher",
+			"set_param_req",
+			"t265_param_cli",
+			"set_param_req1",
+			"set_t265_fisheye_camera_state",
+			"color_image_callback",
+			"image_publisher",
+			"CompressedImage",
+			"set_t265_fisheye_camera_state",
+			"t265_param_cli",
+			"set_param_req1",
+			"set_param_req",
+			"set_d455_color_camera_state",
+			"set_t265_fisheye_camera_state",
+			"t265_param_req",
+			"ParameterType",
+			"        while not self.t265_req_future.done():\n            self.get_logger().info('Request not done yet')\n",
+			"()\n",
+			"t265_param_req",
+			"get_logram_req",
+			"set_d455_color_camera_state",
+			"image_publisher",
+			"fisheye_image_topic",
+			"set_param_req",
+			"future",
+			"set_param_req",
+			"t265_param_cli",
+			"set_param_req1",
+			"set_t265_fisheye_camera_state",
+			"autodock_action_server_node",
+			"<",
+			"substitutions",
+			"Command",
+			"nnavigation_humble_ws",
+			"         ",
+			"        ",
+			"       ",
+			"      ",
+			"     ",
+			"    ",
+			"   ",
+			"  ",
+			"         ",
+			"        ",
+			"       ",
+			"rosdep install -y \\\n      --ignore-src \\\n      --from-paths src \\\n      --rosdistro ${ROS_DISTRO} \\\n      --skip-keys \"libopencv-dev libopencv-contrib-dev libopencv-imgproc-dev python-opencv python3-opencv\"",
+			"${ROS_PKG}",
+			"CompressedImage",
+			"image_publisher",
+			"color_image_callback",
+			"color_subscription",
+			"color_image_topic",
+			"rosinstall_gener",
+			"service call",
+			"set_param_req",
+			"set_t265_fisheye_camera_state",
+			"launch_ros.actions.",
+			"video_stream_controller_node",
+			"set_param_req1",
+			"compressed_image_publisher",
+			"set_param_req1",
+			"set_t265_fisheye_camera_state",
 			"pose",
-			"odom",
-			"T265_pose_frxame",
-			"publish",
-			"ludeLaunchDescription(\n        #     PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/rs_launch.py']),\n        #     launch_arguments=set_configurable_parameters(params1).items(),\n        # ),",
-			" //",
-			"//",
-			"T265_link",
-			"T265_base_link",
-			"T265_pose_frame",
-			"base_link",
-			"odom",
-			"odom_to_base_link_tf_publisher_node",
-			"body_link",
-			"T265_base_link",
-			"enable_pose",
-			"false",
-			"ekf",
-			"publish_odometry",
-			"odom",
-			"                           ",
-			"odom",
-			"odometry/filtered",
-			"T265_pose_frame",
-			"T265_link",
-			"0",
-			"link",
-			"choose device by type",
-			"color_optical",
-			"aruco_marker",
-			"charging_station_joint",
-			"camera",
-			"sensor_d455",
-			"camera",
-			"camera_accel_optical_frame",
-			"camera_color_frame",
-			"camera_",
-			"camera_depth_optical_frame",
-			"camera_depth",
-			"/camera",
-			"Camera",
-			"camera",
-			"/camera/",
-			"/camera",
-			"camera",
-			"/camera",
-			"camera",
-			"camera/",
-			"camera",
-			"/camera/",
-			"camera",
-			"odom",
-			"camera",
-			"config_file",
-			"camera",
-			"T265",
-			"t265",
-			"config_file_t265",
-			"rs_",
-			"config_file",
-			"config_file_d455",
-			"config_file",
-			"file1",
-			".\n",
-			"boolean",
-			"msg",
-			"tf_buffer",
-			"tf_listener",
-			"TransformBroadcaster",
-			"publisher_cmd_vel",
-			"cmake_minimum_required",
-			"reached_distance_goal",
-			"x",
-			"distance_tolerance",
-			"distance_tolerdance",
-			"reached_distance_goal",
-			"charging_position_rough_reached",
-			"angular_velocity",
-			"heading_tolerance",
-			"self.heading_tolerance",
-			"self.distance_goal_tolerance1",
-			"heading_tolerance",
-			"self",
-			"angle_to_charging_position",
-			"istance_goal_toler",
-			"distance_goal_tolerance1",
-			"distance_goal_toleranc",
-			"):\n",
-			"5",
-			"to",
-			"04",
-			"05",
-			"distance_goal_tolerance",
-			"linear_velocity",
-			"heading_tolerance",
-			"reached_distance_goal",
-			"distance_goal_tolerance"
+			"video_stream_controller",
+			"PippinoController",
+			"pippino_controller",
+			"video_stream_controller",
+			"__action_server",
+			"video_stream_controller",
+			"video_stream_controller_exe",
+			"CompressedImage",
+			"image_publisher",
+			"color_image_callback",
+			"color_image_topic",
+			"config",
+			"CMAKE_C_FLAGS_RELEASE",
+			"gcc",
+			"cuda",
+			"ROS_DISTRO",
+			"transport",
+			"transpor",
+			"${ROS_PKG}",
+			"publisher",
+			"ROS_PKG",
+			"update",
+			"ROS_ROOT",
+			"flake8",
+			"cli",
+			"/opt/ros/$rosdist",
+			"/opt/ros/$rosdist/",
+			"/opt/ros/$rosdist",
+			"rosdist",
+			"Finished",
+			"ca-certificates",
+			"apt-transport-https",
+			"software-properties-common",
+			"ROS_ROOT",
+			"sudo",
+			"&&",
+			"RUN",
+			"sudo",
+			"OPENCV_DEB",
+			"sudo",
+			"ROS_DISTRO",
+			"galactic",
+			"test",
+			"distro",
+			"test",
+			"BASE_IMAGE",
+			"ROS_DISTRO",
+			"ROS_PKG",
+			"ROS_DISTRO",
+			"BASE_IMAGE_NOROS",
+			"aruco_detection_node",
+			"joy_message_callback",
+			"joy_subscription",
+			"Joy",
+			"server",
+			"',\n",
+			"autodock_action_server",
+			"set_param_req1",
+			"buttons",
+			"compressed_image_publisher",
+			"False",
+			"compressed_image_msg",
+			"joy_message_callback"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -717,19 +1471,111 @@
 			[
 				{
 					"buffer": 0,
-					"file": "pippino_navigation/scripts/transform_listener.py",
+					"file": "/home/michele/remote/pippino/pippino_ws/src/pippino-realsense-entrypoint.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8258,
+						"buffer_size": 573,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1342,
-								1342
+								98,
+								98
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu20_galactic/Dockerfile_ubu20_base",
+					"selected": true,
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1215,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemon_realsense.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 419,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								87,
+								87
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+							"tab_size": 5,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "pippino_bringup/launch/bringup.launch.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3373,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3290,
+								3290
 							]
 						],
 						"settings":
@@ -742,70 +1588,140 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 7,
 					"stack_multiselect": false,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/pippino.urdf",
-					"selected": true,
+					"buffer": 4,
+					"file": "/home/michele/remote/pippino/pippino_ws/src/pippino-services-entrypoint.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12484,
+						"buffer_size": 555,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11308,
-								11308
+								555,
+								555
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/XML/XML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 7245.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"stack_multiselect": false,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "pippino_navigation/scripts/charuco_localization.py",
+					"buffer": 5,
+					"file": "/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_realsense.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7924,
+						"buffer_size": 731,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2081,
-								2081
+								87,
+								87
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+							"tab_size": 5,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/michele/remote/pippino/pippino_ws/src/video_stream_controller/video_stream_controller/video_stream_controller.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7705,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3168,
+								3168
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 441.0,
+						"translation.y": 1350.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 40883,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions": "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",
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								36932,
+								36932
+							]
+						],
+						"settings":
+						{
+							"default_dir": "/home/michele/remote/pippino/pippino_ws/src/video_stream_controller/video_stream_controller",
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 16704.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"stack_multiselect": false,
 					"type": "text"
 				}
@@ -814,7 +1730,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 32.0
+		"height": 29.0
 	},
 	"input":
 	{
@@ -855,7 +1771,7 @@
 	"project": "pippino_ws.sublime-project",
 	"replace":
 	{
-		"height": 60.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -893,7 +1809,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 383.0,
+	"side_bar_width": 345.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
