@@ -35,8 +35,6 @@ def main(args=None):
 
     pippino_commander = PippinoCommander()
 
-
-
     rclpy.spin(pippino_commander)
 
     rclpy.shutdown()

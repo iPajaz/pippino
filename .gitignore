@@ -6,3 +6,8 @@
 /vision_opencv
 
 *~
+
+
+# Other settings
+mqtt_settings.py
+mqtt_settings.yaml
