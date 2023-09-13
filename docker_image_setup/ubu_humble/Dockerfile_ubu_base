@@ -131,8 +131,6 @@ RUN rosinstall_generator --deps --rosdistro ${ROS_DISTRO} ros_base \
         image_geometry \
         image_pipeline \
         image_transport \
-        compressed_image_transport \
-        compressed_depth_image_transport \
         > ros2.${ROS_DISTRO}.ros_base.rosinstall
 
 RUN rm -rf src && mkdir -p src && cat ros2.${ROS_DISTRO}.ros_base.rosinstall && \
@@ -189,6 +187,7 @@ RUN colcon build \
     --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2
 
 # source ROS
+RUN echo "export ROS_DISTRO=${ROS_DISTRO}" >> /root/.bashrc
 RUN echo "source /opt/ros/${ROS_DISTRO}/install/setup.bash" >> /root/.bashrc
 
 CMD ["bash"]

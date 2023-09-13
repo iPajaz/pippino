@@ -3,9 +3,9 @@
 docker stop pippino_realsense
 docker rm pippino_realsense
 
-distro=galactic
+ROS_DISTRO=humble
 
-docker run -it --rm \
+docker run -d --rm \
      -v /dev:/dev \
      --name pippino_realsense \
      --privileged \
@@ -14,7 +14,7 @@ docker run -it --rm \
      --device-cgroup-rule "c 189:* rmw" \
      -v /home/michele/pippino_ws:/pippino_ws \
      --net=host \
-     pippino/ros2:realsense-$distro
+     pippino/ros2:realsense-$ROS_DISTRO
      # --restart always \
 
 

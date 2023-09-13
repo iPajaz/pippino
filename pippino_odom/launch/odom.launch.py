@@ -12,10 +12,11 @@ def generate_launch_description():
             executable='pippino_odom',
             output='screen',
             parameters=[{
-                'angular_scale_positive':0.968,
-                'angular_scale_negative':0.968,
-                'linear_scale_positive':0.99,
-                'linear_scale_negative':0.99,
+                'angular_scale_positive':1.0,
+                'angular_scale_negative':1.0,
+                'linear_scale_positive':1.0,
+                'linear_scale_negative':1.0,
+                'wheelbase_m_': 0.28,
             }],
             # remappings=[('/pippino/odom', '/odom')]
         )

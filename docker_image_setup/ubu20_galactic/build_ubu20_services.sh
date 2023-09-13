@@ -1,6 +1,6 @@
 #! /bin/bash
 
-distro="galactic"
+distro=galactic
 
 sudo docker build \
         --build-arg ROS_DISTRO=$distro \

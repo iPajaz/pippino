@@ -1,14 +1,9 @@
 ARG BASE_IMAGE
 ARG BASE_IMAGE_NOROS
-ARG L4T_VERSION
 #################################
 #   Librealsense Builder Stage  #
 #################################
-# FROM nvcr.io/nvidia/l4t-base:r$L4T_VERSION as librealsense-builder
 FROM $BASE_IMAGE_NOROS as librealsense-builder
-
-ARG L4T_VERSION
-RUN test -n "${L4T_VERSION}"
 
 ARG LIBRS_VERSION
 # Make sure that we have a version number of librealsense as argument
@@ -16,7 +11,6 @@ RUN test -n "$LIBRS_VERSION"
 
 # To avoid waiting for input during package installation
 ENV DEBIAN_FRONTEND=noninteractive
-
 
 # Builder dependencies installation
 RUN apt-get update \
@@ -94,9 +88,6 @@ RUN apt-get install -y --no-install-recommends \
     libboost-all-dev
 
 RUN mkdir -p /realsense_ws/src
-WORKDIR /realsense_ws/src 
-ARG ROS_DISTRO
-
 
 ARG ROS_DISTRO
 WORKDIR /realsense_ws
@@ -113,10 +104,12 @@ RUN git clone https://github.com/ros-perception/vision_opencv.git -b $ROS_DISTRO
 
 RUN source /opt/ros/$ROS_DISTRO/setup.bash && colcon build
 
+RUN apt install -y ros-$ROS_DISTRO-compressed-image-transport
+
 RUN echo 'source /pippino_ws/install/local_setup.bash' >> /root/.bashrc
 RUN echo 'source /realsense_ws/install/local_setup.bash' >> /root/.bashrc
 
 RUN echo "alias run='ros2 launch pippino_bringup pippino.launch.py'" >> /root/.bashrc
 
 
-ENTRYPOINT ["/pippino_ws/src/pippino-realsense-entrypoint.sh"]
+ENTRYPOINT ["/pippino_ws/src/pippino-realsense-entrypoint.sh"]<

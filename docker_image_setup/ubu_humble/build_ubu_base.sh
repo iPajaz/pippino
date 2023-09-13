@@ -1,6 +1,7 @@
 #! /bin/bash
 
 ROS_DISTRO=humble
+
 L4T_VERSION=35.3.1
 BASE_IMAGE=nvcr.io/nvidia/l4t-base:$L4T_VERSION
 

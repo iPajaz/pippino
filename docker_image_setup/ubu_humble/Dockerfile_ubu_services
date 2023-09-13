@@ -50,7 +50,8 @@ RUN source /opt/ros/${ROS_DISTRO}/install/setup.bash \
     && rosinstall_generator --deps --rosdistro humble \
     micro_ros_setup xacro joint_state_publisher \
     image_pipeline diagnostics angles rmw_fastrtps \
-    geographic_info common_interfaces topic_tools robot_localization \
+    geographic_info common_interfaces topic_tools \
+    compressed_image_transport compressed_depth_image_transport \
     --exclude $( (ros2 pkg list) ) \
     > ros2.${ROS_DISTRO}.services.rosinstall
 
@@ -59,12 +60,12 @@ RUN mkdir src && cat ros2.${ROS_DISTRO}.services.rosinstall && \
 
 RUN cd /services_ws/src \
     && git clone https://github.com/micro-ROS/micro_ros_setup.git -b ${ROS_DISTRO} --depth 1 --single-branch \
-    && git clone -b ros2 https://github.com/iPajaz/rplidar_ros.git --depth 1
+    && git clone -b ros2 https://github.com/iPajaz/rplidar_ros.git --depth 1 \
     # && git clone -b $ROS_DISTRO https://github.com/ros2/rmw_fastrtps.git --depth 1 \
     # && git clone https://github.com/ros2-gbp/xacro-release.git -b master --depth 1 \
     # && git clone https://github.com/ros/joint_state_publisher.git -b ros2 --depth 1 \
     # && git clone -b $ROS_DISTRO https://github.com/ros-perception/image_pipeline.git --depth 1 \
-    # && git clone -b ros2 https://github.com/cra-ros-pkg/robot_localization.git --depth 1 \
+    && git clone -b $ROS_DISTRO-devel https://github.com/cra-ros-pkg/robot_localization.git --depth 1
     # && git clone -b main https://github.com/ros-tooling/topic_tools.git --depth 1 \
     # && git clone -b ros2 https://github.com/ros/angles.git --depth 1 \
     # && git clone -b $ROS_DISTRO https://github.com/ros2/common_interfaces.git --depth 1 \
@@ -85,12 +86,27 @@ RUN source /opt/ros/${ROS_DISTRO}/install/setup.bash \
 # https://stackoverflow.com/questions/55224016/importerror-libcublas-so-10-0-cannot-open-shared-object-file-no-such-file-or
 ENV LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
+RUN mkdir -p /video_ws/src
+WORKDIR /video_ws
+
+RUN source /opt/ros/$ROS_DISTRO/install/setup.bash \
+    && rosinstall_generator --deps --rosdistro $ROS_DISTRO teleop_twist_joy rosbridge_server async_web_server_cpp --exclude $( (ros2 pkg list) ) > ros2.rosinstall
+RUN vcs import src < ros2.rosinstall 
+
+RUN cd src && git clone https://github.com/RobotWebTools/web_video_server.git -b ros2 --depth 1
+
+RUN source /opt/ros/$ROS_DISTRO/install/setup.bash \
+    && rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -ry
+RUN source /opt/ros/$ROS_DISTRO/install/setup.bash \
+    && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2
+
 RUN echo "source /opt/ros/${ROS_DISTRO}/install/setup.bash" >> /root/.bashrc
 RUN echo 'source /services_ws/install/local_setup.bash' >> /root/.bashrc
+RUN echo 'source /video_ws/install/local_setup.bash' >> /root/.bashrc
 RUN echo 'source /pippino_ws/install/local_setup.bash' >> /root/.bashrc
 
 RUN echo "alias run='ros2 launch pippino_bringup pippino.launch.py'" >> /root/.bashrc
 
-WORKDIR /root
+WORKDIR /pippino_ws/src/
 
 ENTRYPOINT ["/pippino_ws/src/pippino-services-entrypoint.sh"]

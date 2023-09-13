@@ -19,8 +19,8 @@ using std::placeholders::_1;
 #define PI     3.14159265
 #define TWO_PI 6.28319630 
 
-#define COUNTS_PER_METER_RIGHT 10850.0
-#define COUNTS_PER_METER_LEFT 10850.0
+#define COUNTS_PER_METER_RIGHT 2100.0
+#define COUNTS_PER_METER_LEFT 2100.0
 
 class PippinoDriver : public rclcpp::Node
 {
@@ -47,7 +47,7 @@ class PippinoDriver : public rclcpp::Node
       // double d_left_m = wheel_mps_left_ * dt_s;
 
       double dxy = (wheel_mps_right_ + wheel_mps_left_)*dt_s / 2.0;
-      double dtheta = (wheel_mps_right_ - wheel_mps_left_)*dt_s / wheelbase_m_;
+      double dtheta = (wheel_mps_right_ - wheel_mps_left_)*dt_s / wheelbase_m_.as_double();
 
       // printf("dxy=%f", dxy);
 
@@ -81,7 +81,7 @@ class PippinoDriver : public rclcpp::Node
       odom_msg_->pose.pose.position.x = x_pos;
       odom_msg_->pose.pose.position.y = y_pos;
       odom_msg_->twist.twist.linear.x = (dtheta == 0)? 0: (wheel_mps_right_+wheel_mps_left_)/2;
-      odom_msg_->twist.twist.angular.z = (dtheta == 0)? 0: (wheel_mps_right_ - wheel_mps_left_) / wheelbase_m_;
+      odom_msg_->twist.twist.angular.z = (dtheta == 0)? 0: (wheel_mps_right_ - wheel_mps_left_) / wheelbase_m_.as_double();
       odom_msg_->header.stamp = now;
       odom_msg_->header.frame_id = "odom";
       odom_msg_->child_frame_id = "base_link";
@@ -182,7 +182,7 @@ class PippinoDriver : public rclcpp::Node
     double wheel_mps_right_;
     double wheel_mps_left_;
 
-    double wheelbase_m_;
+    // double wheelbase_m_;
 
     double x_pos;
     double y_pos;
@@ -194,20 +194,23 @@ class PippinoDriver : public rclcpp::Node
     rclcpp::Parameter linear_scale_negative;
     rclcpp::Parameter angular_scale_positive;
     rclcpp::Parameter angular_scale_negative;
+    rclcpp::Parameter wheelbase_m_;
 
   public:
 
-    PippinoDriver() : Node("pippino_driver"), wheelbase_m_(0.25), odom_msg_(std::make_shared<nav_msgs::msg::Odometry>())
+    PippinoDriver() : Node("pippino_driver"), odom_msg_(std::make_shared<nav_msgs::msg::Odometry>())
     {
       this->declare_parameter<double>("linear_scale_positive");
       this->declare_parameter<double>("linear_scale_negative");
       this->declare_parameter<double>("angular_scale_positive");
       this->declare_parameter<double>("angular_scale_negative");
+      this->declare_parameter<double>("wheelbase_m_");
 
       linear_scale_positive = this->get_parameter("linear_scale_positive");
       linear_scale_negative = this->get_parameter("linear_scale_negative");
       angular_scale_positive = this->get_parameter("angular_scale_positive");
       angular_scale_negative = this->get_parameter("angular_scale_negative");
+      wheelbase_m_ = this->get_parameter("wheelbase_m_");
 
       theta=0;
 

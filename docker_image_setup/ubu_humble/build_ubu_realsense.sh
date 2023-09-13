@@ -6,9 +6,8 @@ BASE_IMAGE_NOROS=nvcr.io/nvidia/l4t-base:$L4T_VERSION
 BASE_IMAGE=pippino/ros2:base-$ROS_DISTRO
 
 sudo docker build \
-        --build-arg LIBRS_VERSION=2.53.1 \
+        --build-arg LIBRS_VERSION=2.51.1 \
         --build-arg RS_WRAPPER_TAG=4.51.1 \
-        --build-arg L4T_VERSION=$L4T_VERSION \
         --build-arg ROS_DISTRO=$ROS_DISTRO \
         --build-arg BASE_IMAGE=$BASE_IMAGE \
         --build-arg BASE_IMAGE_NOROS=$BASE_IMAGE_NOROS \

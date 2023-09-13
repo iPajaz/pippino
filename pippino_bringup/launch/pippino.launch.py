@@ -12,6 +12,7 @@ import launch_ros
 import os
 
 def generate_launch_description():
+    pkg_share = get_package_share_directory('pippino_bringup')
     pippino_odom_pkg_prefix = get_package_share_directory('pippino_odom')
     # pippino_description_pkg_prefix = get_package_share_directory('pippino_description')
     rplidar_launch_pkg_prefix = get_package_share_directory('rplidar_ros2')
@@ -91,31 +92,47 @@ def generate_launch_description():
         name='video_stream_controller',
     )
 
+    rosbridge_server_node = Node(
+        package='rosbridge_server',
+        executable='rosbridge_websocket',
+        # name='rosbridge_websocket'
+    )
+
+    web_video_server_node = Node(
+        package='web_video_server',
+        executable='web_video_server',
+    )
+
+    teleop_twist_joy_node = launch_ros.actions.Node(
+        package='teleop_twist_joy',
+        executable='teleop_node',
+        name='teleop_node',
+        parameters=[os.path.join(pkg_share, 'config/joystick.yaml'), {'use_sim_time': False}]
+    )
+
     ld = LaunchDescription([
         DeclareLaunchArgument(name='navigation', default_value='True', description='Whether run the Navigation stack'),
         DeclareLaunchArgument(name='microros', default_value='True', description='Whether run the Microros agent node'),
         DeclareLaunchArgument(name='lidar', default_value='True', description='Whether run the Rplidar node'),
-        # DeclareLaunchArgument(name='default_realsense_config_filename', default_value='/realsense_ws/src/d455.yaml',
-        #     description='Full path to the realsense config file to use'),
+        ## DeclareLaunchArgument(name='default_realsense_config_filename', default_value='/realsense_ws/src/d455.yaml',
+        ##     description='Full path to the realsense config file to use'),
 
-        # micro_ros_agent_process,
-        # launch.actions.TimerAction(period=2.0, actions=[pippino_odom_launch]),
-        # launch.actions.TimerAction(period=3.0, actions=[rplidar_launch]),
+        ## micro_ros_agent_process,
+        ## launch.actions.TimerAction(period=2.0, actions=[pippino_odom_launch]),
+        ## launch.actions.TimerAction(period=3.0, actions=[rplidar_launch]),
         
 # Typical
         pippino_odom_launch,
 
         launch.actions.TimerAction(period=1.0, actions=[rplidar_node]),
         launch.actions.TimerAction(period=6.0, actions=[micro_ros_agent_process]),
-        # launch.actions.TimerAction(period=6.0, actions=[batt_state_relay_process]),
+        ## launch.actions.TimerAction(period=6.0, actions=[batt_state_relay_process]),
         launch.actions.TimerAction(period=6.0, actions=[start_description]),
-        # launch.actions.TimerAction(period=9.0, actions=[start_navigation]),
+        ## launch.actions.TimerAction(period=9.0, actions=[start_navigation]),
         video_stream_controller_node,
-
-
-
-        # realsense_launch,
-#        pippino_description_launch
+        rosbridge_server_node,
+        web_video_server_node,
+        teleop_twist_joy_node,
     ])
 
     
