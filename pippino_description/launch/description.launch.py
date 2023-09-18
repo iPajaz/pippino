@@ -24,7 +24,7 @@ def generate_launch_description():
         executable='ekf_node',
         name='ekf_filter_node',
         output='screen',
-        parameters=[os.path.join(pkg_share, 'config/ekf_no_T265.yaml'), {'use_sim_time': False}],
+        parameters=[os.path.join(pkg_share, 'config/ekf.yaml'), {'use_sim_time': False}],
         remappings=[('/odometry/filtered', '/odom')]
     )
     map_to_odom_tf_publisher_node = launch_ros.actions.Node(

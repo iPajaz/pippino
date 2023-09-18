@@ -101,7 +101,7 @@ WORKDIR /realsense_ws
 SHELL ["/bin/bash", "-c"]
 
 RUN git clone https://github.com/ros/diagnostics.git -b ros2 --depth 1
-RUN git clone https://github.com/IntelRealSense/realsense-ros.git -b $RS_WRAPPER_TAG --depth 1
+RUN git clone https://github.com/iPajaz/realsense-ros.git -b t265-fix-odom-in --depth 1  # avoid cache
 
 RUN source /opt/ros/$ROS_DISTRO/install/setup.bash \
     && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2

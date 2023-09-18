@@ -98,12 +98,13 @@ RUN pip3 install numpy
 # upgrade cmake - https://stackoverflow.com/a/56690743
 # this is needed to build some of the ROS2 packages
 #
-              
-RUN wget -qO - https://apt.kitware.com/keys/kitware-archive-latest.asc | apt-key add -
-RUN apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
-RUN apt-get install -y --no-install-recommends --only-upgrade \
-            cmake
+#RUN cmake --version
+#RUN wget -qO - https://apt.kitware.com/keys/kitware-archive-latest.asc | apt-key add -
+#RUN apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
+#RUN apt-get install -y --no-install-recommends --only-upgrade cmake
     
+RUN pip install cmake --upgrade
+
 RUN cmake --version
 
 # 
@@ -135,6 +136,8 @@ RUN rosinstall_generator --deps --rosdistro ${ROS_DISTRO} ros_base \
 
 RUN rm -rf src && mkdir -p src && cat ros2.${ROS_DISTRO}.ros_base.rosinstall && \
     vcs import src < ros2.${ROS_DISTRO}.ros_base.rosinstall
+
+RUN apt update
 
 # install dependencies using rosdep
 RUN rosdep init

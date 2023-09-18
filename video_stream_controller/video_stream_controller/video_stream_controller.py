@@ -215,7 +215,7 @@ class VideoStreamController(Node):
             self.vacuum_msg.data = data.buttons[8]
             self.vacuum_actuator_publisher.publish(self.vacuum_msg)
 
-        elif data.buttons[0] == 1:
+        if data.buttons[0] == 1:
         #     self.button_color_cam_counter += 1
         #     self.button_fisheye_cam_counter = 0
         #     print(self.button_color_cam_counter)
@@ -239,7 +239,7 @@ class VideoStreamController(Node):
         elif data.buttons[2] == 1:
             self.set_t265_fisheye_camera_state(False)
             self.set_d455_color_camera_state(False)
-        elif len(data.buttons) >= 8 and data.buttons[7] == 1:
+        elif len(data.buttons) > 9 and data.buttons[9] == 1:
             self.set_t265_fisheye_camera_state(False)
             self.set_d455_color_camera_state(True, profile=self.cfg.d455_hires_profile)
 

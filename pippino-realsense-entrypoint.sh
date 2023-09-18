@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-export ROS_MASTER_URI=http://192.168.0.32:11311
+# export ROS_MASTER_URI=http://192.168.0.32:11311
 export ROS_DISTRO=humble
 
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp

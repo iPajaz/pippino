@@ -9,7 +9,7 @@ sudo /sbin/set_fan_pwm 90
 # uhubctl -l 2-1.1 -p 1 -a cycle  # D455
 # uhubctl -l 2-1.1.4 -p 2 -a cycle  # rplidar
 
-if echo "$(uhubctl)" | grep -q "Port 2\: 0203 power 5gbps U0 enable connect \[8087\:0b37 Intel(R) Corporation Intel(R) RealSense(TM) Tracking Camera T265 224622112036\]"; then
+if echo "$(uhubctl)" | grep -q "Port 1\: 0203 power 5gbps U0 enable connect \[8087\:0b37 Intel(R) Corporation Intel(R) RealSense(TM) Tracking Camera T265 224622112036\]"; then
     echo "T265 already correctly connected."
 
 	# sudo /sbin/remove_usb_device 2-1.1.1  # reset usb bus
@@ -26,9 +26,9 @@ else
 fi
 
 sleep 2
-# ./run_daemon_services.sh
+./run_daemon_services.sh
 sleep 4
-./run_daemon_realsense.sh
+# ./run_daemon_realsense.sh
 
 
 # To turn off and reset D455

@@ -50,6 +50,7 @@ ekf_filter_node:
                        true,  true,  false,
                        false, false, true,
                        false, false, false]
+        odom0_queue_size: 3
 
         odom1: pippino/odom
         odom1_config: [true,  true,  false,

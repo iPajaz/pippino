@@ -19,8 +19,8 @@ using std::placeholders::_1;
 #define PI     3.14159265
 #define TWO_PI 6.28319630 
 
-#define COUNTS_PER_METER_RIGHT 2100.0
-#define COUNTS_PER_METER_LEFT 2100.0
+#define COUNTS_PER_METER_RIGHT 1795.0
+#define COUNTS_PER_METER_LEFT 1795.0
 
 class PippinoDriver : public rclcpp::Node
 {
@@ -89,31 +89,27 @@ class PippinoDriver : public rclcpp::Node
 
       if (wheel_mps_right_ == 0 && wheel_mps_left_ == 0){
         odom_msg_->pose.covariance[0] = 1e-9;
-        odom_msg_->pose.covariance[7] = 1e-3;
-        odom_msg_->pose.covariance[8] = 0.0;//1e-9;
+        odom_msg_->pose.covariance[7] = 1e-9;
         odom_msg_->pose.covariance[14] = 0.0;//1e6;
         odom_msg_->pose.covariance[21] = 0.0;//1e6;
         odom_msg_->pose.covariance[28] = 0.0;//1e6;
         odom_msg_->pose.covariance[35] = 1e-9;
         odom_msg_->twist.covariance[0] = 1e-9;
-        odom_msg_->twist.covariance[7] = 1e-3;
-        odom_msg_->twist.covariance[8] = 0.0;//1e-9;
+        odom_msg_->twist.covariance[7] = 1e-9;
         odom_msg_->twist.covariance[14] = 0.0;//1e6;
         odom_msg_->twist.covariance[21] = 0.0;//1e6;
         odom_msg_->twist.covariance[28] = 0.0;//1e6;
         odom_msg_->twist.covariance[35] = 1e-9;
       }
       else{
-        odom_msg_->pose.covariance[0] = 1e-3;
-        odom_msg_->pose.covariance[7] = 1e-3;
-        odom_msg_->pose.covariance[8] = 0.0;
+        odom_msg_->pose.covariance[0] = 1e-2;
+        odom_msg_->pose.covariance[7] = 1e-5;
         odom_msg_->pose.covariance[14] = 0.0;//1e6;
         odom_msg_->pose.covariance[21] = 0.0;//1e6;
         odom_msg_->pose.covariance[28] = 0.0;//1e6;
         odom_msg_->pose.covariance[35] = 1e-3;//1e3;
-        odom_msg_->twist.covariance[0] = 1e-3;
-        odom_msg_->twist.covariance[7] = 1e-3;
-        odom_msg_->twist.covariance[8] = 0.0;
+        odom_msg_->twist.covariance[0] = 1e-5;
+        odom_msg_->twist.covariance[7] = 1e-5;
         odom_msg_->twist.covariance[14] = 0.0;//1e6;
         odom_msg_->twist.covariance[21] = 0.0;//1e6;
         odom_msg_->twist.covariance[28] = 0.0;//1e6;

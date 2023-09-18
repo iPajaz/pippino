@@ -3,7 +3,7 @@
 docker stop pippino_realsense
 docker rm pippino_realsense
 
-ROS_DISTRO=humble
+# ROS_DISTRO=humble
 
 docker run -d --rm \
      -v /dev:/dev \

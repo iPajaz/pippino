@@ -61,6 +61,7 @@ RUN mkdir src && cat ros2.${ROS_DISTRO}.services.rosinstall && \
 RUN cd /services_ws/src \
     && git clone https://github.com/micro-ROS/micro_ros_setup.git -b ${ROS_DISTRO} --depth 1 --single-branch \
     && git clone -b ros2 https://github.com/iPajaz/rplidar_ros.git --depth 1 \
+    && git clone -b ros2 https://github.com/Slamtec/rplidar_ros.git --depth 1 rplidar_orig_ros \
     # && git clone -b $ROS_DISTRO https://github.com/ros2/rmw_fastrtps.git --depth 1 \
     # && git clone https://github.com/ros2-gbp/xacro-release.git -b master --depth 1 \
     # && git clone https://github.com/ros/joint_state_publisher.git -b ros2 --depth 1 \

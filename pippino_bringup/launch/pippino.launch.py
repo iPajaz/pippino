@@ -50,14 +50,16 @@ def generate_launch_description():
     # )
 
     rplidar_node = Node(
-        package='rplidar_ros2',
-        executable='rplidar_scan_publisher',
-        name='rplidar_scan_publisher',
-        parameters=[{'serial_port': '/dev/rplidar', 
+        package='rplidar_ros',
+        executable='rplidar_node',
+        name='rplidar_node',
+        parameters=[{'channel_type': 'serial',
+                     'serial_port': '/dev/rplidar', 
                      'serial_baudrate': 115200, 
                      'frame_id': 'laser',
                      'inverted': False, 
-                     'angle_compensate': True}],
+                     'angle_compensate': True,
+                     'scan_mode': 'Sensitivity'}],
         output='screen',
         condition=IfCondition(lidar)
     )

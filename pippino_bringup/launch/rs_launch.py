@@ -36,6 +36,8 @@ configurable_parameters = [{'name': 'camera_name',                  'default': '
                            {'name': 'enable_gyro',                  'default': 'true', 'description': "''"},                           
                            {'name': 'enable_accel',                 'default': 'true', 'description': "''"},                           
                            {'name': 'enable_pose',                  'default': 'true', 'description': "''"},                           
+                           {'name': 'tracking_module.frames_queue_size', 'default': '16', 'description': "''"},                           
+                           {'name': 'tracking_module.enable_pose_jumping',          'default': 'false', 'description': "''"},                           
                            {'name': 'pose_fps',                     'default': '200', 'description': "''"},                           
                            {'name': 'pointcloud.enable',            'default': 'false', 'description': ''}, 
                            {'name': 'pointcloud.stream_filter',     'default': '2', 'description': 'texture stream for pointcloud'},
@@ -48,8 +50,10 @@ configurable_parameters = [{'name': 'camera_name',                  'default': '
                            {'name': 'initial_reset',                'default': 'false', 'description': "''"},                           
                            {'name': 'allow_no_texture_points',      'default': 'false', 'description': "''"},                           
                            {'name': 'ordered_pc',                   'default': 'false', 'description': ''},
-                           {'name': 'calib_odom_file',              'default': "''", 'description': "''"},
-                           {'name': 'topic_odom_in',                'default': "''", 'description': 'topic for T265 wheel odometry'},
+
+                           # {'name': 'calib_odom_file',              'default': "'/pippino_ws/src/pippino_bringup/odom_calib/t265_position_calib.json'", 'description': "''"},
+                           # {'name': 'topic_odom_in',                'default': "'/pippino/odom'", 'description': 'topic for T265 wheel odometry'},
+                           
                            {'name': 'tf_publish_rate',              'default': '0.0', 'description': 'Rate of publishing static_tf'},
                            {'name': 'publish_odom_tf',              'default': 'false', 'description': 'Rate of publishing static_tf'},
                            {'name': 'diagnostics_period',           'default': '0.0', 'description': 'Rate of publishing diagnostics. 0=Disabled'},
