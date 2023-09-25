@@ -7,5 +7,8 @@
 		{
 			"path": "/home/michele/remote/pippino/pippino_ws/src",
 		},
+		{
+			"path": "/home/michele/remote/pippino/deep_learning_ws/src"
+		},
 	],
 }

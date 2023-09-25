@@ -1,13 +1,12 @@
 <CycloneDDS>
   <Domain id="any">
     <General>
-      <!-- <NetworkInterfaceAddress>auto</NetworkInterfaceAddress> -->
       <AllowMulticast>false</AllowMulticast>
       <EnableMulticastLoopback>true</EnableMulticastLoopback>
     </General>
     <Discovery>
       <ParticipantIndex>auto</ParticipantIndex>
-      <MaxAutoParticipantIndex>40</MaxAutoParticipantIndex>
+      <MaxAutoParticipantIndex>100</MaxAutoParticipantIndex>
       <Peers>
         <Peer Address="192.168.0.26"/>
         <Peer Address="192.168.0.32"/>

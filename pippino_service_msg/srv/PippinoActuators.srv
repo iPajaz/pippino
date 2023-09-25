@@ -1,0 +1,13 @@
+# Request type defines which actuator has to be set:
+# - '0' sets the power probe to the given angle
+# - '1' sets the vacuum cleaner on/off
+# - '2' sets the vacuum cleaner to max/min power
+# - '3' sets the vacuum both on/off and to max/min power
+
+int8 request_type
+bool bool_vacuum_enable
+bool bool_vacuum_max_power_enable
+int8 power_probe_joint_position
+---
+bool success   # indicate successful run of triggered service
+string message # informational, e.g. for error messages
