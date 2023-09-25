@@ -86,19 +86,11 @@ class VideoStreamController(Node):
             1
         )
 
-        self.vacuum_actuator_publisher = self.create_publisher(
-            Int32,
-            '/vacuum_state',
-            1
-        )
-        self.vacuum_msg = Int32()
-        self.vacuum_msg.data = 0
         # self.base_image_publisher = self.create_publisher(
         #     Image,
         #     '/strctl/image_raw',
         #     1
         # )
-        self.vacuum_on = 0
 
         self.cam_info_publisher = self.create_publisher(
             CameraInfo,
@@ -211,10 +203,6 @@ class VideoStreamController(Node):
     
     def joy_message_callback(self, data):
         # self.get_logger().warning(f"Fuck {data}")
-        if data.buttons[8] != self.vacuum_msg.data:
-            self.vacuum_msg.data = data.buttons[8]
-            self.vacuum_actuator_publisher.publish(self.vacuum_msg)
-
         if data.buttons[0] == 1:
         #     self.button_color_cam_counter += 1
         #     self.button_fisheye_cam_counter = 0
@@ -239,7 +227,7 @@ class VideoStreamController(Node):
         elif data.buttons[2] == 1:
             self.set_t265_fisheye_camera_state(False)
             self.set_d455_color_camera_state(False)
-        elif len(data.buttons) > 9 and data.buttons[9] == 1:
+        elif len(data.buttons) > 8 and data.buttons[8] == 1:
             self.set_t265_fisheye_camera_state(False)
             self.set_d455_color_camera_state(True, profile=self.cfg.d455_hires_profile)
 

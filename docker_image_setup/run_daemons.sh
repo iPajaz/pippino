@@ -2,7 +2,10 @@
 
 cd ~/pippino_ws/src/docker_image_setup
 # echo 90 > sudo tee /sys/devices/pwm-fan/target_pwm
-sudo /sbin/set_fan_pwm 90
+# sudo /sbin/set_fan_pwm 90
+
+# Start scan
+uhubctl -l 1-2.1.4 -p 1 -a on
 
 # sleep 2
 
@@ -27,8 +30,8 @@ fi
 
 sleep 2
 ./run_daemon_services.sh
-sleep 4
-# ./run_daemon_realsense.sh
+sleep 2
+./run_daemon_realsense.sh
 
 
 # To turn off and reset D455
