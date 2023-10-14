@@ -295,6 +295,7 @@ global_costmap:
       update_frequency: 2.0
       publish_frequency: 1.0
       global_frame: map
+      rolling_window: false
       robot_base_frame: base_link
       use_sim_time: False
       static_map: true

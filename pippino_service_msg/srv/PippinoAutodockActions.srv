@@ -1,0 +1,8 @@
+# Request type defines which actuator has to be set:
+# - '0' cancel docking
+# - '1' go to dock
+# - '2' detach from dock
+
+int8 action_type
+---
+bool success   # indicate successful run of triggered service

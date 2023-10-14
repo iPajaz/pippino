@@ -20,8 +20,10 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(os.path.join(description_launch_dir, 'description.launch.py'))
     )
     start_navigation = launch.actions.IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(navigation_launch_dir, 'navigation.launch.py'))
+        PythonLaunchDescriptionSource(os.path.join(navigation_launch_dir, 'navigation.launch.py')),
+        launch_arguments = {'autostart': 'True'}.items()
     )
+
     start_slam = launch.actions.IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(navigation_launch_dir, 'slam.launch.py'))
     )
@@ -78,15 +80,21 @@ def generate_launch_description():
     start_node_webserver = launch.actions.ExecuteProcess(
         cmd=['npm', 'start', '--prefix=~/ros-ui-react/example/']
     )
+    # start_fastdds_server = launch.actions.ExecuteProcess(
+    #     cmd=['/home/michele/fastdds_server.sh']
+    # )
 
     return launch.LaunchDescription([
+        # Start FastDDS server
+        # start_fastdds_server
+
         ## start_description,
-        launch.actions.TimerAction(period=2.0, actions=[start_navigation]),
+        launch.actions.TimerAction(period=8.0, actions=[start_navigation]),
         launch.actions.TimerAction(period=2.0, actions=[start_slam]),
         launch.actions.TimerAction(period=1.0, actions=[start_display]),
         ## rosbridge_server_node,
         ## teleop_twist_joy_node,
-        start_explorer_wanderer_server,
+        # start_explorer_wanderer_server,
         aruco_detection_node,
         autodock_action_server_node,
         autodock_action_client_node,

@@ -1,0 +1,13 @@
+# Request type defines which camera has to be set:
+# - '0' sets the D455 on/off
+# - '1' sets the D455 on/off and profile
+# - '2' sets the T265 on/off
+# - '3' sets the D455 on/off and the T265 on/off
+# - '4' sets all
+
+int8 request_type
+bool d455_enable
+bool d455_hires  # 0=fast, 1=high res
+bool t265_enable
+---
+bool success   # indicate successful run of triggered service

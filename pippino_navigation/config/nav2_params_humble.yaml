@@ -319,6 +319,7 @@ global_costmap:
       update_frequency: 1.0
       publish_frequency: 1.0
       global_frame: map
+      rolling_window: False
       robot_base_frame: base_link
       use_sim_time: False
       # robot_radius: 0.22 # radius set and used, so no footprint points
