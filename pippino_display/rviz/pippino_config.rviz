@@ -19,7 +19,7 @@ Panels:
         - /Map3
         - /Map4
       Splitter Ratio: 0.5259593725204468
-    Tree Height: 1927
+    Tree Height: 1918
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
@@ -33,6 +33,10 @@ Panels:
       - /Current View1
     Name: Views
     Splitter Ratio: 0.5
+  - Class: nav2_rviz_plugins/Navigation 2
+    Name: Navigation 2
+  - Class: slam_toolbox::SlamToolboxPlugin
+    Name: SlamToolboxPlugin
 Visualization Manager:
   Class: ""
   Displays:
@@ -91,17 +95,21 @@ Visualization Manager:
           Value: true
         D455_usb_plug_link:
           Value: true
-        T265_accel_frame:
-          Value: true
-        T265_accel_optical_frame:
-          Value: true
-        T265_gyro_frame:
-          Value: true
-        T265_gyro_optical_frame:
-          Value: true
-        T265_link:
-          Value: true
         T265_pose_frame:
+          Value: true
+        aruco_marker_15:
+          Value: true
+        aruco_marker_17:
+          Value: true
+        aruco_marker_35:
+          Value: true
+        aruco_marker_46:
+          Value: true
+        aruco_marker_49:
+          Value: true
+        aruco_marker_60:
+          Value: true
+        aruco_marker_68:
           Value: true
         back_wheel:
           Value: false
@@ -111,8 +119,6 @@ Visualization Manager:
           Value: false
         body_link:
           Value: false
-        circuits:
-          Value: false
         drivewhl_l_link:
           Value: false
         drivewhl_r_link:
@@ -121,6 +127,20 @@ Visualization Manager:
           Value: false
         map:
           Value: false
+        map_from_aruco_15:
+          Value: true
+        map_from_aruco_17:
+          Value: true
+        map_from_aruco_35:
+          Value: true
+        map_from_aruco_46:
+          Value: true
+        map_from_aruco_49:
+          Value: true
+        map_from_aruco_60:
+          Value: true
+        map_from_aruco_68:
+          Value: true
         odom:
           Value: false
         odom_frame:
@@ -163,18 +183,10 @@ Visualization Manager:
                     D455_usb_plug_link:
                       {}
                 T265_pose_frame:
-                  T265_link:
-                    T265_accel_frame:
-                      T265_accel_optical_frame:
-                        {}
-                    T265_gyro_frame:
-                      T265_gyro_optical_frame:
-                        {}
+                  {}
                 back_wheel:
                   {}
                 base_footprint:
-                  {}
-                circuits:
                   {}
                 drivewhl_l_link:
                   {}
@@ -204,7 +216,7 @@ Visualization Manager:
       Max Color: 255; 255; 255
       Max Intensity: 47
       Min Color: 0; 0; 0
-      Min Intensity: 47
+      Min Intensity: 0
       Name: LaserScan
       Position Transformer: XYZ
       Selectable: true
@@ -325,11 +337,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         body_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        circuits:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -654,7 +661,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 13.240833282470703
+      Distance: 27.048757553100586
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -677,13 +684,17 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 2092
+  Height: 2090
   Hide Left Dock: false
   Hide Right Dock: false
   Image:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001e2000007c9fc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006700fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000043000007c9000000e000fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d006100670065000000072b000000e10000002c00ffffff000000010000010f000007c9fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730100000043000007c9000000b500fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d006501000000000000045000000000000000000000045f000007c900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Navigation 2:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000027a000007c4fc020000000bfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006a00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000045000007c4000000e800fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d006100670065000000072b000000e10000002d00fffffffb00000018004e0061007600690067006100740069006f006e002000320000000626000001e30000017100fffffffb000000220053006c0061006d0054006f006f006c0062006f00780050006c007500670069006e000000063c000001cd000001cd00ffffff000000010000010f000007c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730100000045000007c4000000be00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d00650100000000000004500000000000000000000003c5000007c400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
+    collapsed: false
+  SlamToolboxPlugin:
     collapsed: false
   Tool Properties:
     collapsed: false
@@ -691,4 +702,4 @@ Window Geometry:
     collapsed: false
   Width: 1884
   X: 1956
-  Y: 31
+  Y: 33
