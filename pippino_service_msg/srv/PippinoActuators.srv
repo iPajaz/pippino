@@ -4,10 +4,9 @@
 # - '2' sets the vacuum cleaner to max/min power
 # - '3' sets the vacuum both on/off and to max/min power
 
-int8 request_type
+int16 request_type
+int16 power_probe_joint_position
 bool bool_vacuum_enable
 bool bool_vacuum_max_power_enable
-int8 power_probe_joint_position
 ---
 bool success   # indicate successful run of triggered service
-string message # informational, e.g. for error messages

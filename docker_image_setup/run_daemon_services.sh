@@ -15,6 +15,7 @@ docker run -d --rm \
      -v /home/michele/pippino_ws:/pippino_ws \
      --net=host \
      -v /dev/shm:/dev/shm \
+     -e "RMW_IMPLEMENTATION" \
      pippino/ros2:services-$ROS_DISTRO
       # \
      # bash -c ". /opt/ros/$ROS_DISTRO/setup.bash && . /pippino_ws/install/local_setup.bash && . /services_ws/install/local_setup.bash && ros2 launch pippino_bringup pippino.launch.py"

@@ -65,7 +65,7 @@ def generate_launch_description():
     return launch.LaunchDescription([
         launch.actions.DeclareLaunchArgument(name='model', default_value=default_model_path,
                                             description='Absolute path to robot urdf file'),
-        # point_cloud_generator,
+        ## point_cloud_generator,
         odom_to_base_link_tf_publisher_node,
         map_to_odom_tf_publisher_node,
         odom_frame_to_base_link_tf_publisher_node,

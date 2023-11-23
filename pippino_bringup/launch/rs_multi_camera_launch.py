@@ -23,10 +23,10 @@ import pathlib
 sys.path.append(str(pathlib.Path(__file__).parent.absolute()))
 import rs_launch
 
-local_parameters = [{'name': 'camera_name1', 'default': 'camera1', 'description': 'camera unique name'},
-                    {'name': 'camera_name2', 'default': 'camera2', 'description': 'camera unique name'},
-                    # {'name': 'config_file1', 'default': '\'/pippino_ws/src/d455.yaml\'', 'description': 'camera 1 config file'},
-                   ]
+# local_parameters = [{'name': 'camera_name1', 'default': 'camera1', 'description': 'camera unique name'},
+#                     {'name': 'camera_name2', 'default': 'camera2', 'description': 'camera unique name'},
+#                     # {'name': 'config_file1', 'default': '\'/pippino_ws/src/d455.yaml\'', 'description': 'camera 1 config file'},
+#                    ]
 
 def set_configurable_parameters(local_params):
     return dict([(param['original_name'], LaunchConfiguration(param['name'])) for param in local_params])

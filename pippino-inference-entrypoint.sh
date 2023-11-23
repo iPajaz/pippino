@@ -3,8 +3,8 @@
 # export ROS_MASTER_URI=http://192.168.0.32:11311
 export ROS_DISTRO=humble
 
-export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-export CYCLONEDDS_URI=/pippino_ws/src/cyclonedds.xml 
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export FASTRTPS_DEFAULT_PROFILES_FILE=/pippino_ws/src/fastrtps_client.xml
 
 # function ros_source_env() 
 # {

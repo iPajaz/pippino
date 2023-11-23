@@ -15,6 +15,7 @@ docker run -it --rm \
      -v /home/michele/pippino_ws:/pippino_ws \
      --net=host \
      --entrypoint="/bin/bash" \
+     -e "RMW_IMPLEMENTATION" \
      pippino/ros2:realsense-$ROS_DISTRO
 
 # . /pippino_ws/install/local_setup.bash ;. /realsense_ws/install/local_setup.bash

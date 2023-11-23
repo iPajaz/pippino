@@ -1,0 +1,11 @@
+
+#Mode:
+# 'discover' = discover an unknown environment
+# 'find_aruco' = go around and search for an aruco marker
+
+string mode
+string map_url
+
+---
+bool is_success
+---

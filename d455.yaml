@@ -7,6 +7,7 @@ D455:
 
       # initial_reset: true
 
+      publish_tf: false
       # color_qos: "SENSOR_DATA"
 
       # depth_fps: 15
@@ -32,7 +33,7 @@ D455:
       # align_depth: true
 
       enable_color: false
-      enable_depth: false
+      enable_depth: true
       enable_gyro: false
       enable_accel: false
 

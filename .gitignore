@@ -5,5 +5,5 @@
 /rplidar_ros
 /vision_opencv
 **/librealsense-*
-
+**/__pycache__
 *~

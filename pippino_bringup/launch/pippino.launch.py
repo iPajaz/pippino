@@ -97,6 +97,7 @@ def generate_launch_description():
     rosbridge_server_node = Node(
         package='rosbridge_server',
         executable='rosbridge_websocket',
+        output='screen'
         # name='rosbridge_websocket'
     )
 

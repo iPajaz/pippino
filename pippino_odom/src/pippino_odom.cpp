@@ -174,14 +174,14 @@ class PippinoDriver : public rclcpp::Node
 
     // double d_left_m;
     // double d_right_m;
-    double theta;
+    double theta = 0.0;
     double wheel_mps_right_;
     double wheel_mps_left_;
 
     // double wheelbase_m_;
 
-    double x_pos;
-    double y_pos;
+    double x_pos = 0.0;
+    double y_pos = 0.0;
 
     nav_msgs::msg::Odometry::SharedPtr odom_msg_;
     rclcpp::Time curr_time_stamp_;

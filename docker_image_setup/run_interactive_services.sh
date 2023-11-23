@@ -2,6 +2,9 @@
 
 docker exec -it pippino_services pkill ros2 -SIGINT
 
+# Start scan
+uhubctl -l 1-2.1.4 -p 1 -a on
+
 docker stop pippino_services
 docker rm pippino_services
 
@@ -13,6 +16,8 @@ docker run -it --rm \
      -v /home/michele/pippino_ws:/pippino_ws \
      --net=host \
      --entrypoint=/pippino_ws/src/pippino-services-entrypoint_interactive.sh \
+     -v /dev/shm:/dev/shm \
+     -e "RMW_IMPLEMENTATION" \
      pippino/ros2:services-$ROS_DISTRO
      # -v /home/michele/realsense_ws:/realsense_ws \
      # --net=host pippino/ros2:rs50-v2 bash

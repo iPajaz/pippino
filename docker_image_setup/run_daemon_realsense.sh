@@ -15,6 +15,7 @@ docker run -d --rm \
      -v /home/michele/pippino_ws:/pippino_ws \
      --net=host \
      -v /dev/shm:/dev/shm \
+     -e "RMW_IMPLEMENTATION" \
      pippino/ros2:realsense-$ROS_DISTRO
      # --restart always \
 

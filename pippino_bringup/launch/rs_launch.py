@@ -54,6 +54,7 @@ configurable_parameters = [{'name': 'camera_name',                  'default': '
                            # {'name': 'calib_odom_file',              'default': "'/pippino_ws/src/pippino_bringup/odom_calib/t265_position_calib.json'", 'description': "''"},
                            # {'name': 'topic_odom_in',                'default': "'/pippino/odom'", 'description': 'topic for T265 wheel odometry'},
                            
+                           {'name': 'publish_tf',              'default': 'true', 'description': 'Rate of publishing static_tf'},
                            {'name': 'tf_publish_rate',              'default': '0.0', 'description': 'Rate of publishing static_tf'},
                            {'name': 'publish_odom_tf',              'default': 'false', 'description': 'Rate of publishing static_tf'},
                            {'name': 'diagnostics_period',           'default': '0.0', 'description': 'Rate of publishing diagnostics. 0=Disabled'},
