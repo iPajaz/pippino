@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"local",
+				"local_parameters"
+			],
+			[
+				"calbac",
+				"ReentrantCallbackGroup"
+			],
+			[
+				"Follo",
+				"FollowPathRPP"
+			],
+			[
 				"profi",
 				"d455_fast_profile"
 			],
@@ -171,6 +183,133 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "#!/usr/bin/env python3\n\n# (c) Michele De Marchi 2023\n\nimport rclpy  # Python library for ROS 2\nfrom rclpy.node import Node  # Handles the creation of nodes\nfrom cv_bridge import CvBridge  # Package to convert between ROS and OpenCV Images\nfrom sensor_msgs.msg import Image, CompressedImage, Joy, CameraInfo  # Image is the message type\nfrom std_msgs.msg import Int32\nfrom rclpy.parameter import Parameter\nfrom rcl_interfaces.srv import SetParameters\nfrom pippino_service_msg.srv import PippinoVideoStream, PippinoActuators\nfrom std_msgs.msg import String\nfrom rclpy.callback_groups import ReentrantCallbackGroup\nfrom rclpy.executors import MultiThreadedExecutor\n\n# Import Python libraries\nimport cv2  # OpenCV library\nimport ast\nimport numpy as np  # Import Numpy library\nimport time\nfrom threading import Event\n\nclass VideoStreamControllerConfig():\n    d455_fast_profile = '640x360x30'\n    # d455_hires_profile = '1280x800x5'\n    d455_hires_profile = '848x480x30'\n\n\nclass CustomLogger:\n    def __init__(self, node, name):\n        self.node = node\n        self.logging_pub = node.create_publisher(String, 'pippino_ui_log', 1)\n        self.logging_msg = String()\n        self.logger = node.get_logger()\n        self.name = name\n        def get_logger():\n            return self\n\n        self.node.get_logger = get_logger\n\n    def info(self, msg: str):\n        self.logger.info(msg)\n        self.logging_msg.data = f'{self.name}: {msg}'\n        self.logging_pub.publish(self.logging_msg)\n\n    def warning(self, msg: str):\n        self.logger.warning(msg)\n        self.logging_msg.data = f'{self.name} W: {msg}'\n        self.logging_pub.publish(self.logging_msg)\n\n    def error(self, msg: str):\n        self.logger.error(msg)\n        self.logging_msg.data = f'{self.name} E: {msg}'\n        self.logging_pub.publish(self.logging_msg)\n\n\n\nclass VideoStreamController(Node):\n    \"\"\"\n    Create an ArucoDetection class, which is a subclass of the Node class.\n    \"\"\"\n\n    def __init__(self):\n        \"\"\"\n        Class constructor to set up the node\n        \"\"\"\n        # Initiate the Node class's constructor and give it a name\n        super().__init__('video_stream_controller')\n\n        self.cfg = VideoStreamControllerConfig()\n\n        CustomLogger(self, 'Video Stream Ctrl')\n\n        self.declare_parameter(\"color_image_topic\", \"/D455/color/image_raw\")\n        self.declare_parameter(\"fisheye_image_topic\", \"/T265/fisheye1/image_raw\")\n        self.declare_parameter(\"camera_calibration_parameters_filename\", \"/pippino_ws/src/video_stream_controller/config/calibration_T265_fisheye1.yaml\")\n\n        self._curr_color_profile = None\n        # Read parameters\n        self.camera_calibration_parameters_filename = self.get_parameter(\n                \"camera_calibration_parameters_filename\").get_parameter_value().string_value\n        self.fisheye_image_topic = self.get_parameter(\"fisheye_image_topic\").get_parameter_value().string_value\n        self.color_image_topic = self.get_parameter(\"color_image_topic\").get_parameter_value().string_value\n\n        # Load the camera parameters from the saved file\n        cv_file = cv2.FileStorage(\n                self.camera_calibration_parameters_filename, cv2.FILE_STORAGE_READ)\n        self.mtx = cv_file.getNode('K').mat()\n        self.dst = cv_file.getNode('D').mat()\n        print(self.mtx, self.dst)\n        cv_file.release()\n\n        # Used to convert between ROS and OpenCV images\n        self.bridge = CvBridge()\n\n        d455_param_cb_group = ReentrantCallbackGroup()\n        t265_param_cb_group = ReentrantCallbackGroup()\n        \n        self.d455_set_param_req = SetParameters.Request()\n        self.d455_param_cli = self.create_client(SetParameters, '/D455/D455/set_parameters', callback_group=d455_param_cb_group)\n\n\n        self.t265_set_param_req = SetParameters.Request()\n        self.t265_param_cli = self.create_client(SetParameters, '/T265/T265/set_parameters', callback_group=t265_param_cb_group)\n\n        # self.set_d455_color_camera_state(False)\n        # self.set_t265_fisheye_camera_state(False)\n\n        # self.joy_subscription = self.create_subscription(\n        #     Joy, \n        #     '/joy', \n        #     self.joy_message_callback, \n        #     3)\n\n        pub_sub_cb_group = ReentrantCallbackGroup()\n\n        # self.compressed_image_msg = Image()\n        # self.image_msg = Image()\n        self.image_publisher = self.create_publisher(\n            CompressedImage,\n            '/strctl/image_raw/compressed',\n            1,\n            callback_group=pub_sub_cb_group\n        )\n\n        # self.base_image_publisher = self.create_publisher(\n        #     Image,\n        #     '/strctl/image_raw',\n        #     1\n        # )\n\n        self.cam_info_publisher = self.create_publisher(\n            CameraInfo,\n            '/strctl/image_raw/camera_info',\n            1,\n            callback_group=pub_sub_cb_group\n        )\n        # self.compressed_image_publisher = self.create_publisher(\n        #     Image,\n        #     '/video',\n        #     5\n        # )\n\n        self.color_subscription = self.create_subscription(\n            Image, \n            self.color_image_topic,\n            self.color_image_callback, \n            1,\n            callback_group=pub_sub_cb_group\n        )\n        \n        self.fisheye_subscription = self.create_subscription(\n            Image, \n            self.fisheye_image_topic,\n            self.fisheye_image_callback, \n            1,\n            callback_group=pub_sub_cb_group\n        )\n\n        self.button_color_cam_counter = 0\n        self.button_fisheye_cam_counter = 0\n        self.color_enabled = False\n        self.fisheye_enabled = False\n\n\n        # self.pippino_actuators_cli = self.create_client(PippinoActuators, '/pippino_actuators')\n        # while not self.pippino_actuators_cli.wait_for_service(timeout_sec=1.0):\n        #     self.get_logger().info('service not available.')\n        video_stream_service_cb_group = ReentrantCallbackGroup()\n\n        self.video_stream_service = self.create_service(PippinoVideoStream, 'pippino_video_stream', self.service_callback, callback_group=video_stream_service_cb_group)\n        self.get_logger().info('Pippino video stream controller service up and running.')\n        # self.actuators_relay_service = self.create_service(PippinoActuators, 'pippino_actuators_relay', self.pippino_actuators_relay_cb)\n\n\n        self._loop_rate = self.create_rate(1)  # 1 Hz\n\n\n    def call_service(self, request, client, timeout, timeout_wait_for_service=10.0):\n        if not client.wait_for_service(timeout_sec=timeout_wait_for_service):\n            self.get_logger().error('Service not available.')\n        self.get_logger().info('Service available.')\n        future = client.call_async(request)\n        event = Event()\n        future.add_done_callback(lambda f, e=event: self.service_done_callback(f, e))\n        event.wait(timeout=timeout)\n        return future.result()\n\n    def service_done_callback(self, future, event):\n        event.set()\n        event.clear()   # seems to work when immediately cleared, for reuse\n\n    def set_t265_fisheye_camera_state(self, enabled):\n        if self.fisheye_enabled != enabled:\n            self.t265_set_param_req.parameters = [Parameter(name='enable_fisheye1', value=enabled).to_parameter_msg(), Parameter(name='enable_fisheye2', value=enabled).to_parameter_msg()]\n            # if not self.t265_param_cli.wait_for_service(timeout_sec=10.0):\n            #     self.get_logger().info('T265 service not available.')\n            #     return False\n\n            # t265_set_param_future = self.t265_param_cli.call_async(self.t265_set_param_req)\n            # self.executor.spin_until_future_complete(t265_set_param_future, timeout_sec=10.0)\n\n            result = self.call_service(self.t265_set_param_req, self.t265_param_cli, 10.0)\n\n            if result is None or not result.results[0].successful:\n                return False\n            self.fisheye_enabled = enabled\n\n        return True\n\n    def set_d455_color_camera_state(self, enabled, profile=None):\n        if profile is not None and self._curr_color_profile != profile:\n            # set profile and disable color\n            self.get_logger().info(f\"Trying to set color camera profile...\")\n            # if not self.d455_param_cli.wait_for_service(timeout_sec=10.0):\n            #     self.get_logger().info('D455 service not available.')\n            #     return False\n\n            self.d455_set_param_req.parameters = [Parameter(name='enable_color', value=False).to_parameter_msg(), Parameter(name='rgb_camera.profile', value=profile).to_parameter_msg()]\n            # d455_set_param_future = self.d455_param_cli.call_async(self.d455_set_param_req)\n\n            # self.executor.spin_until_future_complete(d455_set_param_future, timeout_sec=10.0)\n            result = self.call_service(self.d455_set_param_req, self.d455_param_cli, 10.0)\n\n            if result is None or not result.results[0].successful:\n                return False\n\n            self._curr_color_profile = profile\n            self.color_enabled = False\n\n            if enabled:\n                # d455_set_param_future.add_done_callback(self.set_d455_color_camera_on)\n                # self.set_d455_color_camera_on()\n                self.get_logger().info(f\"Trying to {'enable' if enabled else 'disable'} color camera...\")\n                self.d455_set_param_req.parameters = [Parameter(name='enable_color', value=True).to_parameter_msg()]\n                # d455_set_param_future = self.d455_param_cli.call_async(self.d455_set_param_req)\n                self._loop_rate.sleep()\n                self._loop_rate.sleep()\n                # self.executor.spin_until_future_complete(d455_set_param_future, timeout_sec=10.0)\n                result = self.call_service(self.d455_set_param_req, self.d455_param_cli, 10.0)\n    \n                if result is None or not result.results[0].successful:\n                    return False\n\n                self.color_enabled = True\n\n\n        elif self.color_enabled != enabled:\n            self.get_logger().info(f\"Trying to {'enable' if enabled else 'disable'} color camera...\")\n            # if not self.d455_param_cli.wait_for_service(timeout_sec=10.0):\n            #     self.get_logger().info('D455 service not available.')\n            #     return False\n            self.d455_set_param_req.parameters = [Parameter(name='enable_color', value=enabled).to_parameter_msg()]\n            self._loop_rate.sleep()\n\n            # d455_set_param_future = self.d455_param_cli.call_async(self.d455_set_param_req)\n\n            # self.executor.spin_until_future_complete(d455_set_param_future, timeout_sec=10.0)\n            result = self.call_service(self.d455_set_param_req, self.d455_param_cli, 10.0)\n            \n            if result is None or not result.results[0].successful:\n                return False\n\n            self.color_enabled = enabled\n        # breakpoint()\n        return True\n\n    def color_image_callback(self, data):\n        # print(\"publishing\")\n        # breakpoint()\n        current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding=\"bgr8\")\n        compressed_image_msg = self.bridge.cv2_to_compressed_imgmsg(current_frame)\n        # self.compressed_image_msg.data = compressed_img\n        # self.image_msg = data\n        # self.get_logger().info(\"publishing\")\n        compressed_image_msg.header = data.header\n        compressed_image_msg.format = \"rgb8; jpeg compressed rgb8\"\n        self.image_publisher.publish(compressed_image_msg)\n\n        # msg = CameraInfo()\n        # msg.header = data.header\n        # msg.height = 800\n        # msg.width = 1280\n        # compressed_image_msg.format = \"bgr8; jpeg compressed rgb8\"\n\n        # self.cam_info_publisher.publish(msg)\n\n\n    # def color_image_callback(self, data):\n    #     self.image_publisher.publish(data)\n        \n        # msg = Image()\n        # msg.height=800\n        # msg.width=1280\n        # msg.encoding=\"rgb8\"\n        # msg.step=3840\n        # msg.header = data.header\n        # msg.data = [0] * (800 *3840)\n        # self.base_image_publisher.publish(msg)\n\n\n    def fisheye_image_callback(self, data):\n        current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding=\"mono8\")\n        undistorted_image = cv2.fisheye.undistortImage(current_frame, self.mtx, self.dst, Knew=self.mtx, new_size=(1000, 1000))\n\n        # map_1, map_2 = cv2.fisheye.initUndistortRectifyMap(self.mtx, self.dst, np.eye(3), self.mtx, (1000, 1000), cv2.CV_32F)\n        # undistorted_image = cv2.remap(current_frame, map_1, map_2, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT)\n\n        compressed_image_msg = self.bridge.cv2_to_compressed_imgmsg(undistorted_image)\n        compressed_image_msg.header = data.header\n        compressed_image_msg.format = \"mono8; jpeg compressed mono8\"\n\n        self.image_publisher.publish(compressed_image_msg)\n\n        # image_msg = self.bridge.cv2_to_imgmsg(undistorted_image, encoding='mono8')\n        # self.image_publisher.publish(image_msg)\n    \n    # def pippino_actuators_relay_cb(self, request, response):\n    #     self.get_logger().warning(\"trying to set vacuum\")\n    #     self.req = PippinoActuators.Request()\n    #     self.req.request_type = 1\n    #     self.req.bool_vacuum_enable = True        \n    #     self.pippino_actuators_cli.call_async(self.req)\n    #     response.success = True\n    #     return response\n\n    def get_d455_rgb_profile(self, hires):\n            if hires:\n                return self.cfg.d455_hires_profile\n            else:\n                return self.cfg.d455_fast_profile\n\n    def service_callback(self, request, response):\n        # self.get_logger().info(f\"setting cameras {request.request_type}\")\n        if request.request_type == 0:\n            if self.set_d455_color_camera_state(request.d455_enable):\n                self.get_logger().info(f\"Color camera {'enabled' if request.d455_enable else 'disabled'}.\")\n            else:\n                response.success = False\n                self.get_logger().error(\"Failed to set camera params.\")\n                return response\n        elif request.request_type == 1:\n            if self.set_d455_color_camera_state(request.d455_enable, self.get_d455_rgb_profile(request.d455_hires)):\n                self.get_logger().info(f\"Color camera {'enabled' if request.d455_enable else 'disabled'}.\")\n            else:\n                response.success = False\n                self.get_logger().error(\"Failed to set camera params.\")\n                return response\n        elif request.request_type == 2:\n            if self.set_t265_fisheye_camera_state(request.t265_enable):\n                self.get_logger().info(f\"Fisheye camera {'enabled' if request.t265_enable else 'disabled'}.\")\n            else:\n                response.success = False\n                self.get_logger().error(\"Failed to set camera params.\")\n                return response\n        elif request.request_type == 3:\n            if self.set_d455_color_camera_state(request.d455_enable):\n                self.get_logger().info(f\"Color camera {'enabled' if request.d455_enable else 'disabled'}.\")\n            else:\n                response.success = False\n                self.get_logger().error(\"Failed to set camera params.\")\n                return response\n            if self.set_t265_fisheye_camera_state(request.t265_enable):\n                self.get_logger().info(f\"Fisheye camera {'enabled' if request.t265_enable else 'disabled'}.\")\n            else:\n                response.success = False\n                self.get_logger().error(\"Failed to set camera params.\")\n                return response\n        elif request.request_type == 4:\n            if self.set_d455_color_camera_state(request.d455_enable, self.get_d455_rgb_profile(request.d455_hires)):\n                self.get_logger().info(f\"Color camera {'enabled' if request.d455_enable else 'disabled'}.\")\n            else:\n                response.success = False\n                self.get_logger().error(\"Failed to set camera params.\")\n                return response\n            self.set_t265_fisheye_camera_state(request.t265_enable)\n\n        response.success=True\n        return response\n\n\n        # # self.get_logger().warning(f\"Fubar {data}\")\n        # if data.buttons[0] == 1:\n        # #     self.button_color_cam_counter += 1\n        # #     self.button_fisheye_cam_counter = 0\n        # #     print(self.button_color_cam_counter)\n        # # elif data.buttons[1] == 1:\n        # #     self.button_color_cam_counter = 0\n        # #     self.button_fisheye_cam_counter += 1\n        # #     print(self.button_fisheye_cam_counter)\n        # # if self.button_color_cam_counter == 20:\n        #     self.set_t265_fisheye_camera_state(False)\n        #     self.set_d455_color_camera_state(True, profile=self.cfg.d455_fast_profile)\n        #     # self.button_color_cam_counter = 0\n        #     self.color_enabled = True\n        #     self.fisheye_enabled = False\n        # elif data.buttons[1] == 1:\n        # # elif self.button_fisheye_cam_counter == 20:\n        #     self.set_t265_fisheye_camera_state(True)\n        #     self.set_d455_color_camera_state(False)\n        #     # self.button_fisheye_cam_counter = 0\n        #     self.fisheye_enabled = True\n        #     self.color_enabled = False\n        # elif data.buttons[2] == 1:\n        #     self.set_t265_fisheye_camera_state(False)\n        #     self.set_d455_color_camera_state(False)\n        # elif len(data.buttons) > 8 and data.buttons[8] == 1:\n        #     self.set_t265_fisheye_camera_state(False)\n        #     self.set_d455_color_camera_state(True, profile=self.cfg.d455_hires_profile)\n\n\ndef main(args=None):\n    rclpy.init(args=args)\n\n    video_stream_controller = VideoStreamController()\n    executor = MultiThreadedExecutor()\n    rclpy.spin(video_stream_controller, executor=executor)\n\n    rclpy.shutdown()\n\n\nif __name__ == '__main__':\n    main()\n",
+			"file": "/home/michele/remote/pippino2/pippino_ws/src/video_stream_controller/video_stream_controller/video_stream_controller.py",
+			"file_size": 17924,
+			"file_write_time": 133455090381151217,
+			"settings":
+			{
+				"buffer_size": 17924,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					4,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAJ0DAAAAAAAAwwMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAmAMAAAAAAACYAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAHsDAAAAAAAAfQMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAmAMAAAAAAACYAwAAAAAAAAAAAAAAwHhA"
+				],
+				[
+					10,
+					8,
+					"left_delete",
+					null,
+					"CAAAAMADAAAAAAAAwAMAAAAAAAABAAAAML8DAAAAAAAAvwMAAAAAAAABAAAAML4DAAAAAAAAvgMAAAAAAAABAAAAOL0DAAAAAAAAvQMAAAAAAAABAAAAeLwDAAAAAAAAvAMAAAAAAAABAAAAMLsDAAAAAAAAuwMAAAAAAAABAAAAOLoDAAAAAAAAugMAAAAAAAABAAAAMrkDAAAAAAAAuQMAAAAAAAABAAAAMQ",
+					"AQAAAAAAAAABAAAAwQMAAAAAAADBAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					1,
+					"insert",
+					{
+						"characters": "6"
+					},
+					"AQAAALkDAAAAAAAAugMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAuQMAAAAAAAC5AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					1,
+					"left_delete",
+					null,
+					"AQAAALkDAAAAAAAAuQMAAAAAAAABAAAANg",
+					"AQAAAAAAAAABAAAAugMAAAAAAAC6AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					13,
+					1,
+					"insert",
+					{
+						"characters": "84"
+					},
+					"AgAAALkDAAAAAAAAugMAAAAAAAAAAAAAugMAAAAAAAC7AwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAuQMAAAAAAAC5AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					14,
+					1,
+					"insert",
+					{
+						"characters": "8x480"
+					},
+					"BQAAALsDAAAAAAAAvAMAAAAAAAAAAAAAvAMAAAAAAAC9AwAAAAAAAAAAAAC9AwAAAAAAAL4DAAAAAAAAAAAAAL4DAAAAAAAAvwMAAAAAAAAAAAAAvwMAAAAAAADAAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAuwMAAAAAAAC7AwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					16,
+					1,
+					"right_delete",
+					null,
+					"AQAAAMEDAAAAAAAAwQMAAAAAAAABAAAANQ",
+					"AQAAAAAAAAABAAAAwQMAAAAAAADBAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					17,
+					1,
+					"insert",
+					{
+						"characters": "30"
+					},
+					"AgAAAMEDAAAAAAAAwgMAAAAAAAAAAAAAwgMAAAAAAADDAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwQMAAAAAAADBAwAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "/home/michele/remote/pippino2/pippino_ws/src/d455.yaml",
+			"settings":
+			{
+				"buffer_size": 1610,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					5,
+					1,
+					"left_delete",
+					null,
+					"AQAAAOYBAAAAAAAA5gEAAAAAAAABAAAANQ",
+					"AQAAAAAAAAABAAAA5wEAAAAAAADnAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": "30"
+					},
+					"AgAAAOYBAAAAAAAA5wEAAAAAAAAAAAAA5wEAAAAAAADoAQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA5gEAAAAAAADmAQAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -199,6 +338,22 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"bash",
+				"Set Syntax: Bash"
+			],
+			[
+				"docker",
+				"Set Syntax: Dockerfile"
+			],
+			[
+				"dock",
+				"Set Syntax: Dockerfile"
+			],
+			[
+				"wr",
+				"Word Wrap: Toggle"
+			],
 			[
 				"wrap",
 				"Word Wrap: Toggle"
@@ -240,19 +395,11 @@
 				"Set Syntax: Python"
 			],
 			[
-				"docker",
-				"Set Syntax: Dockerfile"
-			],
-			[
 				"veri",
 				"Set Syntax: Verilog"
 			],
 			[
 				"bas",
-				"Set Syntax: Bash"
-			],
-			[
-				"bash",
 				"Set Syntax: Bash"
 			],
 			[
@@ -319,51 +466,76 @@
 		"/home/michele/pippino_ws/src",
 		"/home/michele/pippino_ws/src/pippino_bringup",
 		"/home/michele/pippino_ws/src/pippino_bringup/launch",
-		"/home/michele/pippino_ws/src/pippino_navigation",
-		"/home/michele/pippino_ws/src/pippino_navigation/config",
-		"/home/michele/pippino_ws/src/pippino_navigation/launch",
-		"/home/michele/pippino_ws/src/pippino_navigation/scripts",
-		"/home/michele/remote/pippino/pippino_ws/src",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/config",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/odom_calib",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/tools",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/config",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_display",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_navigation"
+		"/home/michele/remote/pippino2/pippino_ws/src",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/ubu_humble",
+		"/home/michele/remote/pippino2/pippino_ws/src/pippino_bringup",
+		"/home/michele/remote/pippino2/pippino_ws/src/pippino_bringup/launch",
+		"/home/michele/remote/pippino2/pippino_ws/src/pippino_bringup/odom_calib",
+		"/home/michele/remote/pippino2/pippino_ws/src/video_stream_controller",
+		"/home/michele/remote/pippino2/pippino_ws/src/video_stream_controller/config",
+		"/home/michele/remote/pippino2/pippino_ws/src/video_stream_controller/resource",
+		"/home/michele/remote/pippino2/pippino_ws/src/video_stream_controller/video_stream_controller",
+		"/home/michele/remote/pippino2/deep_learning_ws/src"
 	],
 	"file_history":
 	[
-		"/home/michele/pippino_ws/src/pippino_navigation/config/default_params.yaml",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/run_daemon_realsense_separate.sh",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/run_daemon_realsense.sh",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/run_daemon_realsense_d455.sh",
+		"/home/michele/remote/pippino2/pippino_ws/src/pippino-realsense_t265-entrypoint.sh",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/run_daemon_realsense_t265.sh",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/run_interactive_realsense.sh",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/run_interactive_realsense_d455.sh",
+		"/home/michele/pippino_ws/src/pippino_description/launch/description.launch.py",
+		"/home/michele/pippino_ws/src/pippino_bringup/launch/bringup.launch.py",
+		"/home/michele/remote/pippino2/pippino_ws/src/pippino_description/launch/description.launch.py",
+		"/home/michele/remote/pippino2/pippino_ws/src/video_stream_controller/video_stream_controller/video_stream_controller.py",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/run_daemons.sh",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/ubu_humble/Dockerfile_ubu_realsense",
+		"/home/michele/remote/pippino2/pippino_ws/src/d455.yaml",
+		"/home/michele/remote/pippino2/pippino_ws/src/d455_extrinsics.txt",
+		"/home/michele/remote/pippino2/pippino_ws/src/pippino_bringup/launch/rs_launch.py",
+		"/home/michele/remote/pippino2/pippino_ws/src/pippino_bringup/launch/rs_multi_camera_launch.py",
+		"/home/michele/remote/pippino2/pippino_ws/src/pippino_bringup/launch/rs_t265_launch.py",
+		"/home/michele/remote/pippino2/pippino_ws/src/pippino-realsense_d455-entrypoint.sh",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/ubu_humble/build_ubu_realsense_d455.sh",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/ubu_humble/build_ubu_realsense.sh",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/run_daemon_services.sh",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/run_interactive_services.sh",
+		"/home/michele/remote/pippino2/pippino_ws/src/docker_image_setup/test_rtps_rs.sh",
+		"/home/michele/pippino_ws/src/pippino_navigation/launch/bringup.launch.py",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/Dockerfile_ubu_realsense",
+		"/home/michele/.bashrc",
+		"/home/michele/pippino_ws/src/pippino_ws.sublime-project",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/build_ubu_realsense.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/Dockerfile_ubu_base",
+		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/build_ubu_base.sh",
+		"/home/michele/remote/pippino/pippino_ws/src/video_stream_controller/video_stream_controller/video_stream_controller.py",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/bt_navigate_through_poses_w_replanning_and_recovery.xml",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/slam_params.yaml",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params_humble.yaml",
+		"/media/michele/home/michele/.bash_history",
 		"/home/michele/.bash_history",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/bt_navigate_to_pose.xml",
+		"/home/michele/Downloads/chengdu_retest_in_cmk_new_commit_only_non_sram_fails.csv",
+		"/home/michele/pippino_ws/src/pippino_navigation/config/default_params.yaml",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_launch.py",
 		"/home/michele/remote/pippino/pippino_ws/src/d455.yaml",
-		"/home/michele/pippino_ws/src/pippino_bringup/launch/bringup.launch.py",
 		"/home/michele/start_pippino.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_multi_camera_launch.py",
 		"/home/michele/maps/upper_floor_with_aruco/aruco_markers.yaml",
 		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params_galactic.yaml",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_daemons.sh",
-		"/home/michele/.bashrc",
-		"/home/michele/pippino_ws/src/pippino_navigation/config/slam_params.yaml",
-		"/home/michele/pippino_ws/src/pippino_navigation/launch/bringup.launch.py",
-		"/home/michele/pippino_ws/src/pippino_navigation/config/nav2_params_humble.yaml",
-		"/home/michele/pippino_ws/src/pippino_navigation/config/bt_navigate_to_pose.xml",
 		"/home/michele/pippino_ws/src/pippino_navigation/launch/navigation.launch.py",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/launch/odom.launch.py",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_odom/src/pippino_odom.cpp",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/config/ekf.yaml",
 		"/home/michele/ubuntu_configure_script.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/video_stream_controller/video_stream_controller/video_stream_controller.py",
 		"/home/michele/pippino_ws/src/pippino_description/src/description/pippino.urdf",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/pippino.launch.py",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/src/description/pippino.urdf",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/launch/description.launch.py",
-		"/media/michele/home/michele/.bash_history",
 		"/media/michele/6321f30b-b360-44c7-8c65-ea3014d29763/home/michele/ubuntu_configure_script.sh",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/launch/rs_d400_and_t265_launch.py",
 		"/home/michele/pippino_ws/src/pippino_navigation/CMakeLists.txt",
@@ -404,11 +576,9 @@
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/test_rtps_rs.sh",
 		"/home/michele/remote/pippino/deep_learning_ws/src/launch/detectnet.ros2.launch",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/run_interactive_inference.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/Dockerfile_ubu_base",
 		"/home/michele/pippino_ws/borg_pippino_sh.txt",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/odom_calib/t265_position_calib.json",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_description/config/ekf_no_T265.yaml",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/Dockerfile_ubu_realsense",
 		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/Dockerfile_ubu_services",
 		"/home/michele/remote/pippino/pippino_ws/src/pippino_bringup/config/joystick.yaml",
 		"/home/michele/maps/map3_aruco.yaml",
@@ -437,43 +607,15 @@
 		"/home/michele/pippino_ws/src/pippino_bringup/config/mqtt_settings.yaml",
 		"/home/michele/pippino_ws/src/pippino_commander/launch/commander.launch.py",
 		"/home/michele/pippino_ws/src/pippino_bringup/launch/mqtt_settings.py",
-		"/home/michele/pippino_ws/src/.gitignore",
-		"/home/michele/pippino_ws/src/pippino_bringup/config/joystick.yaml",
-		"/home/michele/pippino_ws/src/pippino_commander/pippino_commander/__init__.py",
-		"/home/michele/pippino_ws/src/pippino_navigation/maps/upper_floor.pgm.kra~",
-		"/home/michele/slam_ws/mapp.yaml",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/stop_daemons.sh",
-		"/home/michele/pippino_ws/src/pippino_navigation/maps/upper_floor.yaml",
-		"/home/michele/slam_humble_ws/setup_and_build.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/build_all.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/build_ubu_realsense.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/build_ubu_base.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu20_galactic/Dockerfile_ubu20_base",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu20_galactic/build_ubu20_realsense.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu20_galactic/Dockerfile_ubu20_realsense",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/build_ubu_services.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu20_galactic/build_ubu20_services.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu20_galactic/build_ubu20_base.sh",
-		"/home/michele/remote/pippino/pippino_ws/src/docker_image_setup/ubu_humble/Dockerfile_ubu_base~",
-		"/home/michele/pippino_ws/src/video_stream_controller/video_stream_controller/video_stream_controller.py",
-		"/home/michele/ros2_humble/setup_and_build.sh",
-		"/home/michele/pippino_ws/src/pippino_commander/package.xml",
-		"/home/michele/pippino_ws/src/pippino_commander/setup.py",
-		"/home/michele/pippino_ws/src/pippino_commander/setup.cfg",
-		"/home/michele/pippino_ws/src/pippino_controller/pippino_controller/pippino_controller.py",
-		"/home/michele/pippino_ws/src/pippino_controller/setup.py",
-		"/home/michele/remote/pippino/pippino_ws/src/pippino_navigation/CMakeLists.txt",
-		"/home/michele/Downloads/test_ros/ros2.humble.test.rosinstall",
-		"/home/michele/Downloads/Part 3 (4).ics",
-		"/home/michele/.ssh/authorized_keys"
+		"/home/michele/pippino_ws/src/.gitignore"
 	],
 	"find":
 	{
-		"height": 46.0
+		"height": 48.0
 	},
 	"find_in_files":
 	{
-		"height": 137.0,
+		"height": 343.0,
 		"where_history":
 		[
 			"",
@@ -489,6 +631,115 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"90.27 x 59",
+			"90.27 x 64.31",
+			"318.06",
+			"point_cloud_generator",
+			"pointcloud",
+			"d455",
+			"set_d455_color_camera_state",
+			"MultiThreadedExecutor",
+			"until_fu",
+			"d455_set_param_future",
+			"spin_until_future_complete",
+			"t265_set_param_future",
+			"d455",
+			"RS_WRAPPER_TAG",
+			"local_parameters",
+			"rs_launch",
+			"Node",
+			"launch_ros.actions",
+			"launch_ros",
+			"name",
+			"set_configurable_parameters",
+			"1",
+			"camera_name1",
+			"1",
+			"x30",
+			"power_line",
+			"declare_log_level_cmd",
+			"declare_use_respawn_cmd",
+			"MultiThreadedExecutor",
+			"String",
+			"inflation",
+			"MultiThreadedExecutor",
+			"get_logger",
+			"spin_until_future_complete",
+			"1.0",
+			"while",
+			", waiting again..",
+			"d455_set_param_req",
+			"rclpy.spin_until_future_compl",
+			"rclpy.",
+			"rclpy.s",
+			"rclpy",
+			"ReentrantCallbackGroup",
+			"cam_param_cb_group",
+			"service_callback",
+			"breakpo",
+			"beakpoi",
+			"service_callback",
+			"set_d455_color_camera_state",
+			"set_t265_fisheye_camera_state",
+			"d455_enable",
+			"set_d455_color_camera_state",
+			"MultiThreadedExecutor",
+			"d455_param_cli",
+			"d455_set_param_req",
+			"fisheye_image_callback",
+			"fisheye_subscription",
+			"color_subscription",
+			"video_stream_service",
+			"_loop_rate",
+			"set_d455_color_camera_state",
+			"warn",
+			"pippino_actuators_cli",
+			"pippino_actuators_relay_cb",
+			"pippino_actuators_cli",
+			"t265_set_param_req",
+			"set_param_req",
+			"set_param_req1",
+			"self.future",
+			"self.future ",
+			"t265_param_cli",
+			"color_enabled",
+			"set_d455_color_camera_state",
+			"_curr_color_profile",
+			"profile",
+			"set_d455_color_camera_on",
+			"pippino_actuators_relay_cb",
+			"response",
+			"set_d455_color_camera_on",
+			"\n                d455_set_param_future.add_done_callback(self.set_d455_col",
+			"self.future",
+			"d455_param_cli",
+			"rot_step",
+			"\"/>\n",
+			"\n          ",
+			"FollowPathRPP",
+			"FollowPath",
+			"FollowPathRPP",
+			"RPP",
+			"FollowPathRPP",
+			"controller",
+			"FollowPath",
+			"start_navigation_with_slam",
+			"ollowPa",
+			"FollowPath",
+			"yaw",
+			"short",
+			"planner",
+			"goal_check",
+			"current_goal",
+			"toler",
+			"controller",
+			"planner",
+			"TRUE",
+			"FALSE",
+			"\t",
+			"0",
+			"7",
+			"sim_time",
 			"smooth",
 			"declare_namespace_cmd",
 			"DeclareLaunchArgument",
@@ -507,116 +758,7 @@
 			"ut={'both': 'log'},\n",
 			"{'both': 'log'}",
 			";",
-			"231015",
-			"speed",
-			"25",
-			"18",
-			"nav2_params_path",
-			"output",
-			"map",
-			"explorer_wanderer_launch_dir",
-			"start_explorer_wanderer_server",
-			"odom_msg_",
-			"x_pos",
-			"wheel_mps_right_",
-			"x_pos",
-			"start_navigation",
-			"0",
-			"publish",
-			"web_video_server_node",
-			"D455_color_optical_frame",
-			"color_optical",
-			"aruco_detection_node",
-			"d455_hires",
-			":\n",
-			"button_fisheye_cam_counter",
-			"True",
-			"button_color_cam_counter",
-			"get_d455_rgb_profile",
-			"set_t265_fisheye_camera_state",
-			"aruco_detection_node",
-			"d455_fast_profile",
-			"set_d455_color_camera_state",
-			"d455_param_cli",
-			"1280x720",
-			"set_d455_color_camera_state",
-			"d455_enable",
-			"set_d455_color_camera_state",
-			"profile",
-			"optical frame",
-			"openssl",
-			"explorer_wanderer_server",
-			"rosbridge_server_node",
-			"1",
-			"launch_ros",
-			"configured_params",
-			"ParameterFile",
-			"launch_dir",
-			"bringup_dir",
-			"launch_dir",
-			"params",
-			"configured_params",
-			"params_file",
-			"configured_params",
-			"params",
-			"slam_params_file",
-			"nav2",
-			"params_file",
-			"declare_params_file_cmd",
-			"launch_dir",
-			"rolling",
-			"start_navigation",
-			"start_explorer_wanderer_server",
-			"<?",
-			"src",
-			" ",
-			"udpv6",
-			"udpv6>",
-			"udpv6",
-			"UDPv6",
-			"udpv6",
-			">UDPv6",
-			"add_two_ints_proxy_callback",
-			"enable",
-			"pippino_actuators_relay_cb",
-			"int8",
-			"call",
-			"pippino_actuators_relay_cb",
-			"call_async",
-			"vacuum",
-			"pippino_actuators_req",
-			"pippino_actuators_cli",
-			"actuators_relay_service",
-			"pippino_actuators_relay_cb",
-			"lf.cli",
-			"cli",
-			"pippino_actuators_relay_cb",
-			"actuators_relay_service",
-			"service_callback",
-			"4",
-			"== ",
-			"set_d455_color_camera_state",
-			"d455_profile",
-			"set_d455_color_camera_state",
-			"get_logger",
-			"set_d455_color_camera_state",
-			"service_callback",
-			"t26",
-			"T26",
-			"t26",
-			"T26",
-			"D455",
-			"d455",
-			"D455",
-			"d455",
-			"D455",
-			"d45",
-			"D45",
-			"D",
-			"the",
-			"VideoStreamController",
-			"joy",
-			"<"
+			"231015"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -639,16 +781,79 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/home/michele/remote/pippino2/pippino_ws/src/video_stream_controller/video_stream_controller/video_stream_controller.py",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17924,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1463,
+								1463
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/michele/remote/pippino2/pippino_ws/src/d455.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1610,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								488,
+								488
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 30.0
+		"height": 34.0
 	},
 	"input":
 	{
-		"height": 50.0
+		"height": 117.0
 	},
 	"layout":
 	{
@@ -685,7 +890,7 @@
 	"project": "pippino_ws.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":

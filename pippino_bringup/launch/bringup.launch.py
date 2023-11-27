@@ -31,7 +31,11 @@ def generate_launch_description():
 
     start_navigation_with_slam = launch.actions.IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(navigation_launch_dir, 'bringup.launch.py')),
-        launch_arguments = {'autostart': 'True'}.items()
+        launch_arguments = {
+            'autostart': 'True',
+            'use_composition': 'True',
+            'use_respawn': 'False',
+        }.items()
     )
 
     # start_slam = launch.actions.IncludeLaunchDescription(
