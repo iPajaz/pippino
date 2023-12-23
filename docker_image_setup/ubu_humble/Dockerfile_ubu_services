@@ -14,7 +14,7 @@ ENV ROS_PYTHON_VERSION=3
 ENV ROS_DISTRO=$ROS_DISTRO
 
 
-RUN apt-get update && apt-get -y upgrade && apt-get install -y --no-install-recommends \    
+RUN apt-get update && apt-get -y upgrade && apt-get install -y --no-install-recommends \
     build-essential \
     python3-vcstool \
     cmake \
@@ -75,7 +75,7 @@ RUN cd /services_ws/src \
 
 
 RUN source /opt/ros/${ROS_DISTRO}/install/setup.bash \
-    && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2
+    && colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda
 
 RUN source /opt/ros/${ROS_DISTRO}/install/setup.bash \
     && source install/local_setup.bash \
@@ -85,21 +85,21 @@ RUN source /opt/ros/${ROS_DISTRO}/install/setup.bash \
 
 # Fix for loading cv_bridge with cuda 10.2
 # https://stackoverflow.com/questions/55224016/importerror-libcublas-so-10-0-cannot-open-shared-object-file-no-such-file-or
-ENV LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 RUN mkdir -p /video_ws/src
 WORKDIR /video_ws
 
 RUN source /opt/ros/$ROS_DISTRO/install/setup.bash \
     && rosinstall_generator --deps --rosdistro $ROS_DISTRO teleop_twist_joy rosbridge_server async_web_server_cpp --exclude $( (ros2 pkg list) ) > ros2.rosinstall
-RUN vcs import src < ros2.rosinstall 
+RUN vcs import src < ros2.rosinstall
 
 RUN cd src && git clone https://github.com/RobotWebTools/web_video_server.git -b ros2 --depth 1
 
 RUN source /opt/ros/$ROS_DISTRO/install/setup.bash \
     && rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -ry
 RUN source /opt/ros/$ROS_DISTRO/install/setup.bash \
-    && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2
+    && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda
 
 RUN echo "source /opt/ros/${ROS_DISTRO}/install/setup.bash" >> /root/.bashrc
 RUN echo 'source /services_ws/install/local_setup.bash' >> /root/.bashrc

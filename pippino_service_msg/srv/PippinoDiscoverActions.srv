@@ -1,0 +1,9 @@
+# Request type defines which action has to be performed:
+# - '0' cancel current action
+# - '1' find aruco
+# - '2' map the room
+
+int8 action_type
+string map_url
+---
+bool success   # indicate successful run of triggered service

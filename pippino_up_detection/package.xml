@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>pippino_up_detection</name>
+  <version>1.0.0</version>
+  <description>This package monitors the pippino ros2 system bringup and notifies with MQTT when all the nodes are up.</description>
+  <maintainer email="michele.demarchi.85@gmail.com">michele</maintainer>
+  <license>TODO: License declaration</license>
+  <depend>pippino_bringup</depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

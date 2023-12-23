@@ -1,0 +1,5 @@
+<library path="hole_detection_costmap_plugin_core">
+  <class type="nav2_costmap_2d::VoxelLayerHoles" base_class_type="nav2_costmap_2d::Layer">
+    <description>Similar to obstacle costmap, but uses 3D voxel grid to store data and detects ground holes e.g. a staircase.</description>
+  </class>
+</library>

@@ -7,3 +7,13 @@
 **/librealsense-*
 **/__pycache__
 *~
+install/
+log/
+build/
+**/.pytest_cache
+
+# Other settings
+mqtt_settings.py
+
+# Mac
+.DS_Store

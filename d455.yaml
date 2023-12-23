@@ -1,11 +1,11 @@
 D455:
   D455:
     ros__parameters:
-      device_type: ''
+      device_type: 'd455'
       serial_no: ''
       usb_port_id: ''
 
-      # initial_reset: true
+      initial_reset: false
 
       publish_tf: false
       # color_qos: "SENSOR_DATA"
@@ -16,10 +16,10 @@ D455:
       depth_qos: "SYSTEM_DEFAULT"
       color_qos: "SYSTEM_DEFAULT"
 
-      rgb_camera.profile: 1280x800x5
-      # rgb_camera.profile: 640x360x15
+      # rgb_camera.profile: 848x480x15
+      rgb_camera.profile: 640x360x15
       # depth_module.profile: 1280x720x5
-      depth_module.profile: 848x480x5
+      depth_module.profile: 640x480x15
       # infra1_fps: 30.0
       # infra1_height: 720
       # infra1_width: 1280
@@ -40,8 +40,8 @@ D455:
 
       enable_infra1: false
       enable_infra2: false
-      enable_fisheye1: false
-      enable_fisheye2: false
+      # enable_fisheye1: false
+      # enable_fisheye2: false
 
       pointcloud.enable: true
       pointcloud.stream_index_filter: 0

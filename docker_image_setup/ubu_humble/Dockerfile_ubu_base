@@ -28,14 +28,14 @@ RUN locale-gen en_US en_US.UTF-8 && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.
 ENV LANG=en_US.UTF-8
 ENV PYTHONIOENCODING=utf-8
 
-# 
+#
 # add the ROS deb repo to the apt sources list
 #
 
 RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
-# 
+#
 # install development packages
 #
 RUN apt-get update
@@ -78,23 +78,23 @@ RUN python3 -m pip install -U \
 
 ARG OPEN_CV_VERSION=4.5.0
 
-# 
+#
 # overwrite with cuda opencv
 #
 
-WORKDIR /tmp
-COPY assets/OpenCV-${OPEN_CV_VERSION}-aarch64-ubuntu20.zip .
-RUN unzip OpenCV-${OPEN_CV_VERSION}-aarch64-ubuntu20.zip && \
-    apt update && \
-    apt install -y --no-install-recommends -f ./*.deb && \
-    rm -rf /var/lib/apt/lists/* && \
-    rm -rf * \
-    apt-get clean
+# WORKDIR /tmp
+# COPY assets/OpenCV-${OPEN_CV_VERSION}-aarch64-ubuntu20.zip .
+# RUN unzip OpenCV-${OPEN_CV_VERSION}-aarch64-ubuntu20.zip && \
+#     apt update && \
+#     apt install -y --no-install-recommends -f ./*.deb && \
+#     rm -rf /var/lib/apt/lists/* && \
+#     rm -rf * \
+#     apt-get clean
 
 #install missing numpy
 RUN pip3 install numpy
 
-# 
+#
 # upgrade cmake - https://stackoverflow.com/a/56690743
 # this is needed to build some of the ROS2 packages
 #
@@ -102,12 +102,12 @@ RUN pip3 install numpy
 #RUN wget -qO - https://apt.kitware.com/keys/kitware-archive-latest.asc | apt-key add -
 #RUN apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
 #RUN apt-get install -y --no-install-recommends --only-upgrade cmake
-    
+
 RUN pip install cmake --upgrade
 
 RUN cmake --version
 
-# 
+#
 # download/build ROS from source
 #
 RUN mkdir -p $ROS_ROOT
@@ -132,6 +132,9 @@ RUN rosinstall_generator --deps --rosdistro ${ROS_DISTRO} ros_base \
         image_geometry \
         image_pipeline \
         image_transport \
+        compressed_image_transport \
+        compressed_depth_image_transport \
+        image_transport_plugins \
         > ros2.${ROS_DISTRO}.ros_base.rosinstall
 
 RUN rm -rf src && mkdir -p src && cat ros2.${ROS_DISTRO}.ros_base.rosinstall && \
@@ -164,30 +167,30 @@ RUN colcon build \
     --merge-install \
     --packages-skip-build-finished \
     --packages-up-to cv_bridge image_geometry \
-    --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2
+    --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda -DPython3_EXECUTABLE=/usr/bin/python3.8
 
 RUN colcon build \
     --packages-skip-build-finished \
     --packages-up-to rclpy rclcpp tinyxml2_vendor class_loader tf2 tf2_msgs ament_cmake_auto pluginlib yaml_cpp_vendor tracetools_image_pipeline stereo_msgs std_srvs pybind11_vendor test_msgs vision_opencv vision_msgs example_interfaces fastrtps rmw_fastrtps_shared_cpp rmw_fastrtps_dynamic_cpp rmw_fastrtps_cpp rmw_implementation rcl rcl_lifecycle libstatistics_collector rcl_action \
     --merge-install \
-    --cmake-args -DCMAKE_BUILD_TYPE=Release
+    --cmake-args -DCMAKE_BUILD_TYPE=Release -DPython3_EXECUTABLE=/usr/bin/python3.8
 
 RUN colcon build \
     --packages-skip-build-finished \
     --packages-up-to actionlib_msgs camera_calibration_parsers camera_info_manager common_interfaces demo_nodes_cpp diagnostic_msgs geometry2 image_transport kdl_parser keyboard_handler message_filters nav_msgs rclcpp_action rclcpp_components rclcpp_lifecycle robot_state_publisher ros2cli_common_extensions ros2cli_test_interfaces ros2lifecycle_test_fixtures ros_core ros_environment ros_testing rosbag2_compression rosbag2_compression_zstd rosbag2_cpp rosbag2_interfaces rosbag2_storage rosbag2_storage_default_plugins rosbag2_test_common shape_msgs shared_queues_vendor sqlite3_vendor sros2_cmake stereo_image_proc tf2_bullet tf2_eigen tf2_eigen_kdl tf2_geometry_msgs tf2_kdl tf2_py tf2_ros tf2_sensor_msgs tinyxml_vendor trajectory_msgs urdf urdf_parser_plugin urdfdom urdfdom_headers visualization_msgs zstd_vendor \
     --merge-install \
-    --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2
+    --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda -DPython3_EXECUTABLE=/usr/bin/python3.8
 
 RUN colcon build \
     --packages-skip-build-finished \
     --packages-up-to rosbag2_transport \
     --merge-install \
-    --cmake-args -DCMAKE_BUILD_TYPE=Release
+    --cmake-args -DCMAKE_BUILD_TYPE=Release -DPython3_EXECUTABLE=/usr/bin/python3.8
 
 RUN colcon build \
     --merge-install \
     --packages-skip-build-finished \
-    --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2
+    --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda -DPython3_EXECUTABLE=/usr/bin/python3.8
 
 # source ROS
 RUN echo "export ROS_DISTRO=${ROS_DISTRO}" >> /root/.bashrc

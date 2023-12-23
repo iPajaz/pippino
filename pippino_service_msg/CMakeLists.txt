@@ -26,7 +26,9 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/PippinoActuators.srv"
   "srv/PippinoVideoStream.srv"
-  "srv/PippinoAutodockActions.srv"  
+  "srv/PippinoDiscoverActions.srv"
+  "srv/PippinoAutodockActions.srv"
+  "srv/PippinoCoverageActions.srv"
  )
 ament_export_libraries()
 

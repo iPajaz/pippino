@@ -14,40 +14,26 @@ import os
 def generate_launch_description():
     pkg_share = get_package_share_directory('pippino_bringup')
     pippino_odom_pkg_prefix = get_package_share_directory('pippino_odom')
-    # pippino_description_pkg_prefix = get_package_share_directory('pippino_description')
+    aruco_detection_pkg_prefix = get_package_share_directory('aruco_detection')
     rplidar_launch_pkg_prefix = get_package_share_directory('rplidar_ros2')
-    # realsense_launch_pkg_prefix = get_package_share_directory('realsense2_camera')
     description_dir = launch_ros.substitutions.FindPackageShare(package='pippino_description').find('pippino_description') 
     description_launch_dir = os.path.join(description_dir, 'launch')
     navigation_dir = launch_ros.substitutions.FindPackageShare(package='pippino_navigation').find('pippino_navigation') 
     navigation_launch_dir = os.path.join(navigation_dir, 'launch')
 
+    explorer_wanderer_launch_dir = launch_ros.substitutions.FindPackageShare(package='explorer_wanderer').find('explorer_wanderer')
+
+
     navigation = LaunchConfiguration('navigation')
     microros = LaunchConfiguration('microros')
     lidar = LaunchConfiguration('lidar')
-    # default_realsense_config_filename = LaunchConfiguration('default_realsense_config_filename')
-
-    # rplidar_launch = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(
-    #         [rplidar_launch_pkg_prefix, '/launch/rplidar_launch.py']),
-    #     launch_arguments={'serial_port': '/dev/rplidar'}.items()
-    # )
     start_description = launch.actions.IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(description_launch_dir, 'description.launch.py'))
     )
     start_navigation = launch.actions.IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(navigation_launch_dir, 'navigation.launch.py')),
+        PythonLaunchDescriptionSource(os.path.join(navigation_launch_dir, 'bringup_launch.py')),
         condition=IfCondition(navigation)
     )
-    # batt_state_relay_node = Node(
-    #     package='topic_tools',
-    #     executable='relay',
-    #     name='batt_state_relay',
-    #     parameters=['battery_level', 'batt_lvl']
-    # )
-    # batt_state_relay_process = ExecuteProcess(
-    #     cmd=['ros2', 'run', 'topic_tools', 'relay', 'battery_level', 'batt_level']
-    # )
 
     rplidar_node = Node(
         package='rplidar_ros',
@@ -70,11 +56,11 @@ def generate_launch_description():
         launch_arguments={}.items()
     )
 
-    # pippino_description_launch = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(
-    #         [pippino_description_pkg_prefix, '/launch/description.launch.py']),
-    #     launch_arguments={}.items()
-    # )
+    aruco_detection_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [aruco_detection_pkg_prefix, '/launch/aruco_detection.launch.py']),
+        launch_arguments={}.items()
+    )
 
     micro_ros_agent_process = ExecuteProcess(
         cmd=['ros2', 'run', 'micro_ros_agent', 'micro_ros_agent','serial', '--dev', '/dev/esp32'],
@@ -82,11 +68,20 @@ def generate_launch_description():
         condition=IfCondition(microros)
     )
 
-    # realsense_launch = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(
-    #         [realsense_launch_pkg_prefix, '/launch/rs_launch.py']),
-    #     launch_arguments = {'config_file': '\'/realsense_ws/src/d455.yaml\''}.items(),
-    # )
+    start_lidar_process = ExecuteProcess(
+        cmd=['uhubctl', '-l', '1-2.4.4', '-p', '1', '-a', 'on'],
+        output='screen'
+    )
+
+    t265_docker_process = ExecuteProcess(
+        cmd=['/home/michele/pippino_ws/src/docker_image_setup/run_daemon_realsense_t265.sh'],
+        output='screen'
+    )
+
+    d455_docker_process = ExecuteProcess(
+        cmd=['/home/michele/pippino_ws/src/docker_image_setup/run_daemon_realsense_d455.sh'],
+        output='screen'
+    )
 
     video_stream_controller_node = Node(
         package='video_stream_controller',
@@ -113,29 +108,63 @@ def generate_launch_description():
         parameters=[os.path.join(pkg_share, 'config/joystick.yaml'), {'use_sim_time': False}]
     )
 
+    start_explorer_wanderer_server = launch.actions.IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(os.path.join(explorer_wanderer_launch_dir, 'discoverer_launch.py'))
+    )
+
+    autodock_action_server_node = launch_ros.actions.Node(
+        package='autodock_action_server',
+        executable='autodock_action_server_exe',
+        output='screen'
+        # output={'both': 'log'},
+    )
+
+    autodock_action_client_node = launch_ros.actions.Node(
+        package='autodock_action_client',
+        executable='autodock_action_client_exe',
+        output='screen'
+        # output={'both': 'log'},
+    )
+
+    explorer_action_client_node = launch_ros.actions.Node(
+        package='explorer_action_client',
+        executable='explorer_action_client_exe',
+        output='screen'
+        # output={'both': 'log'},
+    )
+
     ld = LaunchDescription([
         DeclareLaunchArgument(name='navigation', default_value='True', description='Whether run the Navigation stack'),
         DeclareLaunchArgument(name='microros', default_value='True', description='Whether run the Microros agent node'),
         DeclareLaunchArgument(name='lidar', default_value='True', description='Whether run the Rplidar node'),
-        ## DeclareLaunchArgument(name='default_realsense_config_filename', default_value='/realsense_ws/src/d455.yaml',
-        ##     description='Full path to the realsense config file to use'),
 
-        ## micro_ros_agent_process,
-        ## launch.actions.TimerAction(period=2.0, actions=[pippino_odom_launch]),
-        ## launch.actions.TimerAction(period=3.0, actions=[rplidar_launch]),
-        
 # Typical
-        pippino_odom_launch,
+        # Cameras
+        d455_docker_process,
+        t265_docker_process,
 
-        launch.actions.TimerAction(period=1.0, actions=[rplidar_node]),
-        launch.actions.TimerAction(period=6.0, actions=[micro_ros_agent_process]),
-        ## launch.actions.TimerAction(period=6.0, actions=[batt_state_relay_process]),
-        launch.actions.TimerAction(period=6.0, actions=[start_description]),
-        ## launch.actions.TimerAction(period=9.0, actions=[start_navigation]),
+        pippino_odom_launch,
+        start_lidar_process,
         video_stream_controller_node,
+        aruco_detection_launch,
         rosbridge_server_node,
         web_video_server_node,
         teleop_twist_joy_node,
+
+        launch.actions.TimerAction(period=5.0, actions=[rplidar_node]),
+        launch.actions.TimerAction(period=6.0, actions=[micro_ros_agent_process]),
+        launch.actions.TimerAction(period=6.0, actions=[start_description]),
+
+        # Find yourself and map room
+        launch.actions.TimerAction(period=3.0, actions=[start_explorer_wanderer_server]),
+        launch.actions.TimerAction(period=8.0, actions=[explorer_action_client_node]),
+
+        # Autodocking
+        launch.actions.TimerAction(period=3.0, actions=[autodock_action_server_node]),
+        launch.actions.TimerAction(period=8.0, actions=[autodock_action_client_node]),
+
+        launch.actions.TimerAction(period=18.0, actions=[start_navigation]),
+
     ])
 
     

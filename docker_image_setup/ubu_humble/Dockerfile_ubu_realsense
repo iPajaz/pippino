@@ -4,7 +4,6 @@ ARG BASE_IMAGE_NOROS
 #   Librealsense Builder Stage  #
 #################################
 FROM $BASE_IMAGE_NOROS as librealsense-builder
-
 ARG LIBRS_VERSION
 # Make sure that we have a version number of librealsense as argument
 RUN test -n "$LIBRS_VERSION"
@@ -24,22 +23,26 @@ RUN apt-get update \
     libgtk-3-dev \
     libglfw3-dev \
     libgl1-mesa-dev \
-    libglu1-mesa-dev \    
+    libglu1-mesa-dev \
     curl \
     python3 \
     python3-dev \
     ca-certificates \
+    software-properties-common \
     && rm -rf /var/lib/apt/lists/*
+
+# RUN add-apt-repository ppa:deadsnakes/ppa && apt update
+# RUN apt install -y python3.9 python3.9-dev
 
 # Download sources
 WORKDIR /usr/src
-RUN curl https://codeload.github.com/IntelRealSense/librealsense/tar.gz/refs/tags/v$LIBRS_VERSION -o librealsense.tar.gz 
+RUN curl https://codeload.github.com/IntelRealSense/librealsense/tar.gz/refs/tags/v$LIBRS_VERSION -o librealsense.tar.gz
 RUN tar -zxf librealsense.tar.gz \
-    && rm librealsense.tar.gz 
+    && rm librealsense.tar.gz
 # COPY librealsense-$LIBRS_VERSION /usr/src/librealsense-$LIBRS_VERSION
 RUN ln -s /usr/src/librealsense-$LIBRS_VERSION /usr/src/librealsense
 
-ENV CUDACXX="/usr/local/cuda-10.2/bin/nvcc"
+ENV CUDACXX="/usr/local/cuda/bin/nvcc"
 RUN apt update && apt install -y gcc-8 g++-8
 
 RUN rm -f /usr/bin/gcc && ln -s "/usr/bin/gcc-8" "/usr/bin/gcc"
@@ -49,17 +52,19 @@ RUN rm -f /usr/bin/cpp && ln -s "/usr/bin/cpp-8" "/usr/bin/cpp"
 RUN cd /usr/src/librealsense \
     && mkdir build && cd build \
     && cmake \
-    -DCMAKE_C_FLAGS_RELEASE="${CMAKE_C_FLAGS_RELEASE} -s" \
+    -DCMAscevoKE_C_FLAGS_RELEASE="${CMAKE_C_FLAGS_RELEASE} -s" \
     -DCMAKE_CXX_FLAGS_RELEASE="${CMAKE_CXX_FLAGS_RELEASE} -s" \
     -DCMAKE_INSTALL_PREFIX=/opt/librealsense \
     -DBUILD_GRAPHICAL_EXAMPLES=OFF \
     -DBUILD_PYTHON_BINDINGS:bool=true \
     -DCMAKE_BUILD_TYPE=Release ../ \
     -DBUILD_WITH_CUDA=true \
-    -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2 \
+    -DPYTHON_EXECUTABLE=/usr/bin/python3.8 \
+    -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda \
     && make -j$(($(nproc)-1)) all \
-    && make install 
+    && make install
 
+    # -DBUILD_WITH_OPENMP=true \
 
 ######################################
 #   librealsense Base Image Stage    #
@@ -68,6 +73,7 @@ FROM $BASE_IMAGE as librealsense
 
 
 ARG RS_WRAPPER_TAG
+ARG CAM_TYPE
 RUN test -n "$RS_WRAPPER_TAG"
 
 # Copy binaries from builder stage
@@ -78,7 +84,7 @@ ENV PYTHONPATH=$PYTHONPATH:/usr/local/lib
 
 RUN apt-get update && apt-get -y upgrade
 
-RUN apt-get install -y --no-install-recommends \    
+RUN apt-get install -y --no-install-recommends \
     build-essential \
     cmake \
     libusb-1.0-0 \
@@ -94,25 +100,58 @@ RUN apt-get install -y --no-install-recommends \
     software-properties-common \
     libboost-all-dev
 
-RUN mkdir -p /realsense_ws/src
+ARG UID
+ARG GID
+
+RUN mkdir /home/michele
+
+RUN groupadd --gid $GID michele
+RUN useradd -d /home/michele --uid $UID --gid $GID michele
+RUN echo 'michele:michele' | chpasswd
+
+RUN chown michele:michele /home/michele
+
+USER michele
+
+RUN mkdir -p /home/michele/realsense_ws/src
 
 ARG ROS_DISTRO
-WORKDIR /realsense_ws
+WORKDIR /home/michele/realsense_ws
 SHELL ["/bin/bash", "-c"]
 
 RUN git clone https://github.com/ros/diagnostics.git -b ros2 --depth 1
-RUN git clone https://github.com/iPajaz/realsense-ros.git -b t265-fix-odom-in --depth 1  # avoid cache
+
+RUN if [[ -z "$CAM_TYPE" ]] ; then \
+        echo Selecting T265 ROS wrapper. ; \
+        git clone https://github.com/iPajaz/realsense-ros.git -b t265-fix-odom-in --depth 1 ; \
+    elif [[ "$CAM_TYPE" == "d455" ]]; then \
+        echo Selecting ROS wrapper version $RS_WRAPPER_TAG ; \
+        git clone https://github.com/IntelRealSense/realsense-ros.git -b $RS_WRAPPER_TAG --depth 1 ; \ 
+    else \
+        echo No ROS wrapper selected. ; \
+        exit -1 ; \
+    fi
 
 RUN source /opt/ros/$ROS_DISTRO/install/setup.bash \
-    && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2
+    && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda  -DPython3_EXECUTABLE=/usr/bin/python3.8
 
-RUN echo 'source /pippino_ws/install/local_setup.bash' >> /root/.bashrc
-RUN echo 'source /realsense_ws/install/local_setup.bash' >> /root/.bashrc
+RUN echo 'source /home/michele/pippino_ws/install/local_setup.bash' >> /home/michele/.bashrc
+RUN echo 'source /home/michele/realsense_ws/install/local_setup.bash' >> /home/michele/.bashrc
 
-RUN echo "alias run='/pippino_ws/src/pippino-realsense-entrypoint.sh'" >> /root/.bashrc
+ARG ENTRYPOINT_SCRIPT
 
-WORKDIR /pippino_ws/src/
+RUN echo "alias run='/home/michele/pippino_ws/src/$ENTRYPOINT_SCRIPT'" >> /home/michele/.bashrc
 
-ENTRYPOINT ["/pippino_ws/src/pippino-realsense-entrypoint.sh"]
+USER root
+RUN usermod -aG sudo michele
+RUN usermod -aG video michele
+RUN usermod -aG dialout michele
+USER michele
+
+RUN mkdir -p /home/michele/pippino_ws/src
+
+WORKDIR /home/michele/pippino_ws/src/
+
+ENTRYPOINT ["/home/michele/pippino_ws/src/$ENTRYPOINT_SCRIPT"]
 
 
