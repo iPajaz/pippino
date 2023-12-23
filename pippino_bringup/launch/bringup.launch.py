@@ -29,12 +29,21 @@ def generate_launch_description():
     #     launch_arguments = {'autostart': 'True'}.items()
     # )
 
+    # start_navigation_with_slam = launch.actions.IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(os.path.join(navigation_launch_dir, 'bringup2.launch.py')),
+    #     launch_arguments = {
+    #         'autostart': 'true',
+    #         'use_composition': 'False',
+    #         'use_respawn': 'True',
+    #     }.items()
+    # )
+
     start_navigation_with_slam = launch.actions.IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(navigation_launch_dir, 'bringup.launch.py')),
+        PythonLaunchDescriptionSource(os.path.join(navigation_launch_dir, 'bringup_launch.py')),
         launch_arguments = {
             'autostart': 'True',
-            'use_composition': 'True',
-            'use_respawn': 'False',
+            'use_composition': 'False',
+            'use_respawn': 'True',
         }.items()
     )
 
@@ -69,19 +78,6 @@ def generate_launch_description():
         parameters=[os.path.join(pkg_share,'config/joystick.yaml'), {'use_sim_time': False}]
     )
     
-    aruco_detection_node = launch_ros.actions.Node(
-        package='aruco_detection',
-        executable='aruco_detection_exe',
-        name='aruco_detection_service',
-        output='screen',
-        # output={'both': 'log'},
-        parameters=[{
-            'use_sim_time': False,
-            'image_topic': '/D455/color/image_raw',
-            'camera_frame': 'D455_color_optical_frame'
-        }]
-    )
-
     autodock_action_server_node = launch_ros.actions.Node(
         package='autodock_action_server',
         executable='autodock_action_server_exe',
@@ -118,21 +114,25 @@ def generate_launch_description():
         ## start_description,
         ## launch.actions.TimerAction(period=8.0, actions=[start_navigation]),
         ##launch.actions.TimerAction(period=2.0, actions=[start_slam]),
-        launch.actions.TimerAction(period=2.0, actions=[start_navigation_with_slam]),
-        launch.actions.TimerAction(period=1.0, actions=[start_display]),
-        rosbridge_server_node,
+        # launch.actions.TimerAction(period=1.0, actions=[start_navigation_with_slam]),
+        # start_navigation_with_slam,
+        # launch.actions.TimerAction(period=1.0, actions=[start_display]),
+        # rosbridge_server_node,
         ## teleop_twist_joy_node,
-        aruco_detection_node,
         
         # Find yourself and map room
+        # launch.actions.TimerAction(period=20.0, actions=[start_explorer_wanderer_server]),
+        # launch.actions.TimerAction(period=25.0, actions=[explorer_action_client_node]),
         start_explorer_wanderer_server,
         explorer_action_client_node,
 
         # Autodocking
-        autodock_action_server_node,
+        # launch.actions.TimerAction(period=20.0, actions=[autodock_action_server_node]),
+        # launch.actions.TimerAction(period=25.0, actions=[autodock_action_client_node]),
+        # autodock_action_server_node,
         autodock_action_client_node,
         
-        start_node_webserver,
+        # start_node_webserver,
         ## web_video_server_node
     ])
 

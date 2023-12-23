@@ -244,7 +244,7 @@ local_costmap:
       rolling_window: True
       width: 3
       height: 3
-      resolution: 0.04
+      resolution: 0.02
       static_map: False
       plugins: ["obstacle_layer", "inflation_layer"]
       inflation_layer:
@@ -335,7 +335,7 @@ global_costmap:
       use_sim_time: False
       # robot_radius: 0.22 # radius set and used, so no footprint points
       footprint: '[ [0.1, 0.18], [-0.15, 0.18], [-0.25, 0.1], [-0.25, -0.1], [-0.15,-0.18], [0.1, -0.18] ]'
-      resolution: 0.04
+      resolution: 0.02
       plugins: ["static_layer", "obstacle_layer", "inflation_layer" ]
 
       obstacle_layer:
@@ -501,5 +501,3 @@ velocity_smoother:
     odom_duration: 0.1
     deadband_velocity: [0.0, 0.0, 0.0]
     velocity_timeout: 1.0
-
-

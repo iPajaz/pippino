@@ -25,23 +25,23 @@ from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
 from launch_ros.actions import PushRosNamespace
 from launch_ros.descriptions import ParameterFile
-from launch_ros.substitutions import FindPackageShare
 from nav2_common.launch import RewrittenYaml, ReplaceString
 
 
 def generate_launch_description():
     # Get the launch directory
-    bringup_dir = get_package_share_directory('pippino_navigation')
-    # launch_dir = os.path.join(bringup_dir, 'launch')
-    nav2_dir = FindPackageShare(package='nav2_bringup').find('nav2_bringup') 
-    nav2_launch_dir = os.path.join(nav2_dir, 'launch')
+    pippino_nav_dir = get_package_share_directory('pippino_navigation')
+    pippino_nav_launch_dir = os.path.join(pippino_nav_dir, 'launch')
+    nav_bringup_dir = get_package_share_directory('nav2_bringup')
+    nav_launch_dir = os.path.join(nav_bringup_dir, 'launch')
+
     # Create the launch configuration variables
     namespace = LaunchConfiguration('namespace')
     use_namespace = LaunchConfiguration('use_namespace')
     slam = LaunchConfiguration('slam')
     map_yaml_file = LaunchConfiguration('map')
     use_sim_time = LaunchConfiguration('use_sim_time')
-    nav2_params_file = LaunchConfiguration('nav2_params_file')
+    params_file = LaunchConfiguration('params_file')
     slam_params_file = LaunchConfiguration('slam_params_file')
     autostart = LaunchConfiguration('autostart')
     use_composition = LaunchConfiguration('use_composition')
@@ -66,10 +66,14 @@ def generate_launch_description():
     # '<robot_namespace>' keyword shall be replaced by 'namespace' launch argument
     # in config file 'nav2_multirobot_params.yaml' as a default & example.
     # User defined config file should contain '<robot_namespace>' keyword for the replacements.
+    params_file = ReplaceString(
+        source_file=params_file,
+        replacements={'<robot_namespace>': ('/', namespace)},
+        condition=IfCondition(use_namespace))
 
     configured_params = ParameterFile(
         RewrittenYaml(
-            source_file=nav2_params_file,
+            source_file=params_file,
             root_key=namespace,
             param_rewrites=param_substitutions,
             convert_types=True),
@@ -90,7 +94,7 @@ def generate_launch_description():
 
     declare_slam_cmd = DeclareLaunchArgument(
         'slam',
-        default_value='True',
+        default_value='False',
         description='Whether run a SLAM')
 
     declare_map_yaml_cmd = DeclareLaunchArgument(
@@ -103,26 +107,26 @@ def generate_launch_description():
         default_value='False',
         description='Use simulation (Gazebo) clock if true')
 
-    declare_nav2_params_file_cmd = DeclareLaunchArgument(
-        'nav2_params_file',
-        default_value=os.path.join(bringup_dir, 'config', 'nav2_params_humble.yaml'),
+    declare_params_file_cmd = DeclareLaunchArgument(
+        'params_file',
+        default_value=os.path.join(pippino_nav_dir, 'config', 'nav2_params_humble.yaml'),
         description='Full path to the ROS2 parameters file to use for all launched nodes')
 
     declare_slam_params_file_cmd = DeclareLaunchArgument(
         'slam_params_file',
-        default_value=os.path.join(bringup_dir, 'config', 'slam_params.yaml'),
-        description='Full path to the ROS2 parameters file to use for all launched nodes')
+        default_value=os.path.join(pippino_nav_dir, 'config', 'slam_params.yaml'),
+        description='Full path to the ROS2 parameters file to use for slam')
 
     declare_autostart_cmd = DeclareLaunchArgument(
         'autostart', default_value='True',
         description='Automatically startup the nav2 stack')
 
     declare_use_composition_cmd = DeclareLaunchArgument(
-        'use_composition', default_value='True',
+        'use_composition', default_value='False',
         description='Whether to use composed bringup')
 
     declare_use_respawn_cmd = DeclareLaunchArgument(
-        'use_respawn', default_value='False',
+        'use_respawn', default_value='True',
         description='Whether to respawn if a node crashes. Applied when composition is disabled.')
 
     declare_log_level_cmd = DeclareLaunchArgument(
@@ -131,53 +135,27 @@ def generate_launch_description():
 
     # Specify the actions
     bringup_cmd_group = GroupAction([
-        PushRosNamespace(
-            condition=IfCondition(use_namespace),
-            namespace=namespace),
-
-        Node(
-            condition=IfCondition(use_composition),
-            name='nav2_container',
-            package='rclcpp_components',
-            executable='component_container_isolated',
-            parameters=[configured_params, {'autostart': autostart}],
-            arguments=['--ros-args', '--log-level', log_level],
-            remappings=remappings,
-            output='screen'),
 
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'slam_launch.py')),
-            condition=IfCondition(slam),
+            PythonLaunchDescriptionSource(os.path.join(pippino_nav_launch_dir, 'navigation_launch.py')),
             launch_arguments={'namespace': namespace,
                               'use_sim_time': use_sim_time,
                               'autostart': autostart,
-                              'use_respawn': use_respawn,
-                              'params_file': slam_params_file}.items()),
-
-        # IncludeLaunchDescription(
-        #     PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir,
-        #                                                'localization_launch.py')),
-        #     condition=IfCondition(PythonExpression(['not ', slam])),
-        #     launch_arguments={'namespace': namespace,
-        #                       'map': map_yaml_file,
-        #                       'use_sim_time': use_sim_time,
-        #                       'autostart': autostart,
-        #                       'params_file': params_file,
-        #                       'use_composition': use_composition,
-        #                       'use_respawn': use_respawn,
-        #                       'container_name': 'nav2_container'}.items()),
-
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'navigation_launch.py')),
-            launch_arguments={'namespace': namespace,
-                              'use_sim_time': use_sim_time,
-                              'autostart': autostart,
-                              'params_file': nav2_params_file,
+                              'params_file': params_file,
                               'use_composition': use_composition,
                               'use_respawn': use_respawn,
                               'container_name': 'nav2_container'}.items()),
     ])
 
+    start_async_slam_toolbox_node = Node(
+        parameters=[
+          slam_params_file,
+          {'use_sim_time': use_sim_time}
+        ],
+        package='slam_toolbox',
+        executable='sync_slam_toolbox_node',
+        name='slam_toolbox',
+        output='screen')
     # Create the launch description and populate
     ld = LaunchDescription()
 
@@ -190,7 +168,7 @@ def generate_launch_description():
     ld.add_action(declare_slam_cmd)
     ld.add_action(declare_map_yaml_cmd)
     ld.add_action(declare_use_sim_time_cmd)
-    ld.add_action(declare_nav2_params_file_cmd)
+    ld.add_action(declare_params_file_cmd)
     ld.add_action(declare_slam_params_file_cmd)
     ld.add_action(declare_autostart_cmd)
     ld.add_action(declare_use_composition_cmd)
@@ -199,5 +177,6 @@ def generate_launch_description():
 
     # Add the actions to launch all of the navigation nodes
     ld.add_action(bringup_cmd_group)
+    ld.add_action(start_async_slam_toolbox_node)
 
     return ld

@@ -5,13 +5,13 @@
                 <!-- This locator is used to tell remote participants where
                 they are able to discover me.
                 The participant in the Windows host will try to find me in
-                192.168.0.26:7414.
+                192.168.0.25:7414.
                 Only setting mettatraffic unicast locators, we are disabling
                 multicast communicatins -->
                 <metatrafficUnicastLocatorList>
                     <locator>
                         <udpv4>
-                            <address>192.168.0.32</address>
+                            <address>192.168.0.25</address>
                             <port>7414</port>
                         </udpv4>
                     </locator>
@@ -22,7 +22,7 @@
                 <initialPeersList>
                     <locator>
                         <udpv4>
-                            <address>192.168.0.26</address>
+                            <address>192.168.0.25</address>
                         </udpv4>
                     </locator>
                 </initialPeersList>
@@ -31,11 +31,11 @@
             be listeing and to tell remote participants where
             they are able to send user data.
             Docker container particpant's endpoints will be listening 
-            in 192.168.0.26:7415. -->
+            in 192.168.0.25:7415. -->
             <defaultUnicastLocatorList>
                 <locator>
                     <udpv4>
-                        <address>192.168.0.32</address>
+                        <address>192.168.0.25</address>
                         <port>7415</port>
                     </udpv4>
                 </locator>
@@ -43,3 +43,4 @@
         </rtps>
     </participant>
 </profiles>
+
