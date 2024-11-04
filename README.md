@@ -7,3 +7,5 @@ The `eightball-code` branch includes all the code running on the control PC, as 
 The `jetson-code` branch includes all the required code running on the Jetson Nano.
 
 Packages related to autodocking, environment discovery and initial self-localization are contained in separate repositories.
+
+[Pippino II](https://github.com/iPajaz/pippino/blob/jetson-code/IMG_20230903_170450773.jpg)
